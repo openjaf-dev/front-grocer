@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140810151155) do
+ActiveRecord::Schema.define(version: 20140810160146) do
 
   create_table "dimensions", force: true do |t|
     t.integer  "height"
@@ -47,6 +47,17 @@ ActiveRecord::Schema.define(version: 20140810151155) do
 
   add_index "options", ["variant_id"], name: "index_options_on_variant_id"
 
+  create_table "orders", force: true do |t|
+    t.string   "number"
+    t.string   "status"
+    t.string   "channel"
+    t.string   "email"
+    t.string   "currency"
+    t.datetime "placed_on"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "products", force: true do |t|
     t.string   "name"
     t.string   "sku"
@@ -61,6 +72,16 @@ ActiveRecord::Schema.define(version: 20140810151155) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "properties", force: true do |t|
+    t.string   "name"
+    t.string   "presentation"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "properties", ["product_id"], name: "index_properties_on_product_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
