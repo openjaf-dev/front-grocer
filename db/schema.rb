@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140810150144) do
+ActiveRecord::Schema.define(version: 20140810150552) do
+
+  create_table "images", force: true do |t|
+    t.string   "url"
+    t.integer  "position"
+    t.string   "title"
+    t.string   "type"
+    t.integer  "variant_id"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "images", ["product_id"], name: "index_images_on_product_id"
+  add_index "images", ["variant_id"], name: "index_images_on_variant_id"
 
   create_table "options", force: true do |t|
     t.string   "option_type"
