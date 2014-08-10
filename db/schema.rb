@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140810160146) do
+ActiveRecord::Schema.define(version: 20140810161742) do
+
+  create_table "adjustments", force: true do |t|
+    t.string   "name"
+    t.string   "value"
+    t.integer  "order_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "adjustments", ["order_id"], name: "index_adjustments_on_order_id"
 
   create_table "dimensions", force: true do |t|
     t.integer  "height"
@@ -37,6 +47,17 @@ ActiveRecord::Schema.define(version: 20140810160146) do
   add_index "images", ["product_id"], name: "index_images_on_product_id"
   add_index "images", ["variant_id"], name: "index_images_on_variant_id"
 
+  create_table "line_items", force: true do |t|
+    t.string   "name"
+    t.integer  "quantity"
+    t.float    "price"
+    t.integer  "order_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "line_items", ["order_id"], name: "index_line_items_on_order_id"
+
   create_table "options", force: true do |t|
     t.string   "option_type"
     t.string   "option_value"
@@ -57,6 +78,18 @@ ActiveRecord::Schema.define(version: 20140810160146) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "payments", force: true do |t|
+    t.integer  "number"
+    t.string   "status"
+    t.float    "amount"
+    t.string   "payment_method"
+    t.integer  "order_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "payments", ["order_id"], name: "index_payments_on_order_id"
 
   create_table "products", force: true do |t|
     t.string   "name"
