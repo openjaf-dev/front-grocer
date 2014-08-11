@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140810161742) do
+ActiveRecord::Schema.define(version: 20140810234957) do
+
+  create_table "addresses", force: true do |t|
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.string   "phone"
+    t.string   "zipcode"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "adjustments", force: true do |t|
     t.string   "name"
@@ -54,9 +68,13 @@ ActiveRecord::Schema.define(version: 20140810161742) do
     t.integer  "order_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "product_id"
+    t.integer  "variant_id"
   end
 
   add_index "line_items", ["order_id"], name: "index_line_items_on_order_id"
+  add_index "line_items", ["product_id"], name: "index_line_items_on_product_id"
+  add_index "line_items", ["variant_id"], name: "index_line_items_on_variant_id"
 
   create_table "options", force: true do |t|
     t.string   "option_type"
@@ -68,6 +86,20 @@ ActiveRecord::Schema.define(version: 20140810161742) do
 
   add_index "options", ["variant_id"], name: "index_options_on_variant_id"
 
+  create_table "order_totals", force: true do |t|
+    t.float    "adjustment"
+    t.float    "tax"
+    t.float    "shipping"
+    t.float    "payment"
+    t.float    "total"
+    t.float    "item"
+    t.integer  "order_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "order_totals", ["order_id"], name: "index_order_totals_on_order_id"
+
   create_table "orders", force: true do |t|
     t.string   "number"
     t.string   "status"
@@ -77,7 +109,12 @@ ActiveRecord::Schema.define(version: 20140810161742) do
     t.datetime "placed_on"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "bill_address_id"
+    t.integer  "ship_address_id"
   end
+
+  add_index "orders", ["bill_address_id"], name: "index_orders_on_bill_address_id"
+  add_index "orders", ["ship_address_id"], name: "index_orders_on_ship_address_id"
 
   create_table "payments", force: true do |t|
     t.integer  "number"
@@ -115,6 +152,38 @@ ActiveRecord::Schema.define(version: 20140810161742) do
   end
 
   add_index "properties", ["product_id"], name: "index_properties_on_product_id"
+
+  create_table "shipments", force: true do |t|
+    t.string   "email"
+    t.float    "cost"
+    t.string   "status"
+    t.string   "stock_location"
+    t.string   "shipping_method"
+    t.string   "tracking"
+    t.datetime "updated_at"
+    t.date     "shipped_at"
+    t.integer  "variant_id"
+    t.integer  "product_id"
+    t.integer  "order_id"
+    t.datetime "created_at"
+  end
+
+  add_index "shipments", ["order_id"], name: "index_shipments_on_order_id"
+  add_index "shipments", ["product_id"], name: "index_shipments_on_product_id"
+  add_index "shipments", ["variant_id"], name: "index_shipments_on_variant_id"
+
+  create_table "sources", force: true do |t|
+    t.string   "name"
+    t.integer  "month"
+    t.integer  "year"
+    t.string   "cc_type"
+    t.integer  "last_digits"
+    t.integer  "payment_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sources", ["payment_id"], name: "index_sources_on_payment_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

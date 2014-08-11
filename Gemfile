@@ -26,6 +26,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-rescue'
   gem 'rspec-rails'
+  gem 'ffaker'
 end
 group :production do
   gem 'thin'
