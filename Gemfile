@@ -14,6 +14,7 @@ gem 'devise'
 gem 'high_voltage'
 gem 'simple_form'
 gem 'chartkick'
+gem 'ffaker'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
@@ -27,7 +28,6 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-rescue'
   gem 'rspec-rails'
-  gem 'ffaker'
 end
 group :production do
   gem 'thin'
