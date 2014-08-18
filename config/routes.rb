@@ -11,8 +11,10 @@ Rails.application.routes.draw do
   get '/register', to: 'pages#register', as: 'register' 
   get '/login', to: 'pages#login', as: 'login'   
   get '/charts-d3charts', to: 'pages#charts-d3charts', as: 'charts-d3charts'
+  get '/charts-statistics-interactive', to: 'pages#charts-statistics-interactive', as: 'charts-statistics-interactive'
   get '/charts-statistics', to: 'pages#charts-statistics', as: 'charts-statistics'
-  
+  get '/charts-statistics-real-time', to: 'pages#charts-statistics-real-time', as: 'charts-statistics-real-time'  
+    
   devise_for :users
   resources :users
   
