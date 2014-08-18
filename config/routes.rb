@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root to: 'visitors#index'
+  get '/about', to: 'pages#about', as: 'about'
+  get '/blank_page', to: 'pages#blank_page', as: 'blank_page'
+  
   devise_for :users
   resources :users
   
