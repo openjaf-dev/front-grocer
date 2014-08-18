@@ -2,6 +2,16 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root to: 'visitors#index'
+  get '/about', to: 'pages#about', as: 'about'
+  get '/blank', to: 'pages#blank', as: 'blank'
+  get '/profile', to: 'pages#profile', as: 'profile'
+  get '/invoice', to: 'pages#invoice', as: 'invoice'
+  get '/knowledgebase', to: 'pages#knowledgebase', as: 'knowledgebase'
+  get '/inbox', to: 'pages#inbox', as: 'inbox'  
+  get '/register', to: 'pages#register', as: 'register' 
+  get '/login', to: 'pages#login', as: 'login'   
+  get '/charts-d3charts', to: 'pages#charts-d3charts', as: 'charts-d3charts'  
+  
   devise_for :users
   resources :users
   
