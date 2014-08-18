@@ -20,15 +20,39 @@
 		<li ><a href="#" class="js-sub-menu-toggle"><i class="fa fa-clipboard fa-fw"></i><span class="text">Pages</span>
 			<i class="toggle-icon fa fa-angle-left"></i></a>
 			<ul class="sub-menu">
-				<li ><a href="page-profile.html"><span class="text">Profile</span></a></li>
-				<li ><a href="page-invoice.html"><span class="text">Invoice</span></a></li>
-				<li ><a href="page-knowledgebase.html"><span class="text">Knowledge Base</span></a></li>
-				<li ><a href="page-inbox.html"><span class="text">Inbox</span></a></li>
-				<li ><a href="page-register.html"><span class="text">Register</span></a></li>
-				<li ><a href="page-login.html"><span class="text">Login</span></a></li>
-				<li class="<%= 'active' if params[:controller] =~ /^blank_page/ %>"  >
-					 <%=link_to  "/blank_page" do %> 
-					 	<span class="text">Blank Page</span> 
+				<li class="<%= 'active' if params[:controller] =~ /^profile/ %>"  >
+					 <%=link_to  "/profile" do %> 
+					 	<span class="text">Profile</span> 
+					 <% end %> 
+				</li>
+				<li class="<%= 'active' if params[:controller] =~ /^invoice/ %>"  >
+					 <%=link_to  "/invoice" do %> 
+					 	<span class="text">Invoice</span> 
+					 <% end %> 
+				</li>
+				<li class="<%= 'active' if params[:controller] =~ /^knowledgebase/ %>"  >
+					 <%=link_to  "/knowledgebase" do %> 
+					 	<span class="text">Knowledge Base</span> 
+					 <% end %> 
+				</li>
+				<li class="<%= 'active' if params[:controller] =~ /^inbox/ %>"  >
+					 <%=link_to  "/inbox" do %> 
+					 	<span class="text">Inbox</span> 
+					 <% end %> 
+				</li>
+				<li class="<%= 'active' if params[:controller] =~ /^register/ %>"  >
+					 <%=link_to  "/register" do %> 
+					 	<span class="text">Register</span> 
+					 <% end %> 
+				</li>
+				<li class="<%= 'login' if params[:controller] =~ /^login/ %>"  >
+					 <%=link_to  "/login" do %> 
+					 	<span class="text">Login</span> 
+					 <% end %> 
+				</li>
+				<li class="<%= 'active' if params[:controller] =~ /^blank/ %>"  >
+					 <%=link_to  "/blank" do %> 
+					 	<span class="text">Blank</span> 
 					 <% end %> 
 				</li>
 			</ul>
@@ -37,6 +61,11 @@
 		<li ><a href="#" class="js-sub-menu-toggle"><i class="fa fa-bar-chart-o fw"></i><span class="text">Charts &amp; Statistics</span>
 			<i class="toggle-icon fa fa-angle-left"></i></a>
 			<ul class="sub-menu ">
+				<li class="<%= 'active' if params[:controller] =~ /^charts-d3charts/ %>"  >
+					 <%=link_to  "/charts-d3charts" do %> 
+					 	<span class="text">D3 Charts</span> 
+					 <% end %> 
+				</li>
 				<li ><a href="charts-statistics.html"><span class="text">Charts</span></a></li>
 				<li ><a href="charts-statistics-interactive.html"><span class="text">Interactive Charts</span></a></li>
 				<li ><a href="charts-statistics-real-time.html"><span class="text">Realtime Charts</span></a></li>

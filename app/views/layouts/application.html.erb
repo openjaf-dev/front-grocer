@@ -10,6 +10,8 @@
 	%>
     <%= javascript_include_tag 'chartkick', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+	<%= stylesheet_link_tag '//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css', media: 'all', 'data-turbolinks-track' => true %>
+
 	
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -49,12 +51,10 @@
 					</div>
 					<!-- end left sidebar -->
 					
-					<!-- content-wrapper -->
-					<div class="col-md-10 content-wrapper">
-					  <%= render :partial => 'dashboard/shared/nav_bar' if content_for? :nav_bar %>
-				      <%= yield %>
-				    </div>
-					<!-- /content-wrapper -->
+
+				  <%= render :partial => 'dashboard/shared/nav_bar' if content_for? :nav_bar %>
+			      <%= yield %>
+
 					
 				</div><!-- /row -->
 			</div><!-- /container -->

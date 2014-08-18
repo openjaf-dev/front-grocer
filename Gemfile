@@ -16,6 +16,7 @@ gem 'simple_form'
 gem 'chartkick'
 gem 'ffaker'
 gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'font-awesome-sass'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]

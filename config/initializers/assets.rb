@@ -8,3 +8,8 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 
 Rails.application.config.assets.precompile += %w( highcharts.js )
+Rails.application.config.assets.precompile += %w( font-awesome.css )
+Rails.application.config.assets.precompile += %w( stat/colorbrewer.js )
+Rails.application.config.assets.precompile += %w( stat/d3.min.js )
+Rails.application.config.assets.precompile += %w( king-chart-stat.js )
+
