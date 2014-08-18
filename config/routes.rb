@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   get '/inbox', to: 'pages#inbox', as: 'inbox'  
   get '/register', to: 'pages#register', as: 'register' 
   get '/login', to: 'pages#login', as: 'login'   
-  get '/charts-d3charts', to: 'pages#charts-d3charts', as: 'charts-d3charts'  
+  get '/charts-d3charts', to: 'pages#charts-d3charts', as: 'charts-d3charts'
+  get '/charts-statistics', to: 'pages#charts-statistics', as: 'charts-statistics'
   
   devise_for :users
   resources :users

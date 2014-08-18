@@ -66,6 +66,11 @@
 					 	<span class="text">D3 Charts</span> 
 					 <% end %> 
 				</li>
+				<li class="<%= 'active' if params[:controller] =~ /^charts-statistics/ %>"  >
+					 <%=link_to  "/charts-statistics" do %> 
+					 	<span class="text">Statistics Charts </span> 
+					 <% end %> 
+				</li>
 				<li ><a href="charts-statistics.html"><span class="text">Charts</span></a></li>
 				<li ><a href="charts-statistics-interactive.html"><span class="text">Interactive Charts</span></a></li>
 				<li ><a href="charts-statistics-real-time.html"><span class="text">Realtime Charts</span></a></li>
