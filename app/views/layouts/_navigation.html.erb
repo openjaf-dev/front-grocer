@@ -1,14 +1,7 @@
 <div class="top-bar">
 	<div class="container">
 		<div class="row">
-			<!-- logo -->
-			<div class="col-md-2 logo">
-				 <%= link_to  dashboard_overview_path, class: 'navbar-brand' do %>
-				    <img src="assets/img/kingadmin-logo-white.png" alt="KingAdmin - Admin Dashboard" /
-				 	<h1 class="sr-only">Dashboard</h1>
-				 <% end %>
-			</div>
-			<!-- end logo -->
+			<%= link_to 'Dashboard', dashboard_overview_path, class: 'navbar-brand'%>
 			<div class="col-md-10">
 				<div class="row">
 					<div class="col-md-3">

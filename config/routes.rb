@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/charts-statistics-interactive', to: 'pages#charts-statistics-interactive', as: 'charts-statistics-interactive'
   get '/charts-statistics', to: 'pages#charts-statistics', as: 'charts-statistics'
   get '/charts-statistics-real-time', to: 'pages#charts-statistics-real-time', as: 'charts-statistics-real-time'  
+  get '/demo-dashboard', to: 'pages#demo-dashboard', as: 'demo-dashboard'
     
   devise_for :users
   resources :users
