@@ -2,7 +2,11 @@
 <nav class="main-nav">
 	
 	<ul class="main-menu">
-		<li ><a href="index.html"><i class="fa fa-dashboard fa-fw"></i><span class="text">Dashboard</span></a></li>
+     <li>
+		 <%=link_to  "/demo-dashboard" do %> 
+		 	<i class="fa fa-dashboard fa-fw"></i><span class="text">Dashboard</span>
+		 <% end %> 
+	 </li>
 
 		<li class="active"><a href="#" class="js-sub-menu-toggle"><i class="fa fa-bar-chart-o fw"></i><span class="text">Sales</span>
 			<i class="toggle-icon fa fa-angle-left"></i></a>
@@ -61,15 +65,28 @@
 		<li ><a href="#" class="js-sub-menu-toggle"><i class="fa fa-bar-chart-o fw"></i><span class="text">Charts &amp; Statistics</span>
 			<i class="toggle-icon fa fa-angle-left"></i></a>
 			<ul class="sub-menu ">
+	
+				<li class="<%= 'active' if params[:controller] =~ /^charts-statistics/ %>"  >
+					 <%=link_to  "/charts-statistics" do %> 
+					 	<span class="text">Statistics Charts </span> 
+					 <% end %> 
+				</li>
+				<li class="<%= 'active' if params[:controller] =~ /^charts-statistics-interactive/ %>"  >
+					 <%=link_to  "/charts-statistics-interactive" do %> 
+					 	<span class="text"> Charts Statistics Interactive </span> 
+					 <% end %> 
+				</li>
+				<li class="<%= 'active' if params[:controller] =~ /^charts-statistics-real-time/ %>"  >
+					 <%=link_to  "/charts-statistics-real-time" do %> 
+					 	<span class="text">Realtime Charts </span> 
+					 <% end %> 
+				</li>
+	
 				<li class="<%= 'active' if params[:controller] =~ /^charts-d3charts/ %>"  >
 					 <%=link_to  "/charts-d3charts" do %> 
 					 	<span class="text">D3 Charts</span> 
 					 <% end %> 
 				</li>
-				<li ><a href="charts-statistics.html"><span class="text">Charts</span></a></li>
-				<li ><a href="charts-statistics-interactive.html"><span class="text">Interactive Charts</span></a></li>
-				<li ><a href="charts-statistics-real-time.html"><span class="text">Realtime Charts</span></a></li>
-				<li ><a href="charts-d3charts.html"><span class="text">D3 Charts</span></a></li>
 			</ul>
 		</li>
 		

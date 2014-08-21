@@ -1,13 +1,10 @@
-
-
-<% content_for :title do %>Charts<% end %>
-					<!-- content-wrapper -->
+<% content_for :title do %>Statistics Charts<% end %>
 					<div class="col-md-10 content-wrapper">
 						<div class="row">
 							<div class="col-lg-4 ">
 								<ul class="breadcrumb">
 									<li><i class="fa fa-home"></i><a href="#">Home</a></li>
-									<li><a href="#">Charts &amp; Statistics</a></li> <li class="active">D3 Charts</li>
+									<li><a href="#">Charts &amp; Statistics</a></li> <li class="active">Interactive Charts</li>
 								</ul>
 							</div>
 							<div class="col-lg-8 ">
@@ -45,32 +42,44 @@
 						<!-- main -->
 						<div class="content">
 							<div class="main-header">
-								<h2>D3 Charts</h2>
-								<em>various charts based on D3 (Data-Driven Documents)</em>
+								<h2>Interactive Charts</h2>
+								<em>chart interactive features including zooming and on/off toggle data series</em>
 							</div>
 
 							<div class="main-content">
-								<!-- WIDGET HEATMAP CHART -->
-								<div class="widget">
+								<!-- WIDGET CHART DATA SERIES -->
+								<div class="widget widget-chart-toggle-series">
 									<div class="widget-header">
-										<h3><i class="fa fa-bar-chart-o"></i> Visits Heatmap</h3> <em> - visit statistic presented as heatmap</em>
+										<h3><i class="fa fa-bar-chart-o"></i> Flot Chart: On/Off Data Series</h3> <em> - toggle on/off data series on the chart by using checkboxes on the right</em>
 									</div>
 									<div class="widget-content">
-										<div class="demo-d3-chart" id="demo-d3-heatmap"></div>
+										<div class="row">
+											<div class="col-md-10">
+												<div class="demo-flot-chart" id="demo-toggle-series-chart"></div>
+											</div>
+											<div class="col-md-2">
+												<!-- must be id="choices" -->
+												<div id="choices"></div>
+											</div>
+										</div>
 									</div>
 								</div>
-								<!-- END WIDGET HEATMAP CHART -->
-							
-								<!-- WIDGET BAR CHART -->
+								<!-- END WIDGET CHART DATA SERIES -->
+
+								<!-- WIDGET CHART ZOOM -->
 								<div class="widget">
 									<div class="widget-header">
-										<h3><i class="fa fa-bar-chart-o"></i> Bar Chart</h3> <em> - bar chart with negative values</em>
+										<h3><i class="fa fa-bar-chart-o"></i> Flot Chart: Zoom On Select</h3> <em> - enable zooming feature on chart selection</em>
+										<div class="btn-group widget-header-toolbar">
+											<button type="button" id="reset-chart-zoom" class="btn btn-danger btn-sm"><i class="fa fa-refresh"></i> Reset Zoom</i></button>
+										</div>
 									</div>
 									<div class="widget-content">
-										<div class="demo-d3-chart" id="demo-d3-barchart"></div>
+										<div class="demo-flot-chart" id="demo-select-zoom-chart"></div>
 									</div>
 								</div>
-								<!-- END BAR CHART -->
+								<!-- END WIDGET CHART ZOOM -->
+
 							</div><!-- /main-content -->
 						</div><!-- /main -->
 					</div><!-- /content-wrapper -->
