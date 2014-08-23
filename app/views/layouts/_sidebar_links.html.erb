@@ -93,23 +93,80 @@
 		<li ><a href="#" class="js-sub-menu-toggle"><i class="fa fa-edit fw"></i><span class="text">Forms</span>
 			<i class="toggle-icon fa fa-angle-left"></i></a>
 			<ul class="sub-menu ">
-				<li ><a href="form-inplace-editing.html"><span class="text">In-place Editing <span class="badge element-bg-color-blue">New</span></span></a></li>
-				<li ><a href="form-elements.html"><span class="text">Form Elements <span class="badge element-bg-color-blue">Updated</span></span></a></li>
-				<li ><a href="form-layouts.html"><span class="text">Form Layouts <span class="badge element-bg-color-blue">New</span></span></a></li>
-				<li ><a href="form-bootstrap-elements.html"><span class="text">Bootstrap Elements <span class="badge element-bg-color-blue">New</span></span></a></li>
-				<li ><a href="form-validations.html"><span class="text">Validation</span></a></li>
-				<li ><a href="form-file-upload.html"><span class="text">File Upload</span></a></li>
-				<li ><a href="form-text-editor.html"><span class="text">Text Editor <span class="badge element-bg-color-blue">New</span></span></a></li>
+				
+				<li class="<%= 'active' if params[:controller] =~ /^form-inplace-editing/ %>"  >
+					 <%=link_to  "/form-inplace-editing" do %> 
+					 	<span class="text">In-place Editing <span class="badge element-bg-color-blue">New</span> 
+					 <% end %> 
+				</li>
+				
+				<li class="<%= 'active' if params[:controller] =~ /^form-elements/ %>"  >
+					 <%=link_to  "/form-elements" do %> 
+					 	<span class="text">Form Elements <span class="badge element-bg-color-blue">Updated</span> 
+					 <% end %> 
+				</li>
+
+				<li class="<%= 'active' if params[:controller] =~ /^form-layouts/ %>"  >
+					 <%=link_to  "/form-layouts" do %> 
+					 	<span class="text">Form Layouts <span class="badge element-bg-color-blue">New</span> 
+					 <% end %> 
+				</li>
+				
+				<li class="<%= 'active' if params[:controller] =~ /^form-bootstrap-elements/ %>"  >
+					 <%=link_to  "/form-bootstrap-elements" do %> 
+					 	<span class="text">Bootstrap Elements <span class="badge element-bg-color-blue">New</span> 
+					 <% end %> 
+				</li>
+				
+				<li class="<%= 'active' if params[:controller] =~ /^form-validations/ %>"  >
+					 <%=link_to  "/form-validations" do %> 
+					 	<span class="text">Validation</span>
+					 <% end %> 
+				</li>
+
+				<li class="<%= 'active' if params[:controller] =~ /^form-file-upload/ %>"  >
+					 <%=link_to  "/form-file-upload" do %> 
+					 	<span class="text">File Upload</span>
+					 <% end %> 
+				</li>
+				
+				<li class="<%= 'active' if params[:controller] =~ /^form-text-editor/ %>"  >
+					 <%=link_to  "/form-text-editor" do %> 
+					 	<span class="text">Text Editor <span class="badge element-bg-color-blue">New</span></span>
+					 <% end %> 
+				</li>
+								
 			</ul>
 		</li>
 		
 		<li ><a href="#" class="js-sub-menu-toggle"><i class="fa fa-list-alt fw"></i><span class="text">UI Elements</span>
 			<i class="toggle-icon fa fa-angle-left"></i></a>
 			<ul class="sub-menu ">
-				<li ><a href="ui-elements-general.html"><span class="text">General Elements</span></a></li>
-				<li ><a href="ui-elements-buttons.html"><span class="text">Buttons <span class="badge element-bg-color-blue">Updated</span></span></a></li>
-				<li ><a href="ui-elements-icons.html"><span class="text">Icons</span></a></li>
-				<li ><a href="ui-elements-flash-message.html"><span class="text">Flash Message</span></a></li>
+				
+				<li class="<%= 'active' if params[:controller] =~ /^ui-elements-general/ %>"  >
+					 <%=link_to  "/ui-elements-general" do %> 
+					 	<span class="text">General Elements</span>
+					 <% end %> 
+				</li>
+				
+				<li class="<%= 'active' if params[:controller] =~ /^ui-elements-buttons/ %>"  >
+					 <%=link_to  "/ui-elements-buttons" do %> 
+					 	<span class="text">Buttons</span>
+					 <% end %> 
+				</li>
+				
+				<li class="<%= 'active' if params[:controller] =~ /^ui-elements-icons/ %>"  >
+					 <%=link_to  "/ui-elements-icons" do %> 
+					 	<span class="text">Icons</span>
+					 <% end %> 
+				</li>
+				
+				<li class="<%= 'active' if params[:controller] =~ /^ui-elements-flash-message/ %>"  >
+					 <%=link_to  "/ui-elements-flash-message" do %> 
+					 	<span class="text">Flash Message</span>
+					 <% end %> 
+				</li>
+	
 			</ul>
 		</li>
 		
@@ -117,18 +174,50 @@
 		<li ><a href="#" class="js-sub-menu-toggle"><i class="fa fa-gears fw"></i><span class="text">Components</span>
 			<i class="toggle-icon fa fa-angle-left"></i></a>
 			<ul class="sub-menu ">
-				<li ><a href="components-wizard.html"><span class="text">Wizard (with validation)</span></a></li>
-				<li ><a href="components-calendar.html"><span class="text">Calendar</span></a></li>
-				<li ><a href="components-maps.html"><span class="text">Maps</span></a></li>
-				<li ><a href="components-gallery.html"><span class="text">Gallery</span></a></li>
+				
+				<li class="<%= 'active' if params[:controller] =~ /^components-wizard/ %>"  >
+					 <%=link_to  "components-wizard" do %> 
+					 	<span class="text">Wizard (with validation)</span>
+					 <% end %> 
+				</li>	
+				
+				<li class="<%= 'active' if params[:controller] =~ /^components-calendar/ %>"  >
+					 <%=link_to  "components-calendar" do %> 
+					 	<span class="text">Calendar</span>
+					 <% end %> 
+				</li>
+				
+				<li class="<%= 'active' if params[:controller] =~ /^components-maps/ %>"  >
+					 <%=link_to  "components-maps" do %> 
+					 	<span class="text">Maps</span>
+					 <% end %> 
+				</li>
+
+				<li class="<%= 'active' if params[:controller] =~ /^components-gallery/ %>"  >
+					 <%=link_to  "components-gallery" do %> 
+					 	<span class="text">Gallery</span>
+					 <% end %> 
+				</li>
+		
 			</ul>
 		</li>
 		
 		<li ><a href="#" class="js-sub-menu-toggle"><i class="fa fa-table fw"></i><span class="text">Tables</span>
 			<i class="toggle-icon fa fa-angle-left"></i></a>
 			<ul class="sub-menu ">
-				<li ><a href="tables-static-table.html"><span class="text">Static Table</span></a></li>
-				<li ><a href="tables-dynamic-table.html"><span class="text">Dynamic Table</span></a></li>
+				
+				<li class="<%= 'active' if params[:controller] =~ /^tables-static-table/ %>"  >
+					 <%=link_to  "tables-static-table" do %> 
+					 	<span class="text">Static Table</span>
+					 <% end %> 
+				</li>
+				
+				<li class="<%= 'active' if params[:controller] =~ /^tables-dynamic-table/ %>"  >
+					 <%=link_to  "tables-dynamic-table" do %> 
+					 	<span class="text">Dynamic Table</span>
+					 <% end %> 
+				</li>
+
 			</ul>
 		</li>
 		
