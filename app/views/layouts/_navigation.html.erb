@@ -1,7 +1,20 @@
+<!-- TOP GENERAL ALERT -->
+<div class="alert alert-danger top-general-alert">
+	<span>If you <strong>can't see the logo</strong> on the top left, please reset the style on right style switcher (for upgraded theme only).</span>
+	<a type="button" class="close">&times;</a>
+</div>
+<!-- END TOP GENERAL ALERT -->
+
+<!-- TOP BAR -->
 <div class="top-bar">
 	<div class="container">
 		<div class="row">
-			<%= link_to 'Dashboard', dashboard_overview_path, class: 'navbar-brand'%>
+			<!-- logo -->
+			<div class="col-md-2 logo">
+				<a href="index.html"><img src="assets/img/kingadmin-logo-white.png" alt="KingAdmin - Admin Dashboard" /></a>
+				<h1 class="sr-only">KingAdmin Admin Dashboard</h1>
+			</div>
+			<!-- end logo -->
 			<div class="col-md-10">
 				<div class="row">
 					<div class="col-md-3">
@@ -198,7 +211,24 @@
 										<span class="name">Stacy Rose</span> <span class="caret"></span>
 									</a>
 									<ul class="dropdown-menu" role="menu">
-										<%= render 'layouts/dashboard_navigation_links' %>
+										<li>
+											<a href="#">
+												<i class="fa fa-user"></i>
+												<span class="text">Profile</span>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<i class="fa fa-cog"></i>
+												<span class="text">Settings</span>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<i class="fa fa-power-off"></i>
+												<span class="text">Logout</span>
+											</a>
+										</li>
 									</ul>
 								</div>
 							</div>
