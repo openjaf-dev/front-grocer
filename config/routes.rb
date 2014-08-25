@@ -36,9 +36,6 @@ Rails.application.routes.draw do
   get '/tables-static-table', to: 'pages#tables-static-table', as: 'tables-static-table'  
   get '/tables-dynamic-table', to: 'pages#tables-dynamic-table', as: 'tables-dynamic-table'  
   
-  
-  
-  
   devise_for :users
   devise_scope :user do
     authenticated :user do
