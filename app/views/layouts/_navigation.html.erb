@@ -11,7 +11,7 @@
 		<div class="row">
 			<!-- logo -->
 			<div class="col-md-2 logo">
-				<a href="index.html"><img src="assets/img/kingadmin-logo-white.png" alt="KingAdmin - Admin Dashboard" /></a>
+				<%= image_tag('kingadmin-logo-white.png') %>
 				<h1 class="sr-only">KingAdmin Admin Dashboard</h1>
 			</div>
 			<!-- end logo -->
@@ -32,7 +32,6 @@
 							<!-- responsive menu bar icon -->
 							<a href="#" class="hidden-md hidden-lg main-nav-toggle"><i class="fa fa-bars"></i></a>
 							<!-- end responsive menu bar icon -->
-							<button type="button" id="start-tour" class="btn btn-link"><i class="fa fa-refresh"></i> Start Tour</button>
 							<button type="button" id="global-volume" class="btn btn-link btn-global-volume"><i class="fa"></i> <span class="badge element-bg-color-blue">New</span></button>
 							<div class="notifications">
 								<ul>
@@ -207,28 +206,16 @@
 							<div class="logged-user">
 								<div class="btn-group">
 									<a href="#" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
-										<img src="assets/img/user-avatar.png" />
-										<span class="name">Stacy Rose</span> <span class="caret"></span>
+										<% if user_signed_in? %>
+											<%= image_tag('user-avatar.png')%>
+											<span class="name">Stacy Rose</span> <span class="caret"></span>
+										<% else %>
+											<span class="name">User</span> <span class="caret"></span>
+										<% end %>
 									</a>
 									<ul class="dropdown-menu" role="menu">
-										<li>
-											<a href="#">
-												<i class="fa fa-user"></i>
-												<span class="text">Profile</span>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<i class="fa fa-cog"></i>
-												<span class="text">Settings</span>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<i class="fa fa-power-off"></i>
-												<span class="text">Logout</span>
-											</a>
-										</li>
+										<%= render 'layouts/navigation_links' %>
+
 									</ul>
 								</div>
 							</div>
