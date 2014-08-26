@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  root to: 'visitors#index'
+  
+ # root to: 'visitors#index'
+  
   get '/about', to: 'pages#about', as: 'about'
   get '/blank', to: 'pages#blank', as: 'blank'
   get '/profile', to: 'pages#profile', as: 'profile'
@@ -33,10 +36,16 @@ Rails.application.routes.draw do
   get '/tables-static-table', to: 'pages#tables-static-table', as: 'tables-static-table'  
   get '/tables-dynamic-table', to: 'pages#tables-dynamic-table', as: 'tables-dynamic-table'  
   
-  
-  
-  
   devise_for :users
+  devise_scope :user do
+    authenticated :user do
+      root :to => 'visitors#index'
+    end
+    unauthenticated :user do
+      root :to => 'devise/registrations#new', as: :unauthenticated_root
+    end
+  end
+  
   resources :users
   
   namespace :dashboard do
