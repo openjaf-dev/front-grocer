@@ -31,9 +31,10 @@
 					</div>
 					<!-- end left sidebar -->
 					
-
-				  <%= render :partial => 'dashboard/shared/nav_bar' if content_for? :nav_bar %>
-			      <%= yield %>
+                  <div class='col-md-10'>
+					  <%= render :partial => 'dashboard/shared/nav_bar' if content_for? :nav_bar %>
+				      <%= yield %>
+			      </div>
 
 					
 				</div><!-- /row -->
