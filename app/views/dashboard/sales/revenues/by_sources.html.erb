@@ -1,0 +1,7 @@
+<%= render 'dashboard/shared/form_sales' %>
+
+<% if @data[0][:data].count > 0 %>
+    <%= render 'dashboard/shared/by_amount', data: @data %>
+<%else%>
+    <h3>Not Sources Found</h3>
+<% end %>

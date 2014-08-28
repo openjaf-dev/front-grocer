@@ -7,6 +7,12 @@
 <li><a href="#"><i class="fa fa-user"></i><span class="text">Year to Date</span></a></li>
 <lidata-toggle="modal" data-target="#myModal"><a href="#"><i class="fa fa-user"></i><span class="text">Custom Range</span></a></li>
 
+<li><%=link_to 'Today',{:controller => controller,:action => action,:date_range => :today} %></li>
+<li><%=link_to 'Yesterday',{:controller => controller,:action => action,:date_range => :yesterday} %></li>
+<li><%=link_to 'Last Week',{:controller => controller,:action => action,:date_range => :last_week} %></li>
+<li><%=link_to 'Last Month',{:controller => controller,:action => action,:date_range => :last_month} %></li>
+<li><a href="#">Year to Date</a></li>
+<li data-toggle="modal" data-target="#myModal"><a href="#">Custom Range</a></li>
 
 <li role="presentation" class="divider"></li>
 <li role="presentation" class="dropdown-header">Previous Period</li>

@@ -56,7 +56,9 @@ Rails.application.routes.draw do
       ['sources','revenues','transactions','items','adjustments','taxes','shipments'].each do |resource|
         get "/#{resource}", to: "#{resource}#index", as: "#{resource}"   
         get "/#{resource}/by-week-days", to: "#{resource}#by_week_days", as: "#{resource}_by_week_days"
-        get "/#{resource}/by-hours", to: "#{resource}#by_hours", as: "#{resource}_by_hours"    
+        get "/#{resource}/by-hours", to: "#{resource}#by_hours", as: "#{resource}_by_hours"
+        get "/#{resource}/by-status", to: "#{resource}#by_status", as: "#{resource}_by_status"
+        get "/#{resource}/by-sources", to: "#{resource}#by_sources", as: "#{resource}_by_sources"
       end  
     end
       
