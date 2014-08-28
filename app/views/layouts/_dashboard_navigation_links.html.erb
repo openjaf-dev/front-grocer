@@ -5,7 +5,10 @@
 <li><a href="#"><i class="fa fa-user"></i><span class="text">Last Week</span></a></li>
 <li><a href="#"><i class="fa fa-user"></i><span class="text">Last Month</span></a></li>
 <li><a href="#"><i class="fa fa-user"></i><span class="text">Year to Date</span></a></li>
-<lidata-toggle="modal" data-target="#myModal"><a href="#"><i class="fa fa-user"></i><span class="text">Custom Range</span></a></li>
+<li data-toggle="modal" data-target="#myModal"><a href="#"><i class="fa fa-user"></i><span class="text">Custom Range</span></a></li>
+
+<% controller = params[:controller] %>
+<% action = params[:action] %>
 
 <li><%=link_to 'Today',{:controller => controller,:action => action,:date_range => :today} %></li>
 <li><%=link_to 'Yesterday',{:controller => controller,:action => action,:date_range => :yesterday} %></li>
