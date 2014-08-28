@@ -1,2 +1,6 @@
 <%= render 'dashboard/shared/form_sales' %>
-<%= line_chart @data, library: {tooltip:{enabled:false},chart:{zoomType:'x'} } %>
+<% if @data[0][:data].empty? %>
+    <h3>Elements not found.</h3>
+<%else%>
+    <%= line_chart @data, library: {tooltip:{enabled:false},chart:{zoomType:'x'} } %>
+<%end%>

@@ -12,11 +12,10 @@ gem 'spring',        group: :development
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'high_voltage'
-gem 'simple_form'
+#gem 'simple_form'
 gem 'chartkick'
 gem 'ffaker'
 gem 'activeadmin', github: 'gregbell/active_admin'
-gem 'font-awesome-sass'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
