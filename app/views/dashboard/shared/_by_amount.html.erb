@@ -1,0 +1,16 @@
+<% if @data[0][:data].nil?%>
+    <h3>No elements Found.</h3>
+<% else %>
+    <%= pie_chart @data[0][:data],:library => { :title =>{:text => @data[0][:name]} } %>
+
+        <% unless @data[1][:data].nil? %>
+            <hr>
+            <%= pie_chart @data[1][:data],:library => { :title =>{:text => @data[1][:name]} } %>
+        <% end %>
+<% end %>
+
+
+
+
+
+
