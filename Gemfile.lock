@@ -99,8 +99,6 @@ GEM
     factory_girl_rails (4.4.1)
       factory_girl (~> 4.4.0)
       railties (>= 3.0.0)
-    faker (1.4.3)
-      i18n (~> 0.5)
     ffaker (1.25.0)
     ffi (1.9.3)
     foreman (0.75.0)
@@ -273,7 +271,6 @@ DEPENDENCIES
   database_cleaner
   devise
   factory_girl_rails
-  faker
   ffaker
   foreman
   high_voltage
