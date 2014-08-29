@@ -1,13 +1,13 @@
 <aside id="sidebar">
   <br>
-  <%= yield :nav_bar %>
-
-  <div class="btn-group">
-    <button class="btn btn-default" type="button"></button>
-    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button"></button>
+  <div class="btn-group col-md-2 col-md-offset-10">
+    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
+		<span class="name">Setting &nbsp;</span><span class="caret"></span>
+	</button>
     <ul class="dropdown-menu" role="menu">
       <%= render 'layouts/dashboard_navigation_links' %>
     </ul>
   </div>
+  <%= yield :nav_bar %>
 </aside>
 

@@ -11,9 +11,6 @@
     <%= stylesheet_link_tag 'application.css.scss', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'highcharts', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'chartkick', 'data-turbolinks-track' => true %>
-	<% # javascript_include_tag "//www.google.com/jsapi", "chartkick" 
-	%>
-
     <%= csrf_meta_tags %>
 	<%= stylesheet_link_tag '//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css', media: 'all', 'data-turbolinks-track' => true
     %>
@@ -27,21 +24,23 @@
 		
 		<!-- BOTTOM: LEFT NAV AND RIGHT MAIN CONTENT -->
 		<div class="bottom">
-			<div class="container">
-				<div class="row">
-					<!-- left sidebar -->
-					<div class="col-md-2 left-sidebar">
-						<%= render 'layouts/sidebar_links'%>
-					</div>
-					<!-- end left sidebar -->
-					
-                  <div class='<%= 'col-md-10' if content_for? :nav_bar %>'>
-					  <%= render :partial => 'dashboard/shared/nav_bar' if content_for? :nav_bar %>
-				      <%= yield %>
-			      </div>
-					
-				</div><!-- /row -->
-			</div><!-- /container -->
+			<div class="row">
+				<!-- left sidebar -->
+				<div class="col-md-2 left-sidebar">
+					<%= render 'layouts/sidebar_links'%>
+				</div>
+				<!-- end left sidebar -->
+				
+				<div class='<%= 'col-md-10' if content_for? :nav_bar %>'>
+				  <%= render :partial => 'dashboard/shared/nav_bar' if content_for? :nav_bar %>
+				  <div class="container">
+					  <div class="row">
+				        <%= yield %>
+				  	  </div>
+				  </div>
+				</div>
+				
+			</div><!-- /row -->
 		</div>
        <!-- END BOTTOM: LEFT NAV AND RIGHT MAIN CONTENT -->
    
