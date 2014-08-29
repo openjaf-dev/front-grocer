@@ -5,14 +5,18 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title><%= content_for?(:title) ? yield(:title) : "Cenit" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Grocer" %>">
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'main' %>
+    <%= stylesheet_link_tag 'font-awesome' %>
+    <%= stylesheet_link_tag 'bootstrap' %>
+    <%= stylesheet_link_tag 'application.css.scss', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'highcharts', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'chartkick', 'data-turbolinks-track' => true %>
 	<% # javascript_include_tag "//www.google.com/jsapi", "chartkick" 
 	%>
 
     <%= csrf_meta_tags %>
-	<%= stylesheet_link_tag '//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css', media: 'all', 'data-turbolinks-track' => true %>
+	<%=# stylesheet_link_tag '//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css', media: 'all', 'data-turbolinks-track' => true
+    %>
 	
   </head>
   <body>
