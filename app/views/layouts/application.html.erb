@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title><%= content_for?(:title) ? yield(:title) : "Cenit" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Grocer" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Grocer" %>">
     <%= stylesheet_link_tag 'main' %>
     <%= stylesheet_link_tag 'font-awesome' %>
@@ -17,36 +17,22 @@
 	
   </head>
   <body>
-
 	<div class="wrapper">
 	    <%= render 'layouts/navigation' %>
 		<%= render 'layouts/messages'%>
-		
-		<!-- BOTTOM: LEFT NAV AND RIGHT MAIN CONTENT -->
 		<div class="bottom">
 			<div class="row">
-				<!-- left sidebar -->
 				<div class="col-md-2 left-sidebar">
 					<%= render 'layouts/sidebar_links'%>
-				</div>
-				<!-- end left sidebar -->
-				
+				</div>				
 				<div class='<%= 'col-md-10' if content_for? :nav_bar %>'>
 				  <%= render :partial => 'dashboard/shared/nav_bar' if content_for? :nav_bar %>
-				  <div class="container">
-					  <div class="row">
-				        <%= yield %>
-				  	  </div>
-				  </div>
+				  <%= yield %>
 				</div>
-				
-			</div><!-- /row -->
+			</div>
 		</div>
-       <!-- END BOTTOM: LEFT NAV AND RIGHT MAIN CONTENT -->
-   
     </div>
     <%= yield :charts_js %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-	
   </body>
 </html>

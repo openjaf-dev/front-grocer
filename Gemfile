@@ -30,7 +30,7 @@ group :development do
 end
 gem 'sqlite3'
 group :development, :test do
-  gem 'sqlite3'
+#  gem 'sqlite3'
   gem 'factory_girl_rails'
   gem 'pry-rails'
   gem 'pry-rescue'
