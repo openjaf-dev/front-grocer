@@ -19,7 +19,8 @@ gem 'chartkick'
 gem 'ffaker'
 #gem 'therubyracer'
 #gem 'activeadmin', git: '/media/jt/DATOS/JORGE/Work/Spree/Cesar/activeadmin', :branch => 'master'
-gem 'activeadmin', github: 'gregbell/active_admin'
+#gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'activeadmin', github: 'activeadmin'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
