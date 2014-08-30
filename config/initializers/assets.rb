@@ -14,6 +14,8 @@ Rails.application.config.assets.version = '1.0'
 #Rails.application.config.assets.precompile += %w( king-common.js )
 #Rails.application.config.assets.precompile += %w( deliswitch.js )
 
+Rails.application.config.assets..precompile += ['active_admin.css', 'active_admin.js', 'active_admin/print.css']
+
 Rails.application.config.assets.precompile += %w( *.png *.gif *.jpg )
 
 
