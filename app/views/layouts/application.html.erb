@@ -23,7 +23,12 @@
 		<div class="bottom">
 			<div class="row">
 				<div class="col-md-2 left-sidebar">
-					<%= render 'layouts/sidebar_links'%>
+					<% puts "params ************** #{params.inspect}"%>
+					<% if params[:controller] == 'high_voltage/pages'  %>
+						<%= render 'layouts/sidebar_ref_links' %>
+					<% else %>
+						<%= render 'layouts/sidebar_links' %>
+					<% end %>
 				</div>				
 				<div class='<%= 'col-md-10' if content_for? :nav_bar %>'>
 				  <%= render :partial => 'dashboard/shared/nav_bar' if content_for? :nav_bar %>
