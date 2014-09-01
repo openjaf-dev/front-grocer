@@ -44,7 +44,6 @@ end
 group :test do
   gem 'capybara'
   gem 'database_cleaner'
-#  gem 'faker'
   gem 'launchy'
   gem 'selenium-webdriver'
 end

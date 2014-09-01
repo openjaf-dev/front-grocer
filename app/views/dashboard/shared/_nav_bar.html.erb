@@ -1,6 +1,6 @@
-<aside id="sidebar">
+<aside id="sidebar ">
   <br>
-  <div class="btn-group">
+  <div class="btn-group col-md-2 col-md-offset-10">
     <button id="btnGroupVerticalDrop1" class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
       Date Options
       <span class="caret"></span>
@@ -36,6 +36,7 @@
                 <h5>From:</h5>
                 <%= datetime_field_tag :from_time %>
               </div>
+			  
               <div class="col-md-6">
                 <h5>To:</h5>
                 <%= datetime_field_tag :to_time %>
@@ -72,6 +73,7 @@
                 <h5>From:</h5>
                 <%= datetime_field_tag :from_time %>
               </div>
+			  
               <div class="col-md-6">
                 <h5>To:</h5>
                 <%= datetime_field_tag :to_time %>
@@ -99,3 +101,9 @@
     </div>
   </div>
 </div>
+
+<script>
+$('#sandbox-container .input-group.date').datepicker({
+    autoclose: true
+});
+</script>
