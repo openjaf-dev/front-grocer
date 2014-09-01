@@ -104,12 +104,13 @@ module Dashboard
                 get_params
             end
           elsif params[:from_time] && params[:to_time]
-            from = params[:from_time].to_date
-            to = params[:to_time].to_date
+            
+            from = Date.strptime(params[:from_time], '%m/%d/%Y') 
+            to =  Date.strptime(params[:to_time], '%m/%d/%Y')
 
             if params[:compare_from_time] && params[:compare_to_time]
-              compare_from = params[:compare_from_time].to_date
-              compare_to = params[:compare_to_time].to_date
+              compare_from = Date.strptime(params[:compare_from_time], '%m/%d/%Y')
+              compare_to = Date.strptime(params[:compare_to_time], '%m/%d/%Y')
               get_params(to , to - from, compare_to, compare_to - compare_from)
             else
               get_params(to , to - from, nil, nil)

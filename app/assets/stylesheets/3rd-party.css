@@ -339,7 +339,7 @@
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
-  *zoom: 1;
+  /*zoom: 1;*/
 }
 
 .colorpicker:before,
@@ -649,7 +649,7 @@
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0044cc', GradientType=0);
   border-color: #0044cc #0044cc #002a80;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  *background-color: #0044cc;
+  /*background-color: #0044cc;*/
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   color: #fff;
@@ -670,7 +670,7 @@
 .datepicker td.active:hover[disabled] {
   color: #ffffff;
   background-color: #0044cc;
-  *background-color: #003bb3;
+  /*background-color: #003bb3;*/
 }
 
 .datepicker td.active:active,
@@ -709,7 +709,7 @@
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0044cc', GradientType=0);
   border-color: #0044cc #0044cc #002a80;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  *background-color: #0044cc;
+  /*background-color: #0044cc;*/
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   color: #fff;
@@ -724,7 +724,7 @@
 .datepicker td span.active[disabled] {
   color: #ffffff;
   background-color: #0044cc;
-  *background-color: #003bb3;
+  /*background-color: #003bb3;*/
 }
 
 .datepicker td span.active:active,
@@ -2140,8 +2140,8 @@ html .fc,
   position: relative;
   float: left;
   margin-top: -50%;
-  *margin-top: 0;
-  *top: -50%;
+  /*margin-top: 0;*/
+  /*top: -50%;*/
 }
 
 /*
@@ -2456,7 +2456,7 @@ table.fc-border-separate {
 }
 
 .fc-agenda-slots tr.fc-minor th.ui-widget-header {
-  *border-top-style: solid;
+  /*border-top-style: solid;*/
   /* doesn't work with background in IE6/7 */
 }
 
@@ -3292,7 +3292,7 @@ table.fc-border-separate {
   margin-left: 7px;
   /* inline-block emulation for IE7*/
   zoom: 1;
-  *display: inline;
+  /*display: inline;*/
 }
 
 .editable-buttons.editable-buttons-bottom {
@@ -3311,7 +3311,7 @@ table.fc-border-separate {
   /* reset white-space decalred in parent*/
   /* display-inline emulation for IE7*/
   zoom: 1;
-  *display: inline;
+  /*display: inline;*/
 }
 
 .editable-buttons .editable-cancel {
@@ -3427,7 +3427,7 @@ table.fc-border-separate {
   width: auto;
   /* inline-block emulation for IE7*/
   zoom: 1;
-  *display: inline;
+  /*display: inline;*/
 }
 
 .editable-container.ui-widget {
@@ -3990,8 +3990,8 @@ a.editable-click.editable-disabled:hover {
   background-color: #fff;
   border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  *border-right-width: 2px;
-  *border-bottom-width: 2px;
+ /*border-right-width: 2px;*/
+  /*border-bottom-width: 2px;*/
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
@@ -4037,7 +4037,7 @@ Version: 3.4.8 Timestamp: Thu May  1 09:50:32 EDT 2014
   display: inline-block;
   /* inline-block for ie7 */
   zoom: 1;
-  *display: inline;
+  /*display: inline;*/
   vertical-align: middle;
 }
 
