@@ -22,10 +22,21 @@
       <i class="fa fa-user"></i><span class="text">Last Month</span>
   <% end %>
 </li>
-<li><a href="#"><i class="fa fa-user"></i><span class="text">Year to Date</span></a></li>
-<li data-toggle="modal" data-target="#myModal"><a href="#"><i class="fa fa-user"></i><span class="text">Custom Range</span></a></li>
+<li>
+  <%=link_to({:controller => controller,:action => action,:date_range => :year_to_date}) do %>
+      <i class="fa fa-user"></i><span class="text">Year to Date</span>
+  <% end %>
+</li>
+<li data-toggle="modal" data-target="#custom_range_data"><a href="#myModal" data-toggle="modal"><i class="fa fa-user"></i><span class="text">Custom Range</span></a></li>
 
 <li role="presentation" class="divider"></li>
 <li role="presentation" class="dropdown-header">Previous Period</li>
-<li><a href="#"><i class="fa fa-user"></i><span class="text">Previous Year</span></a></li>
-<li><a href="#"><i class="fa fa-user"></i><span class="text">Custom Range</span></a></li>
+<li>
+  <%=link_to({:controller => controller,:action => action,:date_range => :previous_year}) do %>
+      <i class="fa fa-user"></i><span class="text">Previous Year</span>
+  <% end %>
+</li>
+<li data-toggle="modal" data-target="#custom_range_compare"><a href="#myModal" data-toggle="modal"><i class="fa fa-user"></i><span class="text">Custom Range</span></a></li>
+
+
+
