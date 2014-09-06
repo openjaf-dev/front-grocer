@@ -1,21 +1,26 @@
 Rails.application.routes.draw do
   
+  resources :companies
+
 #  devise_for :admin_users, ActiveAdmin::Devise.config
 #  ActiveAdmin.routes(self)
   
- # root to: 'visitors#index'
-  
+  root to: 'visitors#index'
   devise_for :users
-  devise_scope :user do
-    authenticated :user do
-      root :to => 'visitors#index'
-    end
-    unauthenticated :user do
-      root :to => 'devise/registrations#new', as: :unauthenticated_root
-    end
-  end
-  
   resources :users
+ 
+  
+#  devise_scope :user do
+#    authenticated :user do
+#      root :to => 'visitors#index'
+#    end
+#    unauthenticated :user do
+#      root :to => 'devise/registrations#new', as: :unauthenticated_root
+#    end
+#  end
+  
+  
+  #resources :user_steps
   
   namespace :dashboard do
     
