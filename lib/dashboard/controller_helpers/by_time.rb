@@ -47,8 +47,14 @@ module Dashboard
             @data = [{:name => "#{@start_date} / #{@end_date}", :data => @main_set },
                      {:name => "#{@compare_start_date} / #{@compare_end_date}", :data => @compare_set }]
           else
-            @data = [{:name => "#{@start_date} / #{@end_date}", :data => @main_set }]
+            if params[:filter_type]
+              @data = [{:name => "Filtered by #{params[:filter_type]}", :data => @main_set }]
+            else
+              @data = [{:name => "#{@start_date} / #{@end_date}", :data => @main_set }]
+            end
+
           end
+
 
         end
          
@@ -62,6 +68,11 @@ module Dashboard
         end
       
         def get_params(start = Date.today, amount = 3.months, compare = Date.today - 3.months, compare_amount = 3.months )
+          if start.nil? && amount.nil? && compare.nil? && compare_amount.nil?
+            @start_date = @end_date = @compare_start_date = @compare_end_date = nil
+            return
+          end
+
           @start_date =  start - amount
           @end_date = start
           unless compare.nil?
@@ -73,6 +84,7 @@ module Dashboard
         
         def get_data
           @data = klass_to_call.placed_on_between(@start_date, @end_date)
+          @data=@data
         end
       
         def get_compare_data
@@ -83,43 +95,50 @@ module Dashboard
           end
         end
 
-        def set_time
-          puts params.inspect
-          if params[:date_range]
-            case params[:date_range]
-              when 'today' then
-                get_params(Date.today, 0, Date.today, 1.days)
-              when 'yesterday' then
-                get_params(Date.today, 1.days, Date.today - 1.days, 2.days)
-              when 'last_week' then
-                get_params(Date.today, 7.days, Date.today - 7.days, 7.days)
-              when 'last_month' then
-                get_params(Date.today, 1.months, Date.today - 1.months, 1.months)
-              when 'previous_year' then
-                get_params(Date.today, 1.years, Date.today - 1.years, 1.years)
-              when 'year_to_date' then
-                today = Date.today
-                get_params(today , today.yday.days , today - 1.years, today.yday.days)
-              else
-                get_params
-            end
-          elsif params[:from_time] && params[:to_time]
-            
-            from = Date.strptime(params[:from_time], '%m/%d/%Y') 
-            to =  Date.strptime(params[:to_time], '%m/%d/%Y')
+      def set_time
+        puts params.inspect
+        if params[:filter_type]
 
-            if params[:compare_from_time] && params[:compare_to_time]
-              compare_from = Date.strptime(params[:compare_from_time], '%m/%d/%Y')
-              compare_to = Date.strptime(params[:compare_to_time], '%m/%d/%Y')
-              get_params(to , to - from, compare_to, compare_to - compare_from)
-            else
-              get_params(to , to - from, nil, nil)
-            end
-
-          else
-            get_params
-          end
+          get_params(nil,nil,nil,nil)
+          return
         end
+
+        if params[:date_range]
+          case params[:date_range]
+            when 'today' then
+              get_params(Date.today, 0, Date.today, 1.days)
+            when 'yesterday' then
+              get_params(Date.today, 1.days, Date.today - 1.days, 2.days)
+            when 'last_week' then
+              get_params(Date.today, 7.days, Date.today - 7.days, 7.days)
+            when 'last_month' then
+              get_params(Date.today, 1.months, Date.today - 1.months, 1.months)
+            when 'previous_year' then
+              get_params(Date.today, 1.years, Date.today - 1.years, 1.years)
+            when 'year_to_date' then
+              today = Date.today
+              get_params(today , today.yday.days , today - 1.years, today.yday.days)
+            else
+              get_params
+          end
+        elsif params[:from_time] && params[:to_time]
+          from = params[:from_time].to_date
+            from = Date.strptime(params[:from_time], '%m/%d/%Y') 
+          to = params[:to_time].to_date
+
+          if params[:compare_from_time] && params[:compare_to_time]
+            compare_from = params[:compare_from_time].to_date
+            compare_to = params[:compare_to_time].to_date
+            get_params(to , to - from, compare_to, compare_to - compare_from)
+          else
+            get_params(to , to - from, nil, nil)
+          end
+
+
+        else
+          get_params
+        end
+      end
      end 
   end
 end

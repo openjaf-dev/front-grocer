@@ -19,6 +19,8 @@ gem 'chartkick'
 gem 'ffaker'
 gem 'therubyracer'
 gem 'non-stupid-digest-assets'
+gem 'wicked'
+
 #gem 'activeadmin', git: '/media/jt/DATOS/JORGE/Work/Spree/Cesar/activeadmin', :branch => 'master'
 #gem 'activeadmin', github: 'gregbell/active_admin'
 #gem 'activeadmin', github: 'activeadmin'
