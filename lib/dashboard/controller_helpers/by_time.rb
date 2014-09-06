@@ -47,7 +47,12 @@ module Dashboard
             @data = [{:name => "#{@start_date} / #{@end_date}", :data => @main_set },
                      {:name => "#{@compare_start_date} / #{@compare_end_date}", :data => @compare_set }]
           else
-            @data = [{:name => "#{@start_date} / #{@end_date}", :data => @main_set }]
+            if params[:filter_type]
+              @data = [{:name => "Filtered by #{params[:filter_type]}", :data => @main_set }]
+            else
+              @data = [{:name => "#{@start_date} / #{@end_date}", :data => @main_set }]
+            end
+
           end
 
         end

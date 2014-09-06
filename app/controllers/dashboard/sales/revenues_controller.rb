@@ -51,8 +51,6 @@ module Dashboard
       private
 
       def check_filters
-        by_years = @data.group_by{|r| r.placed_on.year}
-
         case params[:filter_type]
           when 'weeks' then
             filter_by_weeks
@@ -93,7 +91,7 @@ module Dashboard
             o = Order.new
             o.placed_on = Date.new(y[0], m[0], 1)
             o.totals = OrderTotal.new
-            o.totals.total = m[1].sum{ |e| e.totals.total}
+            o.totals.total = m[1].sum{ |e| e.totals.total}.round(2)
             @data << o
           end
         end
@@ -106,7 +104,7 @@ module Dashboard
           o = Order.new
           o.placed_on = Date.new(x[0])
           o.totals = OrderTotal.new
-          o.totals.total = x[1].sum{ |e| e.totals.total}
+          o.totals.total = x[1].sum{ |e| e.totals.total}.round(2)
           @data << o
         end
       end
