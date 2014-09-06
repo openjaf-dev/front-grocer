@@ -1,6 +1,6 @@
-<aside id="sidebar ">
+<aside id="sidebar">
   <br>
-  <div class="btn-group col-md-2 col-md-offset-10">
+  <div class="btn-group">
     <button id="btnGroupVerticalDrop1" class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
       Date Options
       <span class="caret"></span>
@@ -10,13 +10,18 @@
     </ul>
   </div>
 
+
   <%= yield :nav_bar %>
+
 
 </aside>
 
 
+
+
 <% controller = params[:controller] %>
 <% action = params[:action] %>
+
 
 <div id="custom_range_data" class="modal fade" aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" style="display: none;">
   <div class="modal-dialog">
@@ -30,33 +35,34 @@
         </h4>
       </div>
       <%=form_tag({ :controller => controller,:action => action },:method => :get) do %>
-      <div class="modal-body">
-        <div class="row ">
+          <div class="modal-body">
+            <div class="row show-grid">
 				
 		  <h5 col-md-2>From:</h5> 
-          <div class="input-group col-md-4">
-			<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-            <%= text_field_tag :from_time, nil, class: 'form-control', :'data-provide' => "datepicker-inline" %>
-          </div>
+              <div class="col-md-6">
+                <h5>From:</h5>
+                <%= datetime_field_tag :from_time %>
+              </div>
 	
 		  <h5 col-md-2>To:</h5> 
-          <div class="input-group col-md-4">
-			<span class="input-group-addon"><i class="fa fa-calendar"></i></span>  
-            <%= text_field_tag :to_time, nil, class: 'form-control', :'data-provide' => "datepicker-inline" %>
-          </div>
+              <div class="col-md-6">
+                <h5>To:</h5>
+                <%= datetime_field_tag :to_time %>
+              </div>
 		
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-default" data-dismiss="modal" type="button">
-          Close
-        </button>
-        <%= submit_tag 'Filter Chart',:class => 'btn btn-primary' %>
-      </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-default" data-dismiss="modal" type="button">
+              Close
+            </button>
+            <%= submit_tag 'Filter Chart',:class => 'btn btn-primary' %>
+          </div>
       <% end %>
     </div>
   </div>
 </div>
+
 
 <div id="custom_range_compare" class="modal fade" aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" style="display: none;">
   <div class="modal-dialog">
@@ -72,39 +78,40 @@
       <%=form_tag({ :controller => controller,:action => action },:method => :get) do %>
           <div class="modal-body">
 			  
-			<div class="row show-grid">
+            <div class="row show-grid">
 				<h3>Date Range:</h3>  
 				
-				<h5 col-md-2>From:</h5> 
-				<div class="input-group col-md-4">
-					<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-					<%= text_field_tag :from_time, nil, class: 'form-control', :'data-provide' => "datepicker-inline" %>
-				</div>
+              <h5>Data:</h5>
+              <div class="col-md-6">
+                <h5>From:</h5>
+                <%= datetime_field_tag :from_time %>
+              </div>
 
 				<h5 col-md-2>To:</h5> 
-					<div class="input-group col-md-4">
-					<span class="input-group-addon"><i class="fa fa-calendar"></i></span>  
-				<%= text_field_tag :to_time, nil, class: 'form-control', :'data-provide' => "datepicker-inline" %>
-				</div>
+              <div class="col-md-6">
+                <h5>To:</h5>
+                <%= datetime_field_tag :to_time %>
+              </div>
  
-			</div>
+            </div>
 			
-			<div class="row show-grid">
-				<h3>Compare To:</h3>
+            <div class="row show-grid">
+              <h5>Compare To:</h5>
 				  
 				<h5 col-md-2>From:</h5> 
-				<div class="input-group col-md-4">
-					<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-					<%= text_field_tag :from_time, nil, class: 'form-control', :'data-provide' => "datepicker-inline" %>
-				</div>
+              <div class="col-md-6">
+                <h5>From:</h5>
+                <%= datetime_field_tag :compare_from_time %>
+              </div>
 
 				<h5 col-md-2>To:</h5> 
-					<div class="input-group col-md-4">
-					<span class="input-group-addon"><i class="fa fa-calendar"></i></span>  
-				<%= text_field_tag :to_time, nil, class: 'form-control', :'data-provide' => "datepicker-inline" %>
-				</div>
+              <div class="col-md-6">
+                <h5>To:</h5>
+                <%= datetime_field_tag :compare_to_time %>
+              </div>
+            </div>
  
-			</div>
+          </div>
 			
 
           <div class="modal-footer">
