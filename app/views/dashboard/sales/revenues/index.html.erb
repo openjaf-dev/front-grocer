@@ -1,2 +1,22 @@
 <%= render 'dashboard/shared/form_sales' %>
-<%= line_chart @data, library: {tooltip:{enabled:false},chart:{zoomType:'x'} } %>
+
+
+<% if @data[0][:data].empty? %>
+    <h3>Elements not found.</h3>
+<%else%>
+    <div class="btn-group">
+      <button id="menuTimeLine" class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
+        Chart Options
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="menuTimeLine" role="menu">
+        <%= render 'dashboard/sales/revenues/time_line_menu_options' %>
+      </ul>
+    </div>
+    <% if params[:filter_type] %>
+        <%= line_chart @data, library: {chart:{zoomType:'x'} } %>
+    <% else %>
+        <%= line_chart @data, library: {tooltip:{enabled:false},chart:{zoomType:'x'} } %>
+    <% end %>
+
+<%end%>

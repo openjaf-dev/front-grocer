@@ -2,13 +2,13 @@
 <nav class="main-nav">
 	
 	<ul class="main-menu">
-     <li>
-		 <%=link_to  "/demo-dashboard" do %> 
-		 	<i class="fa fa-dashboard fa-fw"></i><span class="text">Dashboard</span>
-		 <% end %> 
-	 </li>
+		<li>
+			 <%=link_to  "#" do %> 
+			 	<i class="fa fa-dashboard fa-fw"></i><span class="text">Overview</span>
+			 <% end %> 
+		</li>
 
-		<li class="active"><a href="#" class="js-sub-menu-toggle"><i class="fa fa-bar-chart-o fw"></i><span class="text">Sales</span>
+		<li><a href="#" class="js-sub-menu-toggle"><i class="fa fa-bar-chart-o fw"></i><span class="text">Sales</span>
 			<i class="toggle-icon fa fa-angle-left"></i></a>
 			<ul class="sub-menu open">
 			   <% ['revenues','transactions','items','adjustments','taxes','shipments','sources'].each do |resource| %>
@@ -20,214 +20,21 @@
 			   <% end %>
 			</ul>		
 		</li>
-		
-		<li ><a href="#" class="js-sub-menu-toggle"><i class="fa fa-clipboard fa-fw"></i><span class="text">Pages</span>
-			<i class="toggle-icon fa fa-angle-left"></i></a>
-			<ul class="sub-menu">
-				<li class="<%= 'active' if params[:controller] =~ /^profile/ %>"  >
-					 <%=link_to  "/profile" do %> 
-					 	<span class="text">Profile</span> 
-					 <% end %> 
-				</li>
-				<li class="<%= 'active' if params[:controller] =~ /^invoice/ %>"  >
-					 <%=link_to  "/invoice" do %> 
-					 	<span class="text">Invoice</span> 
-					 <% end %> 
-				</li>
-				<li class="<%= 'active' if params[:controller] =~ /^knowledgebase/ %>"  >
-					 <%=link_to  "/knowledgebase" do %> 
-					 	<span class="text">Knowledge Base</span> 
-					 <% end %> 
-				</li>
-				<li class="<%= 'active' if params[:controller] =~ /^inbox/ %>"  >
-					 <%=link_to  "/inbox" do %> 
-					 	<span class="text">Inbox</span> 
-					 <% end %> 
-				</li>
-				<li class="<%= 'active' if params[:controller] =~ /^register/ %>"  >
-					 <%=link_to  "/register" do %> 
-					 	<span class="text">Register</span> 
-					 <% end %> 
-				</li>
-				<li class="<%= 'login' if params[:controller] =~ /^login/ %>"  >
-					 <%=link_to  "/login" do %> 
-					 	<span class="text">Login</span> 
-					 <% end %> 
-				</li>
-				<li class="<%= 'active' if params[:controller] =~ /^blank/ %>"  >
-					 <%=link_to  "/blank" do %> 
-					 	<span class="text">Blank</span> 
-					 <% end %> 
-				</li>
-			</ul>
-		</li>
-		
-		<li ><a href="#" class="js-sub-menu-toggle"><i class="fa fa-bar-chart-o fw"></i><span class="text">Charts &amp; Statistics</span>
-			<i class="toggle-icon fa fa-angle-left"></i></a>
-			<ul class="sub-menu ">
-	
-				<li class="<%= 'active' if params[:controller] =~ /^charts-statistics/ %>"  >
-					 <%=link_to  "/charts-statistics" do %> 
-					 	<span class="text">Statistics Charts </span> 
-					 <% end %> 
-				</li>
-				<li class="<%= 'active' if params[:controller] =~ /^charts-statistics-interactive/ %>"  >
-					 <%=link_to  "/charts-statistics-interactive" do %> 
-					 	<span class="text"> Charts Statistics Interactive </span> 
-					 <% end %> 
-				</li>
-				<li class="<%= 'active' if params[:controller] =~ /^charts-statistics-real-time/ %>"  >
-					 <%=link_to  "/charts-statistics-real-time" do %> 
-					 	<span class="text">Realtime Charts </span> 
-					 <% end %> 
-				</li>
-	
-				<li class="<%= 'active' if params[:controller] =~ /^charts-d3charts/ %>"  >
-					 <%=link_to  "/charts-d3charts" do %> 
-					 	<span class="text">D3 Charts</span> 
-					 <% end %> 
-				</li>
-			</ul>
-		</li>
-		
-		<li ><a href="#" class="js-sub-menu-toggle"><i class="fa fa-edit fw"></i><span class="text">Forms</span>
-			<i class="toggle-icon fa fa-angle-left"></i></a>
-			<ul class="sub-menu ">
-				
-				<li class="<%= 'active' if params[:controller] =~ /^form-inplace-editing/ %>"  >
-					 <%=link_to  "/form-inplace-editing" do %> 
-					 	<span class="text">In-place Editing <span class="badge element-bg-color-blue">New</span> 
-					 <% end %> 
-				</li>
-				
-				<li class="<%= 'active' if params[:controller] =~ /^form-elements/ %>"  >
-					 <%=link_to  "/form-elements" do %> 
-					 	<span class="text">Form Elements <span class="badge element-bg-color-blue">Updated</span> 
-					 <% end %> 
-				</li>
 
-				<li class="<%= 'active' if params[:controller] =~ /^form-layouts/ %>"  >
-					 <%=link_to  "/form-layouts" do %> 
-					 	<span class="text">Form Layouts <span class="badge element-bg-color-blue">New</span> 
-					 <% end %> 
-				</li>
-				
-				<li class="<%= 'active' if params[:controller] =~ /^form-bootstrap-elements/ %>"  >
-					 <%=link_to  "/form-bootstrap-elements" do %> 
-					 	<span class="text">Bootstrap Elements <span class="badge element-bg-color-blue">New</span> 
-					 <% end %> 
-				</li>
-				
-				<li class="<%= 'active' if params[:controller] =~ /^form-validations/ %>"  >
-					 <%=link_to  "/form-validations" do %> 
-					 	<span class="text">Validation</span>
-					 <% end %> 
-				</li>
-
-				<li class="<%= 'active' if params[:controller] =~ /^form-file-upload/ %>"  >
-					 <%=link_to  "/form-file-upload" do %> 
-					 	<span class="text">File Upload</span>
-					 <% end %> 
-				</li>
-				
-				<li class="<%= 'active' if params[:controller] =~ /^form-text-editor/ %>"  >
-					 <%=link_to  "/form-text-editor" do %> 
-					 	<span class="text">Text Editor <span class="badge element-bg-color-blue">New</span></span>
-					 <% end %> 
-				</li>
-								
-			</ul>
-		</li>
-		
-		<li ><a href="#" class="js-sub-menu-toggle"><i class="fa fa-list-alt fw"></i><span class="text">UI Elements</span>
+		<li ><a href="#" class="js-sub-menu-toggle"><i class="fa fa-clipboard fa-fw"></i><span class="text">Inventory</span>
 			<i class="toggle-icon fa fa-angle-left"></i></a>
-			<ul class="sub-menu ">
-				
-				<li class="<%= 'active' if params[:controller] =~ /^ui-elements-general/ %>"  >
-					 <%=link_to  "/ui-elements-general" do %> 
-					 	<span class="text">General Elements</span>
+			<ul class="sub-menu open">
+				<li class="<%= 'active' if params[:controller] =~ /^products/ %>"  >
+					 <%=link_to  "#" do %> 
+					 	<span class="text">Products</span> 
 					 <% end %> 
 				</li>
-				
-				<li class="<%= 'active' if params[:controller] =~ /^ui-elements-buttons/ %>"  >
-					 <%=link_to  "/ui-elements-buttons" do %> 
-					 	<span class="text">Buttons</span>
-					 <% end %> 
-				</li>
-				
-				<li class="<%= 'active' if params[:controller] =~ /^ui-elements-icons/ %>"  >
-					 <%=link_to  "/ui-elements-icons" do %> 
-					 	<span class="text">Icons</span>
-					 <% end %> 
-				</li>
-				
-				<li class="<%= 'active' if params[:controller] =~ /^ui-elements-flash-message/ %>"  >
-					 <%=link_to  "/ui-elements-flash-message" do %> 
-					 	<span class="text">Flash Message</span>
-					 <% end %> 
-				</li>
-	
 			</ul>
 		</li>
 		
-		<li ><a href="widgets.html"><i class="fa fa-puzzle-piece fa-fw"></i><span class="text">Widgets</span></a></li>
-		<li ><a href="#" class="js-sub-menu-toggle"><i class="fa fa-gears fw"></i><span class="text">Components</span>
-			<i class="toggle-icon fa fa-angle-left"></i></a>
-			<ul class="sub-menu ">
-				
-				<li class="<%= 'active' if params[:controller] =~ /^components-wizard/ %>"  >
-					 <%=link_to  "components-wizard" do %> 
-					 	<span class="text">Wizard (with validation)</span>
-					 <% end %> 
-				</li>	
-				
-				<li class="<%= 'active' if params[:controller] =~ /^components-calendar/ %>"  >
-					 <%=link_to  "components-calendar" do %> 
-					 	<span class="text">Calendar</span>
-					 <% end %> 
-				</li>
-				
-				<li class="<%= 'active' if params[:controller] =~ /^components-maps/ %>"  >
-					 <%=link_to  "components-maps" do %> 
-					 	<span class="text">Maps</span>
-					 <% end %> 
-				</li>
-
-				<li class="<%= 'active' if params[:controller] =~ /^components-gallery/ %>"  >
-					 <%=link_to  "components-gallery" do %> 
-					 	<span class="text">Gallery</span>
-					 <% end %> 
-				</li>
-		
-			</ul>
-		</li>
-		
-		<li ><a href="#" class="js-sub-menu-toggle"><i class="fa fa-table fw"></i><span class="text">Tables</span>
-			<i class="toggle-icon fa fa-angle-left"></i></a>
-			<ul class="sub-menu ">
-				
-				<li class="<%= 'active' if params[:controller] =~ /^tables-static-table/ %>"  >
-					 <%=link_to  "tables-static-table" do %> 
-					 	<span class="text">Static Table</span>
-					 <% end %> 
-				</li>
-				
-				<li class="<%= 'active' if params[:controller] =~ /^tables-dynamic-table/ %>"  >
-					 <%=link_to  "tables-dynamic-table" do %> 
-					 	<span class="text">Dynamic Table</span>
-					 <% end %> 
-				</li>
-
-			</ul>
-		</li>
-		
-		<li ><a href="typography.html"><i class="fa fa-font fa-fw"></i><span class="text">Typography</span></a></li>
 	</ul>
-</nav><!-- /main-nav -->
+</nav>
 
-<div class="sidebar-minified js-toggle-minified">
-	<i class="fa fa-angle-left"></i>
-</div>
 
 
 

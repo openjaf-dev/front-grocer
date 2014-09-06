@@ -1,4 +1,126 @@
 <aside id="sidebar">
   <br>
+  <div class="btn-group">
+    <button id="btnGroupVerticalDrop1" class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
+      Date Options
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="btnGroupVerticalDrop1" role="menu">
+      <%= render 'layouts/dashboard_navigation_links' %>
+    </ul>
+  </div>
+
+
   <%= yield :nav_bar %>
+
+
 </aside>
+
+
+
+
+<% controller = params[:controller] %>
+<% action = params[:action] %>
+
+
+<div id="custom_range_data" class="modal fade" aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close" aria-hidden="true" data-dismiss="modal" type="button">
+          ×
+        </button>
+        <h4 id="myModalLabel" class="modal-title">
+          Select the date range.
+        </h4>
+      </div>
+      <%=form_tag({ :controller => controller,:action => action },:method => :get) do %>
+          <div class="modal-body">
+            <div class="row show-grid">
+				
+		  <h5 col-md-2>From:</h5> 
+              <div class="col-md-6">
+                <h5>From:</h5>
+                <%= datetime_field_tag :from_time %>
+              </div>
+	
+		  <h5 col-md-2>To:</h5> 
+              <div class="col-md-6">
+                <h5>To:</h5>
+                <%= datetime_field_tag :to_time %>
+              </div>
+		
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-default" data-dismiss="modal" type="button">
+              Close
+            </button>
+            <%= submit_tag 'Filter Chart',:class => 'btn btn-primary' %>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<div id="custom_range_compare" class="modal fade" aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close" aria-hidden="true" data-dismiss="modal" type="button">
+          ×
+        </button>
+        <h4 id="myModalLabel" class="modal-title">
+          Select the comparison date range.
+        </h4>
+      </div>
+      <%=form_tag({ :controller => controller,:action => action },:method => :get) do %>
+          <div class="modal-body">
+			  
+            <div class="row show-grid">
+				<h3>Date Range:</h3>  
+				
+              <h5>Data:</h5>
+              <div class="col-md-6">
+                <h5>From:</h5>
+                <%= datetime_field_tag :from_time %>
+              </div>
+
+				<h5 col-md-2>To:</h5> 
+              <div class="col-md-6">
+                <h5>To:</h5>
+                <%= datetime_field_tag :to_time %>
+              </div>
+ 
+            </div>
+			
+            <div class="row show-grid">
+              <h5>Compare To:</h5>
+				  
+				<h5 col-md-2>From:</h5> 
+              <div class="col-md-6">
+                <h5>From:</h5>
+                <%= datetime_field_tag :compare_from_time %>
+              </div>
+
+				<h5 col-md-2>To:</h5> 
+              <div class="col-md-6">
+                <h5>To:</h5>
+                <%= datetime_field_tag :compare_to_time %>
+              </div>
+            </div>
+ 
+          </div>
+			
+
+          <div class="modal-footer">
+            <button class="btn btn-default" data-dismiss="modal" type="button">
+              Close
+            </button>
+            <%= submit_tag 'Filter Chart',:class => 'btn btn-primary' %>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
