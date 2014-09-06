@@ -62,6 +62,11 @@ module Dashboard
         end
       
         def get_params(start = Date.today, amount = 3.months, compare = Date.today - 3.months, compare_amount = 3.months )
+          if start.nil? && amount.nil? && compare.nil? && compare_amount.nil?
+            @start_date = @end_date = @compare_start_date = @compare_end_date = nil
+            return
+          end
+
           @start_date =  start - amount
           @end_date = start
           unless compare.nil?
@@ -73,6 +78,7 @@ module Dashboard
         
         def get_data
           @data = klass_to_call.placed_on_between(@start_date, @end_date)
+          @data=@data
         end
       
         def get_compare_data
@@ -85,6 +91,11 @@ module Dashboard
 
       def set_time
         puts params.inspect
+        if params[:filter_type]
+          get_params(nil,nil,nil,nil)
+          return
+        end
+
         if params[:date_range]
           case params[:date_range]
             when 'today' then
