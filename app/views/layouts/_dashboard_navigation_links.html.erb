@@ -1,23 +1,42 @@
 <%# add navigation links to this file %>
 <li role="presentation" class="dropdown-header">Date Range</li>
-<li><a href="#"><i class="fa fa-user"></i><span class="text">Today</span></a></li>
-<li><a href="#"><i class="fa fa-user"></i><span class="text">Yesterday</span></a></li>
-<li><a href="#"><i class="fa fa-user"></i><span class="text">Last Week</span></a></li>
-<li><a href="#"><i class="fa fa-user"></i><span class="text">Last Month</span></a></li>
-<li><a href="#"><i class="fa fa-user"></i><span class="text">Year to Date</span></a></li>
-<li data-toggle="modal" data-target="#myModal"><a href="#"><i class="fa fa-user"></i><span class="text">Custom Range</span></a></li>
-
 <% controller = params[:controller] %>
 <% action = params[:action] %>
-
-<li><%=link_to 'Today',{:controller => controller,:action => action,:date_range => :today} %></li>
-<li><%=link_to 'Yesterday',{:controller => controller,:action => action,:date_range => :yesterday} %></li>
-<li><%=link_to 'Last Week',{:controller => controller,:action => action,:date_range => :last_week} %></li>
-<li><%=link_to 'Last Month',{:controller => controller,:action => action,:date_range => :last_month} %></li>
-<li><a href="#">Year to Date</a></li>
-<li data-toggle="modal" data-target="#myModal"><a href="#">Custom Range</a></li>
+<li>
+  <%=link_to({:controller => controller,:action => action,:date_range => :today}) do %>
+      <i class="fa fa-user"></i><span class="text">Today</span>
+  <% end %>
+</li>
+<li>
+  <%=link_to({:controller => controller,:action => action,:date_range => :yesterday}) do %>
+      <i class="fa fa-user"></i><span class="text">Yesterday</span>
+  <% end %>
+</li>
+<li>
+  <%=link_to({:controller => controller,:action => action,:date_range => :last_week}) do %>
+      <i class="fa fa-user"></i><span class="text">Last Week</span>
+  <% end %>
+</li>
+<li>
+  <%=link_to({:controller => controller,:action => action,:date_range => :last_month}) do %>
+      <i class="fa fa-user"></i><span class="text">Last Month</span>
+  <% end %>
+</li>
+<li>
+  <%=link_to({:controller => controller,:action => action,:date_range => :year_to_date}) do %>
+      <i class="fa fa-user"></i><span class="text">Year to Date</span>
+  <% end %>
+</li>
+<li data-toggle="modal" data-target="#custom_range_data"><a href="#myModal" data-toggle="modal"><i class="fa fa-user"></i><span class="text">Custom Range</span></a></li>
 
 <li role="presentation" class="divider"></li>
 <li role="presentation" class="dropdown-header">Previous Period</li>
-<li><a href="#"><i class="fa fa-user"></i><span class="text">Previous Year</span></a></li>
-<li><a href="#"><i class="fa fa-user"></i><span class="text">Custom Range</span></a></li>
+<li>
+  <%=link_to({:controller => controller,:action => action,:date_range => :previous_year}) do %>
+      <i class="fa fa-user"></i><span class="text">Previous Year</span>
+  <% end %>
+</li>
+<li data-toggle="modal" data-target="#custom_range_compare"><a href="#myModal" data-toggle="modal"><i class="fa fa-user"></i><span class="text">Custom Range</span></a></li>
+
+
+

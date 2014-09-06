@@ -83,20 +83,42 @@ module Dashboard
           end
         end
 
-        def set_time
-          if params[:date_range]
-            case params[:date_range]
-              when 'today' then get_params(Date.today, 0, nil, nil)
-              when 'yesterday' then get_params(Date.today, 1.days, nil, nil)
-              when 'last_week' then get_params(Date.today, 7.days, nil, nil)
-              when 'last_month' then get_params(Date.today, 1.months, nil, nil)
-              else
-                get_params
-            end
-          else
-            get_params
+      def set_time
+        puts params.inspect
+        if params[:date_range]
+          case params[:date_range]
+            when 'today' then
+              get_params(Date.today, 0, Date.today, 1.days)
+            when 'yesterday' then
+              get_params(Date.today, 1.days, Date.today - 1.days, 2.days)
+            when 'last_week' then
+              get_params(Date.today, 7.days, Date.today - 7.days, 7.days)
+            when 'last_month' then
+              get_params(Date.today, 1.months, Date.today - 1.months, 1.months)
+            when 'previous_year' then
+              get_params(Date.today, 1.years, Date.today - 1.years, 1.years)
+            when 'year_to_date' then
+              today = Date.today
+              get_params(today , today.yday.days , today - 1.years, today.yday.days)
+            else
+              get_params
           end
+        elsif params[:from_time] && params[:to_time]
+          from = params[:from_time].to_date
+          to = params[:to_time].to_date
+
+          if params[:compare_from_time] && params[:compare_to_time]
+            compare_from = params[:compare_from_time].to_date
+            compare_to = params[:compare_to_time].to_date
+            get_params(to , to - from, compare_to, compare_to - compare_from)
+          else
+            get_params(to , to - from, nil, nil)
+          end
+
+        else
+          get_params
         end
+      end
      end 
   end
 end
