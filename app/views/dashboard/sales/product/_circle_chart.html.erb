@@ -1,12 +1,11 @@
 <%= javascript_include_tag 'd3' %>
-<%=# stylesheet_link_tag 'sequences'
-%>
+
 <div id="main">
   <div id="sequence"></div>
   <div id="chart">
     <div id="explanation" style="visibility: hidden;">
       <span id="percentage"></span><br/>
-      of visits begin with this sequence of pages
+      Products
     </div>
   </div>
 </div>
@@ -18,14 +17,23 @@
 <%= javascript_include_tag 'sequences' %>
 <script>
     // Mapping of step names to colors.
+    <% col=["#5687d1","#7b615c","#de783b","#6ab975","#a173d1","#bbbbbb","#5645d1","#7b415c","#de463b","#6ab785","#a134d1","#bb475b"] %>
     var colors = {
-        "analytics": "#5687d1",
-        "cluster": "#7b615c",
-        "search": "#de783b",
-        "account": "#6ab975",
-        "other": "#a173d1",
-        "end": "#bbbbbb"
+        <% (0..@tags.count).each do |t|%>
+            <% if t == 0 %>
+                <%= "\"#{@tags[t]}\":\"#{col[t]}\"".html_safe  %>
+            <% else %>
+                <%= ",\"#{@tags[t]}\":\"#{col[t]}\"".html_safe  %>
+            <% end %>
+        <% end %>
+       // "analytics": "#5687d1",
+       // "cluster": "#7b615c",
+       // "search": "#de783b",
+       // "account": "#6ab975",
+       // "other": "#a173d1",
+
     };
+
     var json = JSON.parse('<%= @data_json.html_safe %>');
     createVisualization(json);
 </script>

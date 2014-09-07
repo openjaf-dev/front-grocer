@@ -90,11 +90,11 @@ function createVisualization(json) {
 // Fade all but the current sequence, and show it in the breadcrumb trail.
 function mouseover(d) {
 
-  var percentage = (100 * d.value / totalSize).toPrecision(3);
-  var percentageString = percentage + "%";
-  if (percentage < 0.1) {
-    percentageString = "< 0.1%";
-  }
+  var percentage = d.value;
+  var percentageString = percentage;
+  //if (percentage < 0.1) {
+  //  percentageString = "< 0.1%";
+  //}
 
   d3.select("#percentage")
       .text(percentageString);
@@ -226,7 +226,7 @@ function drawLegend() {
 
   // Dimensions of legend item: width, height, spacing, radius of rounded rect.
   var li = {
-    w: 75, h: 30, s: 3, r: 3
+    w: 95, h: 30, s: 3, r: 3
   };
 
   var legend = d3.select("#legend").append("svg:svg")
