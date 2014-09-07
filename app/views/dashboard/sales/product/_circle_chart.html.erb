@@ -1,0 +1,31 @@
+<%= javascript_include_tag 'd3' %>
+<%=# stylesheet_link_tag 'sequences'
+%>
+<div id="main">
+  <div id="sequence"></div>
+  <div id="chart">
+    <div id="explanation" style="visibility: hidden;">
+      <span id="percentage"></span><br/>
+      of visits begin with this sequence of pages
+    </div>
+  </div>
+</div>
+<div id="sidebar">
+  <input type="checkbox" id="togglelegend"> Legend<br/>
+  <div id="legend" style="visibility: hidden;"></div>
+</div>
+
+<%= javascript_include_tag 'sequences' %>
+<script>
+    // Mapping of step names to colors.
+    var colors = {
+        "analytics": "#5687d1",
+        "cluster": "#7b615c",
+        "search": "#de783b",
+        "account": "#6ab975",
+        "other": "#a173d1",
+        "end": "#bbbbbb"
+    };
+    var json = JSON.parse('<%= @data_json.html_safe %>');
+    createVisualization(json);
+</script>
