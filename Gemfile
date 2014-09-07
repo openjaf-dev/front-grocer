@@ -18,7 +18,7 @@ gem 'high_voltage'
 gem 'chartkick'
 gem 'ffaker'
 gem 'therubyracer'
-#gem 'non-stupid-digest-assets'
+gem 'non-stupid-digest-assets'
 gem 'wicked'
 
 gem 'activeadmin', git: '/media/jorge/DATA/WORK/OpenJAF/activeadmin', :branch => 'master'
