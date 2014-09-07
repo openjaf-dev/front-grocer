@@ -1,0 +1,13 @@
+<% action = params[:action] %>
+<div class='col-md-10'>
+<aside id="sidebar">
+  <ul class="nav nav-tabs" role="tablist">
+    <li class= <%= "active" if action == 'by_categories' %> >
+      <%=link_to "By categories", {:controller => 'dashboard/sales/product',:action => 'by_categories'} %>
+    </li>
+    <li class= <%= "active" if action == "by_brands" %> >
+      <%=link_to "By brands", {:controller => 'dashboard/sales/product',:action => 'by_brands'} %>
+    </li>
+  </ul>
+</aside>
+</div>

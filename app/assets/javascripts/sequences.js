@@ -91,7 +91,7 @@ function createVisualization(json) {
 function mouseover(d) {
 
   var percentage = d.value;
-  var percentageString = percentage;
+  var percentageString = percentage;// + "%";
   //if (percentage < 0.1) {
   //  percentageString = "< 0.1%";
   //}
@@ -226,7 +226,7 @@ function drawLegend() {
 
   // Dimensions of legend item: width, height, spacing, radius of rounded rect.
   var li = {
-    w: 95, h: 30, s: 3, r: 3
+    w: 90, h: 30, s: 3, r: 3
   };
 
   var legend = d3.select("#legend").append("svg:svg")

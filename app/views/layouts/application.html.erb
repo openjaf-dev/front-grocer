@@ -6,10 +6,7 @@
     <title><%= content_for?(:title) ? yield(:title) : "Grocer" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Grocer" %>">
 
-    <%= stylesheet_link_tag 'main', 'data-turbolinks-track' => true %>
-    <%= stylesheet_link_tag 'font-awesome','data-turbolinks-track' => true %>
-    <%= stylesheet_link_tag 'bootstrap', 'data-turbolinks-track' => true %>
-	
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'highcharts', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'chartkick', 'data-turbolinks-track' => true %>
@@ -35,9 +32,8 @@
 						<%= render 'layouts/sidebar_links' %>
 					<% end %>
 				</div>				
-				<div class='<%= 'col-md-10' if content_for? :nav_bar %>'>
+				<div <%= 'class=col-md-10' if content_for? :nav_bar %> >
 				  <%= render :partial => 'dashboard/shared/nav_bar' if content_for? :nav_bar %>
-                  <%=link_to 'test',{:controller => 'dashboard/sales/product',:action => 'by_categories'}%>
 				  <%= yield %>
 				</div>
 			</div>

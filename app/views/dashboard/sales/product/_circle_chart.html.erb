@@ -1,6 +1,6 @@
 <%= javascript_include_tag 'd3' %>
 
-<div id="main">
+<div id="main_breadcrumb">
   <div id="sequence"></div>
   <div id="chart">
     <div id="explanation" style="visibility: hidden;">
@@ -9,15 +9,16 @@
     </div>
   </div>
 </div>
-<div id="sidebar">
+<div id="sidebar_breadcrumb">
   <input type="checkbox" id="togglelegend"> Legend<br/>
   <div id="legend" style="visibility: hidden;"></div>
 </div>
 
 <%= javascript_include_tag 'sequences' %>
-<script>
+<script type="application/javascript">
     // Mapping of step names to colors.
-    <% col=["#5687d1","#7b615c","#de783b","#6ab975","#a173d1","#bbbbbb","#5645d1","#7b415c","#de463b","#6ab785","#a134d1","#bb475b"] %>
+    <% col=["#5687d1","#7b615c","#de783b","#6ab975","#a173d1","#bbbbbb","#5645d1","#7b415c","#de463b","#6ab785","#a134d1","#bb475b",
+    "#5345d1","#67815c","#de890b","#623475","#6253d1","#b853bb","#562681","#7b265c","#d842ab","#678ba5","#a83cd1","#b0985b"] %>
     var colors = {
         <% (0..@tags.count).each do |t|%>
             <% if t == 0 %>
@@ -36,4 +37,7 @@
 
     var json = JSON.parse('<%= @data_json.html_safe %>');
     createVisualization(json);
+    /*$(document).ready(function(){
+        createVisualization(json);
+    });*/
 </script>
