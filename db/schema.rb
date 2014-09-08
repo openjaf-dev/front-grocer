@@ -11,22 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140811130646) do
-
-  create_table "active_admin_comments", force: true do |t|
-    t.string   "namespace"
-    t.text     "body"
-    t.string   "resource_id",   null: false
-    t.string   "resource_type", null: false
-    t.integer  "author_id"
-    t.string   "author_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
-  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace"
-  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+ActiveRecord::Schema.define(version: 20140907035711) do
 
   create_table "addresses", force: true do |t|
     t.string   "firstname"
@@ -40,7 +25,10 @@ ActiveRecord::Schema.define(version: 20140811130646) do
     t.string   "zipcode"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "organization_id"
   end
+
+  add_index "addresses", ["organization_id"], name: "index_addresses_on_organization_id"
 
   create_table "adjustments", force: true do |t|
     t.string   "name"
@@ -149,6 +137,30 @@ ActiveRecord::Schema.define(version: 20140811130646) do
   add_index "orders", ["bill_address_id"], name: "index_orders_on_bill_address_id"
   add_index "orders", ["ship_address_id"], name: "index_orders_on_ship_address_id"
 
+  create_table "organization_users", force: true do |t|
+    t.integer  "organization_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "organization_users", ["organization_id"], name: "index_organization_users_on_organization_id"
+  add_index "organization_users", ["user_id"], name: "index_organization_users_on_user_id"
+
+  create_table "organizations", force: true do |t|
+    t.string   "name"
+    t.string   "phone"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "owner_id"
+    t.string   "anual_sales"
+    t.integer  "employees"
+    t.string   "organization_type"
+    t.string   "demographic_market"
+  end
+
+  add_index "organizations", ["owner_id"], name: "index_organizations_on_owner_id"
+
   create_table "payments", force: true do |t|
     t.integer  "number"
     t.string   "status"
@@ -232,6 +244,7 @@ ActiveRecord::Schema.define(version: 20140811130646) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.string   "position"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

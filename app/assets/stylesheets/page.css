@@ -78,9 +78,11 @@ ul.activity-list li .activity-icon {
   display: -moz-inline-stack;
   display: inline-block;
   vertical-align: middle;
-  *vertical-align: auto;
+  /*vertical-align: auto;*/
+  vertical-align: auto;
   zoom: 1;
-  *display: inline;
+  /*display: inline;*/
+  display: inline;
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
   -ms-border-radius: 30px;
@@ -432,18 +434,18 @@ ul.nav-categories > li > a {
   display: -moz-inline-stack;
   display: inline-block;
   vertical-align: middle;
-  *vertical-align: auto;
+  vertical-align: auto;
   zoom: 1;
-  *display: inline;
+  display: inline;
   text-align: center;
 }
 .page-error .number {
   display: -moz-inline-stack;
   display: inline-block;
   vertical-align: middle;
-  *vertical-align: auto;
+  vertical-align: auto;
   zoom: 1;
-  *display: inline;
+  display: inline;
   float: left;
   text-align: right;
   font-size: 4em;
@@ -453,9 +455,9 @@ ul.nav-categories > li > a {
   display: -moz-inline-stack;
   display: inline-block;
   vertical-align: middle;
-  *vertical-align: auto;
+  vertical-align: auto;
   zoom: 1;
-  *display: inline;
+  display: inline;
   float: left;
   text-align: left;
   font-size: 1.5em;
@@ -557,9 +559,9 @@ ul.nav-categories > li > a {
   display: -moz-inline-stack;
   display: inline-block;
   vertical-align: middle;
-  *vertical-align: auto;
+  vertical-align: auto;
   zoom: 1;
-  *display: inline;
+  display: inline;
   content: "";
   vertical-align: middle;
   height: 0;
@@ -573,9 +575,12 @@ ul.nav-categories > li > a {
   display: -moz-inline-stack;
   display: inline-block;
   vertical-align: middle;
-  *vertical-align: auto;
+  /*display: inline;*/
+  display: inline;
+  /*vertical-align: auto;*/
+
   zoom: 1;
-  *display: inline;
+  /*display: inline;*/
   position: relative;
   background-color: #ececec;
   padding: 0 8px;
@@ -678,9 +683,9 @@ ul.nav-categories > li > a {
   display: -moz-inline-stack;
   display: inline-block;
   vertical-align: middle;
-  *vertical-align: auto;
+  vertical-align: auto;
   zoom: 1;
-  *display: inline;
+  display: inline;
   content: "";
   vertical-align: middle;
   height: 0;
@@ -694,9 +699,11 @@ ul.nav-categories > li > a {
   display: -moz-inline-stack;
   display: inline-block;
   vertical-align: middle;
-  *vertical-align: auto;
+  /*vertical-align: auto;*/
+  vertical-align: auto;
   zoom: 1;
-  *display: inline;
+   /*display: inline;*/
+  display: inline;
   position: relative;
   background-color: #ececec;
   padding: 0 8px;
@@ -784,9 +791,9 @@ ul.nav-categories > li > a {
   display: -moz-inline-stack;
   display: inline-block;
   vertical-align: middle;
-  *vertical-align: auto;
+  vertical-align: auto;
   zoom: 1;
-  *display: inline;
+  display: inline;
 }
 .inbox .top-menu > ul {
   margin-right: 10px;
@@ -851,9 +858,10 @@ ul.nav-categories > li > a {
   display: -moz-inline-stack;
   display: inline-block;
   vertical-align: middle;
-  *vertical-align: auto;
+  /*vertical-align: auto;*/
   zoom: 1;
-  *display: inline;
+  /*display: inline;*/
+  display: inline;
   margin: 0;
   position: relative;
   right: 8px;
@@ -995,9 +1003,11 @@ ul.nav-categories > li > a {
   display: -moz-inline-stack;
   display: inline-block;
   vertical-align: middle;
-  *vertical-align: auto;
+  /*vertical-align: auto;*/
+  vertical-align: auto;
   zoom: 1;
-  *display: inline;
+  /*display: inline;*/
+  display: inline;
   position: relative;
   top: 3px;
 }
@@ -1047,9 +1057,11 @@ ul.nav-categories > li > a {
   display: -moz-inline-stack;
   display: inline-block;
   vertical-align: middle;
-  *vertical-align: auto;
+  /*vertical-align: auto;*/
+  vertical-align: auto;
   zoom: 1;
-  *display: inline;
+  /*display: inline;*/
+  display: inline;
   margin-right: 20px;
 }
 .inbox table.message-table tr td .preview {
@@ -1060,8 +1072,10 @@ ul.nav-categories > li > a {
   display: -moz-inline-stack;
   display: inline-block;
   vertical-align: middle;
-  *vertical-align: auto;
+  /*vertical-align: auto;*/
+  vertical-align: auto;
   zoom: 1;
-  *display: inline;
+  /*display: inline;*/
+  display: inline;
   float: right;
 }

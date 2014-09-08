@@ -1,34 +1,67 @@
+					<!-- content-wrapper -->
+					
+<div class="col-md-10 content-wrapper">
+		
+	
+	<!-- main -->
+	<div class="content">
+		
+		<div class="main-content ">
+			<!-- WIDGET WIZARD -->
+			<div class="widget ">
+				<div class="widget-header"><h3><i class="fa fa-magic"></i> Registration</h3></div>
+				<div class="widget-content">
+					<div class="wizard-wrapper ">
+						<div id="demo-wizard" class="wizard">
+							<ul class="steps">
+								<li data-target="#step1" class="active"><span class="badge">1</span>Credentials<span class="chevron"></span></li>
+								<li data-target="#step2"><span class="badge">2</span>Organization<span class="chevron"></span></li>
+								<li data-target="#step3"><span class="badge">3</span>Location<span class="chevron"></span></li>
+							</ul>
+						</div>
+						<div class="step-content ">
+							<div class="step-pane active" id="step1">
+								
+					
+									
+									<div class="authform">
+									  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :role => 'form'}) do |f| %>
+									    
+									    <%= devise_error_messages! %>
+									    <div class="form-group">
+									      <%= f.label :full_name %>
+									      <%= f.text_field :name, :autofocus => true, class: 'form-control' %>
+									    </div>
+									    <div class="form-group">
+									      <%= f.label :email %>
+									      <%= f.email_field :email, class: 'form-control' %>
+									    </div>
+									    <div class="form-group">
+									      <%= f.label :position %>
+									      <%= f.text_field :position, class: 'form-control' %>
+									    </div>
+									    <div class="form-group">
+									      <%= f.label :password %>
+									      <%= f.password_field :password, class: 'form-control' %>
+									    </div>
+									    <div class="form-group">
+									      <%= f.label :password_confirmation %>
+									      <%= f.password_field :password_confirmation, class: 'form-control' %>
+									    </div>
+										 <%= f.submit "Continue", class:  "btn btn-primary btn-next" %>
+									  <% end %>
+									</div>
+									
+							
+							</div>
+                         </div>
+					 </div>
+				 </div>
+			 </div>
+		 </div>
+	 </div>
+ </div>
+			  
 
-<br>
-<div class="col-md-6 col-md-offset-1">
-	<!-- REGISTRATION FORM WITH ICONS -->
-	<div class="widget col-md-10">
-		<div class="widget-content">
-			
-			<div class="authform">
-			  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :role => 'form'}) do |f| %>
-			    <h3>Sign up</h3>
-			    <%= devise_error_messages! %>
-			    <div class="form-group">
-			      <%= f.label :name %>
-			      <%= f.text_field :name, :autofocus => true, class: 'form-control' %>
-			    </div>
-			    <div class="form-group">
-			      <%= f.label :email %>
-			      <%= f.email_field :email, class: 'form-control' %>
-			    </div>
-			    <div class="form-group">
-			      <%= f.label :password %>
-			      <%= f.password_field :password, class: 'form-control' %>
-			    </div>
-			    <div class="form-group">
-			      <%= f.label :password_confirmation %>
-			      <%= f.password_field :password_confirmation, class: 'form-control' %>
-			    </div>
-			     <%= f.submit 'Sign up', :class => 'button right' %>
-			  <% end %>
-			</div>
-			<br>
-		</div>
-	</div>
-</div>
+
+

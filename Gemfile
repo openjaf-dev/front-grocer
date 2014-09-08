@@ -18,9 +18,12 @@ gem 'high_voltage'
 gem 'chartkick'
 gem 'ffaker'
 gem 'therubyracer'
+gem 'non-stupid-digest-assets'
+gem 'wicked'
+
 #gem 'activeadmin', git: '/media/jt/DATOS/JORGE/Work/Spree/Cesar/activeadmin', :branch => 'master'
 #gem 'activeadmin', github: 'gregbell/active_admin'
-gem 'activeadmin', github: 'activeadmin'
+#gem 'activeadmin', github: 'activeadmin'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
@@ -30,7 +33,7 @@ group :development do
 end
 gem 'sqlite3'
 group :development, :test do
-  gem 'sqlite3'
+#  gem 'sqlite3'
   gem 'factory_girl_rails'
   gem 'pry-rails'
   gem 'pry-rescue'
@@ -44,7 +47,6 @@ end
 group :test do
   gem 'capybara'
   gem 'database_cleaner'
-#  gem 'faker'
   gem 'launchy'
   gem 'selenium-webdriver'
 end
