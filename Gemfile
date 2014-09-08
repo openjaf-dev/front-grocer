@@ -31,7 +31,7 @@ group :development do
   gem 'quiet_assets'
   gem 'rails_layout'
 end
-#gem 'sqlite3'
+gem 'sqlite3'
 group :development, :test do
 #  gem 'sqlite3'
   gem 'factory_girl_rails'
@@ -42,7 +42,7 @@ end
 group :production do
   gem 'thin'
   gem 'rails_12factor'
-  gem 'pg'
+#  gem 'pg'
 end
 group :test do
   gem 'capybara'
