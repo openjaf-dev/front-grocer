@@ -10,12 +10,13 @@
 	<!-- div class="container" -->
 		<div class="row">
 			<!-- logo -->
-			<div class="col-md-2 logo">
 				<%= link_to root_path do %>
-				<%= image_tag('kingadmin-logo-white.png') %>
-				<h1 class="sr-only">KingAdmin Admin Dashboard</h1>
+				  <% if user_signed_in? && !current_user.owner_organization.nil? && !current_user.owner_organization.name.nil? %>
+				  <span class="name col-md-2 " style='color:#fff;'>&nbsp;&nbsp;&nbsp;<%= current_user.owner_organization.name.capitalize %></span>
+				  <% else %>
+				  <span class="name col-md-2 " style='color:#fff;'>&nbsp;&nbsp;&nbsp;{Company Name}</span>
+				  <% end %>
 				<% end %>
-			</div>
 			<!-- end logo -->
 			<div class="col-md-10">
 				<div class="row">
@@ -210,10 +211,9 @@
 								<div class="btn-group">
 									<a href="#" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
 										<% if user_signed_in? %>
-											<%= image_tag('user-avatar.png')%>
-											<span class="name">Stacy Rose</span> <span class="caret"></span>
+											<span class="name"><%= current_user.name.capitalize %></span> <span class="caret"></span>
 										<% else %>
-											<span class="name">User</span> <span class="caret"></span>
+											<span class="name">{User}</span> <span class="caret"></span>
 										<% end %>
 									</a>
 									<ul class="dropdown-menu" role="menu">

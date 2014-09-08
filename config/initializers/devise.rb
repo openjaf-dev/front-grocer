@@ -4,14 +4,13 @@ Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
-  # config.secret_key = 'fd09e59404d3afc223ebbc93ff285eb6f330eeea06b52316cc2ba061ac37286938faf53e70e25c64ba4406c089059612b58dbe7fa98c5dc59309444214865f49'
+  # config.secret_key = 'f6e3024fe057c81da3333282808a13fca7e07affc4126b5e7bf7d9a40fe46fc4040e5397b0dbaed42eee937c23af9069be1bc299f6a9f5a896ed46204a7d9db4'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  domain_name = Rails.application.secrets.domain_name || ''
-  config.mailer_sender = 'no-reply@' + domain_name
+  config.mailer_sender = 'no-reply@' + Rails.application.secrets.domain_name
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -98,7 +97,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = 'b3746d5ef3fb94dd68bf6ac94dc412e007fd41cc0813f70d1ab6469298797cedaa2ea0753bed04b4b26d3def2c8f6091c414d734d78bef9965c481d718eb0b5a'
+  # config.pepper = 'b9809384e6e4f60b7d0f4f835c1a844884cb6cd3062a33fa425bb1b059ab17e439ccf172d42aee659cb0d1f17f19d89cdf597898e98c9a3f13147a55e9482975'
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -128,6 +127,9 @@ Devise.setup do |config|
   # ==> Configuration for :rememberable
   # The time the user will be remembered without asking for credentials again.
   # config.remember_for = 2.weeks
+
+  # Invalidates all the remember me tokens when the user signs out.
+  config.expire_all_remember_me_on_sign_out = true
 
   # If true, extends the user's remember period when remembered via cookie.
   # config.extend_remember_period = false
@@ -225,7 +227,9 @@ Devise.setup do |config|
   # config.navigational_formats = ['*/*', :html]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
-  config.sign_out_via = :delete
+  #config.sign_out_via = :delete
+  
+  config.sign_out_via = :get
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
