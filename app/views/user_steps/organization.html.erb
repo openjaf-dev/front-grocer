@@ -5,6 +5,7 @@
   
   
   <%= f.fields_for :owner_organization do |organization_form| %>
+  
 
      <div class="field">
        <%= organization_form.label :organization_name %><br />
@@ -19,7 +20,7 @@
 	 
      <div class="field">
        <%= organization_form.label :organization_type %><br />
-	   <%= select_tag :organization_type, options_for_select(["Convenience", "Delicatessen",	"Greengrocer (Fruits and Vegetables)",	"Health food store",	"Coffee Shop",	"Supermarket",	"Hypermarket"])%>
+	   <%= select_tag :organization_type, options_for_select(["Convenience", "Delicatessen",	"Greengrocer (Fruits and Vegetables)",	"Health food store",	"Coffee Shop",	"Supermarket",	"Hypermarket"], class:"multiselect")%>
      </div>
 	 
      <div class="field">
