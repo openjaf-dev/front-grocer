@@ -36,8 +36,6 @@
     };
 
     var json = JSON.parse('<%= @data_json.html_safe %>');
-    createVisualization(json);
-    /*$(document).ready(function(){
-        createVisualization(json);
-    });*/
+    var ready = createVisualization(json);
+    $(document).on("page:load ready", ready);
 </script>
