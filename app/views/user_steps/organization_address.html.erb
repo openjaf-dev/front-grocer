@@ -12,16 +12,17 @@
 	   
   	 <%= organization_form.fields_for :address do |address_form| %>
 	 
-	 	<div class="field">
+	 	<div class="form-group">
 	 		<%= address_form.label :address %><br />
 	 		<%= address_form.text_field :address1 %>
 	 	</div>
 
-	 	<div class="field">
+	 	<div class="form-group">
 	 		<%= address_form.label :city %><br />
 	 		<%= address_form.text_field :city %>
 	 	</div>
-	 	<div class="field">
+		
+	 	<div class="form-group">
 	 		<%= address_form.label :state %><br />
 	 	   <%= select_tag :state, options_for_select(
 		   %W[AL AK AS AZ AR CA CO CT DE DC FM FL GA GU HI ID IL IN IA KS KY LA ME MH MD
@@ -31,11 +32,14 @@ TX UT VT VI VA WA WV WI WY])%>
 
 	 	<%= address_form.hidden_field :country, value: 'US' %>
 
-	 	<div class="field">
-	 		<%= address_form.label :phone %><br />
-	 		<%= address_form.text_field :phone %>
-	 	</div>
-	 	<div class="field">
+		<div class="form-group">
+ 			<%= address_form.label :phone , html: {for: "phone", class:"col-sm-5 control-label"} %> <br/>
+			<%= address_form.text_field :phone, html: {type:"text", id:"phone", class:"form-control"}%>
+		</div>
+		
+
+		
+	 	<div class="form-group">
 	 		<%= address_form.label :zipcode %><br />
 	 		<%= address_form.text_field :zipcode %>
 	 	</div>
