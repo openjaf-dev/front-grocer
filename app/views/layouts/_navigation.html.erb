@@ -11,10 +11,10 @@
 		<div class="row">
 			<!-- logo -->
 				<%= link_to root_path do %>
-				  <% if user_signed_in? %>
+				  <% if user_signed_in? && !current_user.owner_organization.nil? && !current_user.owner_organization.name.nil? %>
 				  <span class="name col-md-2 " style='color:#fff;'>&nbsp;&nbsp;&nbsp;<%= current_user.owner_organization.name.capitalize %></span>
 				  <% else %>
-				  <h3 class="col-md-2 ">&nbsp; Company Name</h3>
+				  <span class="name col-md-2 " style='color:#fff;'>&nbsp;&nbsp;&nbsp;{Company Name}</span>
 				  <% end %>
 				<% end %>
 			<!-- end logo -->
@@ -213,7 +213,7 @@
 										<% if user_signed_in? %>
 											<span class="name"><%= current_user.name.capitalize %></span> <span class="caret"></span>
 										<% else %>
-											<span class="name">User</span> <span class="caret"></span>
+											<span class="name">{User}</span> <span class="caret"></span>
 										<% end %>
 									</a>
 									<ul class="dropdown-menu" role="menu">
