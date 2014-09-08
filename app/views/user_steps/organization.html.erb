@@ -1,0 +1,39 @@
+
+<% @user.owner_organization = Organization.new if @user.owner_organization.nil? %>
+
+<%= render layout: 'form' do |f| %>
+  
+  
+  <%= f.fields_for :owner_organization do |organization_form| %>
+
+     <div class="field">
+       <%= organization_form.label :organization_name %><br />
+       <%= organization_form.text_field :name %>
+     </div>
+
+     <div class="field">
+       <%= organization_form.label :number_of_employees %><br />
+	   <%= select_tag :employees, options_for_select(['1-5','6-10', '11-19', '20+'])%>
+  
+     </div>
+	 
+     <div class="field">
+       <%= organization_form.label :organization_type %><br />
+	   <%= select_tag :organization_type, options_for_select(["Convenience", "Delicatessen",	"Greengrocer (Fruits and Vegetables)",	"Health food store",	"Coffee Shop",	"Supermarket",	"Hypermarket"])%>
+     </div>
+	 
+     <div class="field">
+       <%= organization_form.label :anual_sales %><br />
+	   <%= select_tag :anual_sales, options_for_select(["$0-$0.2M", "$0.2M - $0.5M", "$0.5M - $1.0M",  
+		"$1.0M - $5.0M", "$5.0M - $9.9M", "$10.0M+"])%>
+
+     </div>
+	 
+     <div class="field">
+       <%= organization_form.label :demographic_market %><br />
+	   <%= select_tag :demographic_market, options_for_select(["General","Hispanic","Chinese","Indian","Other Asian",	"European","African"])%>
+     </div>
+	 
+   <% end %>
+  
+<% end %>

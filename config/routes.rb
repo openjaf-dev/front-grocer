@@ -6,9 +6,15 @@ Rails.application.routes.draw do
 #  ActiveAdmin.routes(self)
   
   root to: 'visitors#index'
-  devise_for :users
-  resources :users
+  devise_for :users, :controllers => {:registrations => "registrations"}
+  resources :users #, only: [:index]
+  resources :user_steps
+  resources :organizations
  
+  devise_scope :user do
+    #match '/users/sign_out' => 'sessions#destroy', via: [:get, :delete]
+    get 'users/sign_out' => "devise/sessions#destroy"
+  end
   
 #  devise_scope :user do
 #    authenticated :user do
