@@ -5,7 +5,7 @@ var radius = Math.min(width, height) / 2;
 
 // Breadcrumb dimensions: width, height, spacing, width of tip/tail.
 var b = {
-  w: 95, h: 30, s: 5, t: 10
+  w: 105, h: 30, s: 5, t: 10
 };
 
 // Mapping of step names to colors.
@@ -56,6 +56,8 @@ function createVisualization(json) {
   // Basic setup of page elements.
   initializeBreadcrumbTrail();
   drawLegend();
+  d3.select("#togglelegend").attr("checked","checked");
+  toggleLegend();
   d3.select("#togglelegend").on("click", toggleLegend);
 
   // Bounding circle underneath the sunburst, to make it easier to detect
