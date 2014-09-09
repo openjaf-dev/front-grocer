@@ -15,7 +15,7 @@
 </div>
 
 <%= javascript_include_tag 'sequences' %>
-<script type="application/javascript">
+<script>
     // Mapping of step names to colors.
     <% col=["#5687d1","#7b615c","#de783b","#6ab975","#a173d1","#bbbbbb","#5645d1","#7b415c","#de463b","#6ab785","#a134d1","#bb475b",
     "#5345d1","#67815c","#de890b","#623475","#6253d1","#b853bb","#562681","#7b265c","#d842ab","#678ba5","#a83cd1","#b0985b"] %>
@@ -37,6 +37,4 @@
 
     var json = JSON.parse('<%= @data_json.html_safe %>');
     createVisualization(json);
-    var ready = createVisualization(json);
-    $(document).on("page:load ready", ready);
 </script>

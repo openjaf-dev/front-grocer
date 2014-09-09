@@ -8,14 +8,13 @@
 
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'highcharts', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'chartkick', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'highcharts'%>
+    <%= javascript_include_tag 'chartkick' %>
 	
 	
 
     <%= csrf_meta_tags %>
-	<%= stylesheet_link_tag '//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css', media: 'all', 'data-turbolinks-track' => true
-    %>
+	<%= stylesheet_link_tag '//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css', media: 'all' %>
 	
   </head>
   <body>
@@ -40,7 +39,7 @@
 		</div>
     </div>
     <%= yield :charts_js %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application' %>
 	
 	<script src="http://www.google.com/jsapi"></script>
   </body>
