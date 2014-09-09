@@ -362,15 +362,13 @@ $(document).ready(function(){
 			$.gritter.add({
 				title: 'Jane Doe',
 				text: 'Online',
-				//image: 'assets/img/user3.png',
-				image: url(image-path('user3.png')
+				image: url(image-path('user3.png')),
 				time: 2000,
 				after_close: function() {
 					$.gritter.add({
 						title: 'Jordan Smith',
 						text: 'Offline',
-						//image: 'assets/img/user5.png',
-						image: url(image-path('user5.png')
+						image: url(image-path('user5.png')),
 						time: 2000
 					});
 
