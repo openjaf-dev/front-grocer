@@ -1,102 +1,102 @@
-					<!-- content-wrapper -->
-										
-					<div class="col-md-10 content-wrapper">
+<!-- content-wrapper -->
+					
+<div class="col-md-10 content-wrapper">
+	<div class="row">
+		<div class="col-md-4 ">
+			<ul class="breadcrumb">
+				<li><i class="fa fa-home"></i><a href="#">Home</a></li>
+				<li class="active">Overview</li>
+			</ul>
+		</div>
+		<div class="col-md-8 ">
+			<div class="top-content">
+				<ul class="list-inline mini-stat">
+					<li>
+						<h5>CUSTOMERS <span class="stat-value stat-color-seagreen"><i class="fa fa-plus-circle"></i> 43,748</span></h5>
+						<span id="mini-bar-chart3" class="mini-bar-chart"></span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<!-- main -->
+	<div class="content">
+
+		<div class="main-content">
+
+			
+			<!-- WIDGET MAIN CHART WITH TABBED CONTENT -->
+			<div class="widget">
+				<div class="widget-header">
+					<h3><i class="fa fa-bar-chart-o"></i> Sales Stat</h3> <em>- Visits, Sales and Traffic Source</em> <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
+					<div class="btn-group widget-header-toolbar">
+						<a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+						<a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
+						<a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
+					</div>
+				</div>
+				<div class="widget-content">
+					<!-- chart tab nav -->
+					<div class="chart-nav">
+						<strong>Select period: </strong>
+						<ul id="sales-stat-tab">
+							<li class="active"><a href="#week">Weekly</a></li>
+							<li><a href="#month">Monthly</a></li>
+							<li><a href="#year">Annually</a></li>
+						</ul>
+					</div>
+					<!-- end chart tab nav -->
+
+					<!-- chart placeholder-->
+					<div class="chart-content">
+						<div class="demo-flot-chart sales-chart"></div>
+					</div>
+					<!-- end chart placeholder-->
+
+					<hr class="separator">
+
+					<!-- secondary stat -->
+					<div class="secondary-stat">
 						<div class="row">
-							<div class="col-md-4 ">
-								<ul class="breadcrumb">
-									<li><i class="fa fa-home"></i><a href="#">Home</a></li>
-									<li class="active">Overview</li>
-								</ul>
+							<div class="col-lg-4">
+								<div id="secondary-stat-item1" class="secondary-stat-item big-number-stat clearfix">
+									<div class="data">
+										<span class="col-left big-number">260</span>
+										<span class="col-right"><em>New Orders</em><em>3% <i class="fa fa-caret-down"></i></em></span>
+									</div>
+									<div id="spark-stat1" class="inlinesparkline">Loading...</div>
+								</div>
 							</div>
-							<div class="col-md-8 ">
-								<div class="top-content">
-									<ul class="list-inline mini-stat">
-										<li>
-											<h5>CUSTOMERS <span class="stat-value stat-color-seagreen"><i class="fa fa-plus-circle"></i> 43,748</span></h5>
-											<span id="mini-bar-chart3" class="mini-bar-chart"></span>
-										</li>
-									</ul>
+							<div class="col-lg-4">
+								<div id="secondary-stat-item2" class="secondary-stat-item big-number-stat clearfix">
+									<p class="data">
+										<span class="col-left big-number">$23,000</span>
+										<span class="col-right"><em>Revenue</em><em>5% <i class="fa fa-caret-up"></i></em></span>
+									</p>
+									<div id="spark-stat2" class="inlinesparkline">Loading...</div>
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<div id="secondary-stat-item3" class="secondary-stat-item big-number-stat clearfix">
+									<p class="data">
+										<span class="col-left big-number">$47,000</span>
+										<span class="col-right"><em>Total Sales</em><em>7% <i class="fa fa-caret-up"></i></em></span>
+									</p>
+									<div id="spark-stat3" class="inlinesparkline">Loading...</div>
 								</div>
 							</div>
 						</div>
-						
-						<!-- main -->
-						<div class="content">
-	
-							<div class="main-content">
-				
-								
-								<!-- WIDGET MAIN CHART WITH TABBED CONTENT -->
-								<div class="widget">
-									<div class="widget-header">
-										<h3><i class="fa fa-bar-chart-o"></i> Sales Stat</h3> <em>- Visits, Sales and Traffic Source</em> <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
-										<div class="btn-group widget-header-toolbar">
-											<a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
-											<a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
-											<a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
-										</div>
-									</div>
-									<div class="widget-content">
-										<!-- chart tab nav -->
-										<div class="chart-nav">
-											<strong>Select period: </strong>
-											<ul id="sales-stat-tab">
-												<li class="active"><a href="#week">Weekly</a></li>
-												<li><a href="#month">Monthly</a></li>
-												<li><a href="#year">Annually</a></li>
-											</ul>
-										</div>
-										<!-- end chart tab nav -->
+					</div>
+					<!-- end secondary stat -->
+				</div>
+			</div>
+			<!-- END WIDGET MAIN CHART WITH TABBED CONTENT -->
+			
 
-										<!-- chart placeholder-->
-										<div class="chart-content">
-											<div class="demo-flot-chart sales-chart"></div>
-										</div>
-										<!-- end chart placeholder-->
-
-										<hr class="separator">
-
-										<!-- secondary stat -->
-										<div class="secondary-stat">
-											<div class="row">
-												<div class="col-lg-4">
-													<div id="secondary-stat-item1" class="secondary-stat-item big-number-stat clearfix">
-														<div class="data">
-															<span class="col-left big-number">260</span>
-															<span class="col-right"><em>New Orders</em><em>3% <i class="fa fa-caret-down"></i></em></span>
-														</div>
-														<div id="spark-stat1" class="inlinesparkline">Loading...</div>
-													</div>
-												</div>
-												<div class="col-lg-4">
-													<div id="secondary-stat-item2" class="secondary-stat-item big-number-stat clearfix">
-														<p class="data">
-															<span class="col-left big-number">$23,000</span>
-															<span class="col-right"><em>Revenue</em><em>5% <i class="fa fa-caret-up"></i></em></span>
-														</p>
-														<div id="spark-stat2" class="inlinesparkline">Loading...</div>
-													</div>
-												</div>
-												<div class="col-lg-4">
-													<div id="secondary-stat-item3" class="secondary-stat-item big-number-stat clearfix">
-														<p class="data">
-															<span class="col-left big-number">$47,000</span>
-															<span class="col-right"><em>Total Sales</em><em>7% <i class="fa fa-caret-up"></i></em></span>
-														</p>
-														<div id="spark-stat3" class="inlinesparkline">Loading...</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<!-- end secondary stat -->
-									</div>
-								</div>
-								<!-- END WIDGET MAIN CHART WITH TABBED CONTENT -->
-								
-
-								
+			
 
 
-							</div><!-- /main-content -->
-						</div><!-- /main -->
-					</div><!-- /content-wrapper -->
+		</div><!-- /main-content -->
+	</div><!-- /main -->
+</div><!-- /content-wrapper -->

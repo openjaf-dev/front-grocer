@@ -12,7 +12,8 @@
 			<!-- logo -->
 				<%= link_to root_path do %>
 				  <% if user_signed_in? && !current_user.owner_organization.nil? && !current_user.owner_organization.name.nil? %>
-				  <span class="name col-md-2 " style='color:#fff;'>&nbsp;&nbsp;&nbsp;<%= current_user.owner_organization.name.capitalize %></span>
+				  <span class="name col-md-2 " style='color:#fff;'>
+					  &nbsp;&nbsp;&nbsp;<%= current_user.owner_organization.name.capitalize %></span>
 				  <% else %>
 				  <span class="name col-md-2 " style='color:#fff;'>&nbsp;&nbsp;&nbsp;{Company Name}</span>
 				  <% end %>
