@@ -11,37 +11,37 @@
 // about supported directives.
 //
 
-// require jquery
-// require jquery_ujs
+//= require jquery
+//= require jquery_ujs
 //= require turbolinks
 //= require chartkick
 
-//= require jquery-2.1.0.min.js
+//= require jquery-2.1.0.min
 
-//= require bootstrap.js
-//= require modernizr.js
-//= require bootstrap-tour.custom.js
-//= require king-common.js
-//= require deliswitch.js
+//= require bootstrap
+//= require modernizr
+//= require bootstrap-tour.custom
+//= require king-common
+//= require deliswitch
 
-//= require bootstrap-switch.min.js
-//= require jquery.masked-input.min.js
-//= require bootstrap-multiselect.js
-//= require jquery-ui-1.10.4.custom.min.js
-//= require jQAllRangeSliders-min.js
-//= require bootstrap-colorpicker.min.js
-//= require jquery.simplecolorpicker.js
-//= require bootstrap.touchspin.js
-//= require bootstrap-datepicker.js
-//= require daterangepicker.js
-//= require moment.min.js
-//= require bootstrap-slider.js
+//= require bootstrap-switch.min
+//= require jquery.masked-input.min
+//= require bootstrap-multiselect
+//= require jquery-ui-1.10.4.custom.min
+//= require jQAllRangeSliders-min
+//= require bootstrap-colorpicker.min
+//= require jquery.simplecolorpicker
+//= require bootstrap.touchspin
+//= require bootstrap-datepicker
+//= require daterangepicker
+//= require moment.min
+//= require bootstrap-slider
 //= require select2.min.js
-//= require bootstrap-tagsinput.min.js
-//= require king-elements.js
+//= require bootstrap-tagsinput.min
+//= require king-elements
 
 //= require stat/colorbrewer
-//= require stat/d3.min.js
+//= require stat/d3.min
 
 //= require stat/jquery.easypiechart.min
 //= require raphael-2.1.0.min

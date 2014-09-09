@@ -25,10 +25,20 @@
 			<i class="toggle-icon fa fa-angle-left"></i></a>
 			<ul class="sub-menu open">
 				<li class="<%= 'active' if params[:controller] =~ /^products/ %>"  >
-					 <%=link_to  "#" do %> 
+					 <%=link_to :controller => 'dashboard/sales/product',:action => 'by_categories' do %>
 					 	<span class="text">Products</span> 
 					 <% end %> 
 				</li>
+              <li class="<%= 'active' if params[:controller] =~ /^products/ %>"  >
+                <a href="#">
+                    <span class="text">Value</span>
+                </a>
+              </li>
+              <li class="<%= 'active' if params[:controller] =~ /^products/ %>"  >
+                <a href="#">
+                    <span class="text">Quantity</span>
+                </a>
+              </li>
 			</ul>
 		</li>
 		

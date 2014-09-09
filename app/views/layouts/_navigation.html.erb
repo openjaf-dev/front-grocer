@@ -211,7 +211,7 @@
 								<div class="btn-group">
 									<a href="#" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
 										<% if user_signed_in? %>
-											<span class="name"><%= current_user.name.capitalize %></span> <span class="caret"></span>
+											<span class="name"><%= current_user.name.capitalize if current_user.name %></span> <span class="caret"></span>
 										<% else %>
 											<span class="name">{User}</span> <span class="caret"></span>
 										<% end %>

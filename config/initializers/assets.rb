@@ -132,7 +132,9 @@ Rails.application.config.assets.precompile += %w( font-awesome.css )
 Rails.application.config.assets.precompile += %w( stat/colorbrewer.js )
 Rails.application.config.assets.precompile += %w( stat/d3.min.js )
 Rails.application.config.assets.precompile += %w( king-chart-stat.js )
-
+Rails.application.config.assets.precompile += %w( d3.js )
+#Rails.application.config.assets.precompile += %w( sequences.css )
+Rails.application.config.assets.precompile += %w( sequences.js )
 
 
 
