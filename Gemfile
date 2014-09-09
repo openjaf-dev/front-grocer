@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-#source 'file:///home/jorge/mygems/'
 ruby '2.1.2'
 gem 'rails', '4.1.4'
 gem 'sass', '3.2.0'
@@ -23,8 +22,6 @@ gem 'wicked'
 
 gem 'therubyracer', :platforms => :ruby
 
-#gem 'activeadmin', git: '/media/jorge/DATA/WORK/OpenJAF/activeadmin', :branch => 'master'
-#gem 'activeadmin', github: 'gregbell/active_admin'
 #gem 'activeadmin', github: 'activeadmin'
 group :development do
   gem 'better_errors'
@@ -33,7 +30,6 @@ group :development do
   gem 'quiet_assets'
   gem 'rails_layout'
 end
-#gem 'sqlite3'
 group :development, :test do
   gem 'sqlite3'
   gem 'factory_girl_rails'
