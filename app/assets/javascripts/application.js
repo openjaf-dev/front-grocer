@@ -11,8 +11,8 @@
 // about supported directives.
 //
 
-//= require jquery
-//= require jquery_ujs
+// require jquery
+// require jquery_ujs
 //= require turbolinks
 //= require chartkick
 
@@ -45,6 +45,7 @@
 
 //= require stat/jquery.easypiechart.min
 //= require raphael-2.1.0.min
+
 //= require stat/flot/jquery.flot.min
 //= require stat/flot/jquery.flot.resize.min
 //= require stat/flot/jquery.flot.time.min
