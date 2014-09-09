@@ -11,9 +11,9 @@
 // about supported directives.
 //
 
-//= require jquery
-//= require jquery_ujs
-//= require turbolinks
+// require jquery
+// require jquery_ujs
+// require turbolinks
 //= require chartkick
 
 //= require jquery-2.1.0.min
