@@ -2,51 +2,43 @@
   
   <%= f.fields_for :owner_organization do |organization_form| %>
   
-	  <%= organization_form.hidden_field :name %>
-	  <%= organization_form.hidden_field :employees %>
-	  <%= organization_form.hidden_field :organization_type %>
-	  <%= organization_form.hidden_field :demographic_market %>
-      <% organization_form.object = f.object.owner_organization %> 
+	 <%= organization_form.hidden_field :name %>
+	 <%= organization_form.hidden_field :employees %>
+	 <%= organization_form.hidden_field :organization_type %>
+	 <%= organization_form.hidden_field :demographic_market %>
+     <% organization_form.object = f.object.owner_organization %> 
 	  
-	  <% organization_form.object.address = Address.new if organization_form.object.address.nil?  %>
+	 <% organization_form.object.address = Address.new if organization_form.object.address.nil?  %>
 	   
   	 <%= organization_form.fields_for :address do |address_form| %>
 	 
 	 	<div class="form-group">
-	 		<%= address_form.label :address %><br />
+	 		<%= address_form.label :address %><br/>
 	 		<%= address_form.text_field :address1 %>
 	 	</div>
 
 	 	<div class="form-group">
-	 		<%= address_form.label :city %><br />
+	 		<%= address_form.label :city %><br/>
 	 		<%= address_form.text_field :city %>
 	 	</div>
 		
 	 	<div class="form-group">
-	 		<%= address_form.label :state %><br />
+	 	   <%= address_form.label :state %><br/>
 	 	   <%= select_tag :state, options_for_select(
 		   %W[AL AK AS AZ AR CA CO CT DE DC FM FL GA GU HI ID IL IN IA KS KY LA ME MH MD
 MA MI MN MS MO MT NE NV NH NJ NM NY NC ND MP OH OK OR PW PA PR RI SC SD TN
-TX UT VT VI VA WA WV WI WY])%>
+TX UT VT VI VA WA WV WI WY]) %>
 	 	</div>
 
 	 	<%= address_form.hidden_field :country, value: 'US' %>
 
 	 	<div class="form-group">
-	 		<%= address_form.label :phone , html: {for: "phone" }%><br />
-	 		<%= address_form.text_field :phone, html: {type:"text" id:"phone" class:"form-control"}%>
+	 		<%= address_form.label :phone, html: {for: "phone" } %><br/>
+	 		<%= address_form.text_field :phone, html: {type:"text", id:"phone", class:"form-control"} %>
 	 	</div>
-		<div class="form-group">
- 			<%= address_form.label :phone , html: {for: "phone", class:"col-sm-5 control-label"} %> <br/>
-			<div class="col-sm-7">
-			<%= address_form.text_field :phone, html: {type:"text", id:"phone", class:"form-control"}%>
-			</div>
-		</div>
-		
-
 		
 	 	<div class="form-group">
-	 		<%= address_form.label :zipcode %><br />
+	 		<%= address_form.label :zipcode %><br/>
 	 		<%= address_form.text_field :zipcode %>
 	 	</div>
 		
