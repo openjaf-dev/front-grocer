@@ -21,7 +21,7 @@ gem 'therubyracer'
 gem 'non-stupid-digest-assets'
 gem 'wicked'
 
-gem 'activeadmin', git: '/media/jorge/DATA/WORK/OpenJAF/activeadmin', :branch => 'master'
+#gem 'activeadmin', git: '/media/jorge/DATA/WORK/OpenJAF/activeadmin', :branch => 'master'
 #gem 'activeadmin', github: 'gregbell/active_admin'
 #gem 'activeadmin', github: 'activeadmin'
 group :development do
