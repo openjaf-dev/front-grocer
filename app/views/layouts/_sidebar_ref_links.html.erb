@@ -3,7 +3,7 @@
 	
 	<ul class="main-menu">
      <li>
-		 <%=link_to  "/demo-dashboard" do %> 
+		 <%=link_to  root_path do %> 
 		 	<i class="fa fa-dashboard fa-fw"></i><span class="text">Dashboard</span>
 		 <% end %> 
 	 </li>
@@ -11,7 +11,7 @@
 		<li class="active"><a href="#" class="js-sub-menu-toggle"><i class="fa fa-bar-chart-o fw"></i><span class="text">Sales</span>
 			<i class="toggle-icon fa fa-angle-left"></i></a>
 			<ul class="sub-menu open">
-			   <% ['revenues','transactions','items','adjustments','taxes','shipments','sources'].each do |resource| %>
+			   <% ['revenues','transactions','items','adjustments','taxes','shipments'].each do |resource| %>
 			     <li>
 					 <%=link_to  "/dashboard/sales/#{resource}" do %> 
 					 	<span class="text"><%= resource.camelize %></span> 

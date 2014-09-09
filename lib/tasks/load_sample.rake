@@ -15,17 +15,32 @@ namespace :sample do
   #  OrderTotal.delete_all
   #  puts 'All Orders Total Deleted.'
     
-    all_taxons = [
-      { "breadcrumb" => ["Categories","Bags"] },
-      { "breadcrumb" => ["Categories","Mugs"] },
-      { "breadcrumb" => ["Categories","Clothes", "T-Shirts" ] },
-      { "breadcrumb" => ["Categories","Clothes", "Shirts" ] },
-      { "breadcrumb" => ["Brands","Spree"] },
-      { "breadcrumb" => ["Brands","Ruby"] },
-      { "breadcrumb" => ["Brands","Apache"] },
-      { "breadcrumb" => ["Brands","Rails"] },
-      { "breadcrumb" => ["Brands","Open Source"] }
-    ]
+  #  all_taxons = [
+  #    { "breadcrumb" => ["Categories","Bags"] },
+  #    { "breadcrumb" => ["Categories","Mugs"] },
+  #    { "breadcrumb" => ["Categories","Clothes", "T-Shirts" ] },
+  #    { "breadcrumb" => ["Categories","Clothes", "Shirts" ] },
+  #    { "breadcrumb" => ["Brands","Spree"] },
+  #    { "breadcrumb" => ["Brands","Ruby"] },
+  #    { "breadcrumb" => ["Brands","Apache"] },
+  #    { "breadcrumb" => ["Brands","Rails"] },
+  #    { "breadcrumb" => ["Brands","Open Source"] }
+  #  ]
+    
+      all_taxons = [
+        { "breadcrumb" => ["Categories","Beverages"] },
+        { "breadcrumb" => ["Categories","Bread/Bakery"] },
+        { "breadcrumb" => ["Categories","Canned/Jarred Goods"] },
+        { "breadcrumb" => ["Categories","Dairy", "Cheeses" ] },
+        { "breadcrumb" => ["Categories","Dairy", "Eggs" ] },
+        { "breadcrumb" => ["Categories","Dairy", "Milk" ] },
+        { "breadcrumb" => ["Categories","Dairy", "Yogourt" ] },                  
+        { "breadcrumb" => ["Brands","Frozen Foods"] },
+        { "breadcrumb" => ["Brands","Meat"] },
+        { "breadcrumb" => ["Brands","Produce"] },
+        { "breadcrumb" => ["Brands","Cleaners"] },
+        { "breadcrumb" => ["Brands","Paper Goods"] }
+      ]    
     
     sizes = ["Small","Medium","Large","Extra Large"]
     colors = ["white", "Red","Green","Blue", "Black", "Yelow", "Lilac"]

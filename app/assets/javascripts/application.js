@@ -13,7 +13,7 @@
 
 // require jquery
 // require jquery_ujs
-// require turbolinks
+//= require turbolinks
 //= require chartkick
 
 //= require jquery-2.1.0.min
@@ -45,6 +45,7 @@
 
 //= require stat/jquery.easypiechart.min
 //= require raphael-2.1.0.min
+
 //= require stat/flot/jquery.flot.min
 //= require stat/flot/jquery.flot.resize.min
 //= require stat/flot/jquery.flot.time.min
@@ -104,6 +105,8 @@
 //= require bootstrap-multiselect
 //= require king-chart-stat
 
-// require_tree .
+
 // require bootstrap-sprockets
 // require_self
+
+
