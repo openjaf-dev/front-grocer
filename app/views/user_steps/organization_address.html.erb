@@ -32,9 +32,15 @@ TX UT VT VI VA WA WV WI WY])%>
 
 	 	<%= address_form.hidden_field :country, value: 'US' %>
 
+	 	<div class="form-group">
+	 		<%= address_form.label :phone , html: {for: "phone" }%><br />
+	 		<%= address_form.text_field :phone, html: {type:"text" id:"phone" class:"form-control"}%>
+	 	</div>
 		<div class="form-group">
  			<%= address_form.label :phone , html: {for: "phone", class:"col-sm-5 control-label"} %> <br/>
+			<div class="col-sm-7">
 			<%= address_form.text_field :phone, html: {type:"text", id:"phone", class:"form-control"}%>
+			</div>
 		</div>
 		
 
