@@ -169,11 +169,10 @@ function initializeBreadcrumbTrail() {
 // Generate a string that describes the points of a breadcrumb polygon.
 function breadcrumbPoints(d, i) {
   var points = [];
-  var len= d.name.length % 2 == 0 ? d.name.length : d.name.length - 1;
   points.push("0,0");
-  points.push((d.name.length <= 5 ? b.w : (len * 10)) + ",0");
-  points.push((d.name.length <= 5 ? b.w : (len * 10)) + b.t + "," + (b.h / 2));
-  points.push((d.name.length <= 5 ? b.w : (len * 10)) + "," + b.h);
+  points.push(b.w + ",0");
+  points.push(b.w + b.t + "," + (b.h / 2));
+  points.push(b.w + "," + b.h);
   points.push("0," + b.h);
   if (i > 0) { // Leftmost breadcrumb; don't include 6th vertex.
     points.push(b.t + "," + (b.h / 2));
@@ -197,19 +196,15 @@ function updateBreadcrumbs(nodeArray, percentageString) {
       .style("fill", function(d) { return colors[d.name]; });
 
   entering.append("svg:text")
-      .attr("x",function(d,i){
-          var len = d.name.length % 2 == 0 ? d.name.length : d.name.length - 1 ;
-          return ((d.name.length <= 5 ? b.w : (len * 10)) / 2 ) ;
-      })
+      .attr("x", (b.w + b.t) / 2)
       .attr("y", b.h / 2)
       .attr("dy", "0.35em")
       .attr("text-anchor", "middle")
-      .text(function(d) { return d.name; });
+      .text(function(d) { return d.name.length < 11 ? d.name : ( d.name.substring(0,8) + "..." ); });
 
   // Set position for entering and updating nodes.
   g.attr("transform", function(d, i) {
-      var len = d.name.length % 2 == 0 ? d.name.length : d.name.length - 1;
-      return "translate(" + i * ((d.name.length <= 5 ? b.w : (len * 10)) + b.s) + ", 0)";
+    return "translate(" + i * (b.w + b.s) + ", 0)";
   });
 
   // Remove exiting nodes.
