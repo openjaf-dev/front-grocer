@@ -363,7 +363,7 @@ $(document).ready(function(){
 				title: 'Jane Doe',
 				text: 'Online',
 				//image: 'assets/img/user3.png',
-				image: url(image-path('user3.png')
+				image: url(image-path('user3.png'),
 				time: 2000,
 				after_close: function() {
 					$.gritter.add({

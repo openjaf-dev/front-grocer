@@ -17,9 +17,11 @@ gem 'high_voltage'
 #gem 'simple_form'
 gem 'chartkick'
 gem 'ffaker'
-gem 'therubyracer'
+#gem 'therubyracer'
 gem 'non-stupid-digest-assets'
 gem 'wicked'
+
+gem 'therubyracer', :platforms => :ruby
 
 #gem 'activeadmin', git: '/media/jorge/DATA/WORK/OpenJAF/activeadmin', :branch => 'master'
 #gem 'activeadmin', github: 'gregbell/active_admin'
@@ -39,10 +41,11 @@ group :development, :test do
   gem 'pry-rescue'
   gem 'rspec-rails'
 end
+gem 'pg'
 group :production do
   gem 'thin'
   gem 'rails_12factor'
-  gem 'pg'
+  #gem 'pg'
 end
 group :test do
   gem 'capybara'
