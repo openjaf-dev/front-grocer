@@ -170,7 +170,7 @@ function initializeBreadcrumbTrail() {
 function breadcrumbPoints(d, i) {
   var points = [];
   points.push("0,0");
-  points.push(b.w + ",0");
+  points.push(b.w  + ",0");
   points.push(b.w + b.t + "," + (b.h / 2));
   points.push(b.w + "," + b.h);
   points.push("0," + b.h);
