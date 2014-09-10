@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140907035711) do
+ActiveRecord::Schema.define(version: 20140910122448) do
 
   create_table "addresses", force: true do |t|
     t.string   "firstname"
@@ -188,6 +188,17 @@ ActiveRecord::Schema.define(version: 20140907035711) do
     t.datetime "updated_at"
   end
 
+  create_table "products_taxons", force: true do |t|
+    t.integer  "product_id"
+    t.integer  "taxon_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "position"
+  end
+
+  add_index "products_taxons", ["product_id"], name: "index_products_taxons_on_product_id"
+  add_index "products_taxons", ["taxon_id"], name: "index_products_taxons_on_taxon_id"
+
   create_table "properties", force: true do |t|
     t.string   "name"
     t.string   "presentation"
@@ -229,6 +240,28 @@ ActiveRecord::Schema.define(version: 20140907035711) do
   end
 
   add_index "sources", ["payment_id"], name: "index_sources_on_payment_id"
+
+  create_table "taxonomies", force: true do |t|
+    t.string   "name"
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "taxons", force: true do |t|
+    t.string   "name"
+    t.string   "permalink"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "parent_id"
+    t.integer  "taxonomy_id"
+    t.integer  "position"
+    t.integer  "lft"
+    t.integer  "rgt"
+    t.integer  "depth"
+  end
+
+  add_index "taxons", ["taxonomy_id"], name: "index_taxons_on_taxonomy_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

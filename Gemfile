@@ -20,6 +20,8 @@ gem 'ffaker'
 gem 'therubyracer'
 gem 'non-stupid-digest-assets'
 gem 'wicked'
+gem 'awesome_nested_set'
+gem 'acts_as_list'
 
 #gem 'activeadmin', git: '/media/jorge/DATA/WORK/OpenJAF/activeadmin', :branch => 'master'
 #gem 'activeadmin', github: 'gregbell/active_admin'
