@@ -11,7 +11,7 @@
 		<li><a href="#" class="js-sub-menu-toggle"><i class="fa fa-bar-chart-o fw"></i><span class="text">Sales</span>
 			<i class="toggle-icon fa fa-angle-left"></i></a>
 			<ul class="sub-menu open">
-			   <% ['revenues','transactions','items','adjustments','taxes','shipments'].each do |resource| %>
+			   <% ['revenues','transactions','items'].each do |resource| # ,'adjustments','taxes','shipments'%>
 			     <li>
 					 <%=link_to  "/dashboard/sales/#{resource}" do %> 
 					 	<span class="text"><%= resource.camelize %></span> 
