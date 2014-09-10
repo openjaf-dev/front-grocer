@@ -6,41 +6,131 @@ namespace :sample do
     
     Product.delete_all
     puts 'All Products Deleted.'
+    
     Order.delete_all
     puts 'All Orders Deleted.'
+    
     Address.delete_all
     puts 'All Address Deleted.'
+    
     LineItem.delete_all
     puts 'All Line Item Deleted.'
-  #  OrderTotal.delete_all
-  #  puts 'All Orders Total Deleted.'
     
-  #  all_taxons = [
-  #    { "breadcrumb" => ["Categories","Bags"] },
-  #    { "breadcrumb" => ["Categories","Mugs"] },
-  #    { "breadcrumb" => ["Categories","Clothes", "T-Shirts" ] },
-  #    { "breadcrumb" => ["Categories","Clothes", "Shirts" ] },
-  #    { "breadcrumb" => ["Brands","Spree"] },
-  #    { "breadcrumb" => ["Brands","Ruby"] },
-  #    { "breadcrumb" => ["Brands","Apache"] },
-  #    { "breadcrumb" => ["Brands","Rails"] },
-  #    { "breadcrumb" => ["Brands","Open Source"] }
-  #  ]
+    Taxonomy.delete_all
+    puts 'All Taxonomy Deleted.'
     
-      all_taxons = [
-        { "breadcrumb" => ["Categories","Beverages"] },
-        { "breadcrumb" => ["Categories","Bread/Bakery"] },
-        { "breadcrumb" => ["Categories","Canned/Jarred Goods"] },
-        { "breadcrumb" => ["Categories","Dairy", "Cheeses" ] },
-        { "breadcrumb" => ["Categories","Dairy", "Eggs" ] },
-        { "breadcrumb" => ["Categories","Dairy", "Milk" ] },
-        { "breadcrumb" => ["Categories","Dairy", "Yogourt" ] },                  
-        { "breadcrumb" => ["Brands","Frozen Foods"] },
-        { "breadcrumb" => ["Brands","Meat"] },
-        { "breadcrumb" => ["Brands","Produce"] },
-        { "breadcrumb" => ["Brands","Cleaners"] },
-        { "breadcrumb" => ["Brands","Paper Goods"] }
-      ]    
+    Taxon.delete_all
+    puts 'All Taxon Deleted.'
+    
+    taxonomies = [
+    	{ :name => "Categories" },
+    	{ :name => "Brand" }
+    ]
+
+    taxonomies.each do |taxonomy_attrs|
+    Taxonomy.create!(taxonomy_attrs)
+    end
+
+    categories = Taxonomy.find_by_name!("Categories")
+    brands = Taxonomy.find_by_name!("Brand")
+
+
+    taxons = [
+      {
+        :name => "Categories",
+        :taxonomy => categories,
+        :position => 0
+      },
+      {
+        :name => "Beverages",
+        :taxonomy => categories,
+        :parent => "Categories",
+        :position => 1,
+  
+      },
+      {
+        :name => "Bread/Bakery",
+        :taxonomy => categories,
+        :parent => "Categories",
+        :position => 2,
+
+      },
+      {
+        :name => "Canned/Jarred Goods",
+        :taxonomy => categories,
+        :parent => "Categories" 
+      },
+      {
+        :name => "Dairy",
+        :taxonomy => categories,
+        :parent => "Categories",
+        :position => 0,
+
+      },
+      {
+        :name => "Cheeses",
+        :taxonomy => categories,
+        :parent => "Dairy" ,
+        :position => 0
+      },
+      {
+        :name => "Milk",
+        :taxonomy => categories,
+        :parent => "Dairy" ,
+        :position => 0
+      },
+      {
+        :name => "Eggs",
+        :taxonomy => categories,
+        :parent => "Dairy" ,
+        :position => 1
+      },
+      {
+        :name => "Yogourt",
+        :taxonomy => categories,
+        :parent => "Dairy" ,
+        :position => 2
+      },
+      
+      
+      {
+        :name => "Brands",
+        :taxonomy => brands
+      },
+      {
+        :name => "Frozen Foods",
+        :taxonomy => brands,
+        :parent => "Brand",
+      },
+      {
+        :name => "Meat",
+        :taxonomy => brands,
+        :parent => "Brand",
+      },
+      {
+        :name => "Produce",
+        :taxonomy => brands,
+        :parent => "Brand",
+      },
+      {
+        :name => "Cleaners",
+        :taxonomy => brands,
+        :parent => "Brand",
+      },
+      {
+        :name => "Paper Goods",
+        :taxonomy => brands,
+        :parent => "Brand",
+      },
+    ]
+
+    taxons.each do |taxon_attrs|
+      if taxon_attrs[:parent]
+        taxon_attrs[:parent] = Taxon.find_by(name: taxon_attrs[:parent])
+        Taxon.create!(taxon_attrs)
+      end
+    end
+    
     
     sizes = ["Small","Medium","Large","Extra Large"]
     colors = ["white", "Red","Green","Blue", "Black", "Yelow", "Lilac"]
@@ -68,7 +158,7 @@ namespace :sample do
       name = "#{Faker::Product.product }"
       sku = name.underscore.gsub(' ', '-')
       cost_price = rand(10.5...100.5).round(2)
-      taxons = all_taxons.shuffle.slice(0..rand(4))
+      taxons = Taxon.all.shuffle.slice(0..rand(4))
       sub_set_prop = all_properties.shuffle.slice(0..rand(4))
       properties = sub_set_prop.map { |p| { "name" => p.keys[0], "presentation" => p.values[0].shuffle[0] } }
       options = all_options.shuffle.slice(0..(1 + rand(all_options.length)))
@@ -116,7 +206,7 @@ namespace :sample do
           "meta_description" => nil,
           "meta_keywords" => nil,
           "shipping_category" => "Default",
-      #    "taxons_attributes" => taxons,
+         # "taxons_attributes" => taxons,
       #    "options" => [ "color","size"],
           "properties_attributes" => properties,
       #    "images_attributes" => [
@@ -131,7 +221,9 @@ namespace :sample do
           "variants_attributes" => variants
         }
     
-      Product.create!(product)
+      p1 =  Product.create!(product)
+      p1.taxons = taxons
+      p1.save!
  
       # orders 
       num_orders = 1 + rand(20)
