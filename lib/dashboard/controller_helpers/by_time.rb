@@ -20,11 +20,17 @@ module Dashboard
         set_data
       end  
     
-      def by_week_days  
+      def by_week_days
+        @data_table = @data.clone
+        @data_table += @compare_data.clone unless @compare_data.count == 0
+
         set_data_by(:wday)
       end
      
-      def by_hours  
+      def by_hours
+        @data_table = @data
+        @data_table += @compare_data unless @compare_data.count == 0
+
         set_data_by(:hour)
       end 
       
@@ -90,8 +96,6 @@ module Dashboard
         def get_compare_data
           if @compare_start_date
             @compare_data = klass_to_call.placed_on_between(@compare_start_date, @compare_end_date)
-            puts @compare_data.count
-            @compare_data = @compare_data
           end
         end
 

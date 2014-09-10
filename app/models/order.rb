@@ -47,7 +47,7 @@ class Order < ActiveRecord::Base
     if start_date.nil? && end_date.nil?
       Order.all
     else
-      Order.where{|x|x.placed_on >= start_date && x.placed_on <= end_date}
+      Order.select{|x|x.placed_on >= start_date && x.placed_on <= end_date}
     end
   end
   
