@@ -12,6 +12,8 @@ module Dashboard
       end
 
       def index
+        @data_table = @data.clone
+
         check_filters
 
         @main_set = {}
