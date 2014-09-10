@@ -15,4 +15,26 @@ class Product < ActiveRecord::Base
 
     validates_presence_of :name, :price, :available_on, :shipping_category
     validates_numericality_of :price, { greater_than: 0 }
+
+    def get_taxons_format
+      tax_result=[]
+
+      self.taxons.each do |t|
+        tax = []
+        auxiliar_taxon = t
+        tax << self.name
+        tax << auxiliar_taxon.name
+        until auxiliar_taxon.parent.nil?
+          auxiliar_taxon = auxiliar_taxon.parent
+          tax << auxiliar_taxon.name
+        end
+        tax << auxiliar_taxon.taxonomy.name
+        tax.reverse!
+        tax << rand(1000) #Adding the count of products
+        tax_result << tax
+      end
+
+      tax_result
+
+    end
 end

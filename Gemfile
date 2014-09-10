@@ -1,5 +1,5 @@
-source 'https://rubygems.org'
-#source 'file:///home/jorge/mygems/'
+#source 'https://rubygems.org'
+source 'file:///home/jorge/mygems/'
 ruby '2.1.2'
 gem 'rails', '4.1.4'
 gem 'sass', '3.2.0'
@@ -20,7 +20,7 @@ gem 'ffaker'
 gem 'therubyracer'
 gem 'non-stupid-digest-assets'
 gem 'wicked'
-gem 'awesome_nested_set'
+gem 'awesome_nested_set','3.0.1'
 gem 'acts_as_list'
 
 #gem 'activeadmin', git: '/media/jorge/DATA/WORK/OpenJAF/activeadmin', :branch => 'master'
@@ -44,7 +44,7 @@ end
 group :production do
   gem 'thin'
   gem 'rails_12factor'
-  gem 'pg'
+  #gem 'pg'
 end
 group :test do
   gem 'capybara'
