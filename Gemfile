@@ -1,5 +1,5 @@
-#source 'https://rubygems.org'
-source 'file:///home/jorge/mygems/'
+source 'https://rubygems.org'
+#source 'file:///home/jorge/mygems/'
 ruby '2.1.2'
 gem 'rails', '4.1.4'
 gem 'sass', '3.2.0'
@@ -20,6 +20,8 @@ gem 'ffaker'
 gem 'therubyracer'
 gem 'non-stupid-digest-assets'
 gem 'wicked'
+gem 'awesome_nested_set'
+gem 'acts_as_list'
 
 #gem 'activeadmin', git: '/media/jorge/DATA/WORK/OpenJAF/activeadmin', :branch => 'master'
 #gem 'activeadmin', github: 'gregbell/active_admin'
@@ -31,9 +33,9 @@ group :development do
   gem 'quiet_assets'
   gem 'rails_layout'
 end
-gem 'sqlite3'
+#gem 'sqlite3'
 group :development, :test do
-#  gem 'sqlite3'
+  gem 'sqlite3'
   gem 'factory_girl_rails'
   gem 'pry-rails'
   gem 'pry-rescue'
@@ -42,7 +44,7 @@ end
 group :production do
   gem 'thin'
   gem 'rails_12factor'
-  #gem 'pg'
+  gem 'pg'
 end
 group :test do
   gem 'capybara'
