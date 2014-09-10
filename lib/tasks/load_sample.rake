@@ -100,27 +100,27 @@ namespace :sample do
       {
         :name => "Frozen Foods",
         :taxonomy => brands,
-        :parent => "Brand",
+        :parent => "Brands",
       },
       {
         :name => "Meat",
         :taxonomy => brands,
-        :parent => "Brand",
+        :parent => "Brands",
       },
       {
         :name => "Produce",
         :taxonomy => brands,
-        :parent => "Brand",
+        :parent => "Brands",
       },
       {
         :name => "Cleaners",
         :taxonomy => brands,
-        :parent => "Brand",
+        :parent => "Brands",
       },
       {
         :name => "Paper Goods",
         :taxonomy => brands,
-        :parent => "Brand",
+        :parent => "Brands",
       },
     ]
 
