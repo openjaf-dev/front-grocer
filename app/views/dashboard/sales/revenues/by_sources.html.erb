@@ -14,24 +14,24 @@
         <table class="table table-sorting table-striped table-hover datatable dataTable" cellpadding="0" cellspacing="0" width="100%" id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info" style="width: 100%;">
           <thead>
           <tr role="row">
-            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Activate to sort column ascending" style="width: 216px;">Number</th>
-            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 245px;" aria-sort="descending" aria-label="Activate to sort column ascending">Status</th>
-            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Activate to sort column ascending" style="width: 97px;">Placed On</th>
-            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Activate to sort column ascending" style="width: 156px;">Channel</th>
-            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Activate to sort column ascending" style="width: 186px;">Email</th>
+            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Activate to sort column ascending" style="width: 216px;">Name</th>
+            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 245px;" aria-sort="descending" aria-label="Activate to sort column ascending">Month</th>
+            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Activate to sort column ascending" style="width: 97px;">Year</th>
+            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Activate to sort column ascending" style="width: 156px;">CC Type</th>
           </tr>
           </thead>
 
           <tbody role="alert" aria-live="polite" aria-relevant="all">
           <% odd = false %>
-          <% @data_table.each do |o| %>
+          <% local_months = %w(January February March April May June July August September October November December) %>
+          <% @amount_data_table.each do |ox| %>
               <% odd = !odd %>
+
               <tr <%= odd ? 'class=odd' : 'class=even' %>>
-                <td class=" "><%= o.number %></td>
-                <td class=" "><%= o.status %></td>
-                <td class=" "><%= o.placed_on %></td>
-                <td class=" "><%= o.channel %></td>
-                <td class=" "><%= o.email %></td>
+                <td class=" "><%= ox.name %></td>
+                <td class=" "><%= local_months[ox.month - 1] %></td>
+                <td class=" "><%= ox.year %></td>
+                <td class=" "><%= ox.cc_type %></td>
               </tr>
           <% end %>
           </tbody>
