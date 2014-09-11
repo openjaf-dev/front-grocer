@@ -228,13 +228,13 @@ function drawLegend() {
 
   // Dimensions of legend item: width, height, spacing, radius of rounded rect.
   var li = {
-    w: 90, h: 30, s: 3, r: 3
+    w: 150, h: 30, s: 3, r: 3
   };
 
   var legend = d3.select("#legend").append("svg:svg")
-      .attr("width", li.w)
       .attr("height", d3.keys(colors).length * (li.h + li.s));
 
+  var max_width = 0;
   var g = legend.selectAll("g")
       .data(d3.entries(colors))
       .enter().append("svg:g")
@@ -245,16 +245,23 @@ function drawLegend() {
   g.append("svg:rect")
       .attr("rx", li.r)
       .attr("ry", li.r)
-      .attr("width", li.w)
-      .attr("height", li.h)
-      .style("fill", function(d) { return d.value; });
+      .attr("width", function(d) {
+          var length_b = d.key.length * 10;
+          if(max_width < length_b)max_width = length_b;
+          return  length_b;
+      })
+      .attr("height", li.h).transition().duration(3000)
+      .style("fill", function(d) { return d.value; }).attr("width", max_width);
 
   g.append("svg:text")
-      .attr("x", li.w / 2)
+      .attr("x", function(d) { return (d.key.length * 10) / 2 ; } )
       .attr("y", li.h / 2)
       .attr("dy", "0.35em")
       .attr("text-anchor", "middle")
-      .text(function(d) { return d.key; });
+      .text(function(d) { return d.key; }).transition().duration(3000)
+      .attr("x", max_width / 2 );
+
+  legend.attr("width", max_width);
 }
 
 function toggleLegend() {

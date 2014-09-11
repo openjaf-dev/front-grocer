@@ -1,19 +1,15 @@
+<div class="btn-group pull-right">
+  <button id="btnGroupVerticalDrop1" class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
+    Date Options
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="btnGroupVerticalDrop1" role="menu">
+    <%= render 'layouts/dashboard_navigation_links' %>
+  </ul>
+</div>
 <aside id="sidebar">
   <br>
-  <div class="btn-group">
-    <button id="btnGroupVerticalDrop1" class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
-      Date Options
-      <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="btnGroupVerticalDrop1" role="menu">
-      <%= render 'layouts/dashboard_navigation_links' %>
-    </ul>
-  </div>
-
-
   <%= yield :nav_bar %>
-
-
 </aside>
 
 
