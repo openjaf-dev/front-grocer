@@ -4,44 +4,44 @@
 <% action = params[:action] %>
 <li>
   <%=link_to({:controller => controller,:action => action,:date_range => :today}) do %>
-      <i class="fa fa-user"></i><span class="text">Today</span>
+      <span class="text">Today</span>
   <% end %>
 </li>
 <li>
   <%=link_to({:controller => controller,:action => action,:date_range => :yesterday}) do %>
-      <i class="fa fa-user"></i><span class="text">Yesterday</span>
+      <span class="text">Yesterday</span>
   <% end %>
 </li>
 <li>
   <%=link_to({:controller => controller,:action => action,:date_range => :last_week}) do %>
-      <i class="fa fa-user"></i><span class="text">Last Week</span>
+      <span class="text">Last Week</span>
   <% end %>
 </li>
 <li>
   <%=link_to({:controller => controller,:action => action,:date_range => :last_month}) do %>
-      <i class="fa fa-user"></i><span class="text">Last Month</span>
+      <span class="text">Last Month</span>
   <% end %>
 </li>
 <li>
   <%=link_to({:controller => controller,:action => action,:date_range => :year_to_date}) do %>
-      <i class="fa fa-user"></i><span class="text">Year to Date</span>
+      <span class="text">Year to Date</span>
   <% end %>
 </li>
-<li data-toggle="modal" data-target="#custom_range_data"><a href="#myModal" data-toggle="modal"><i class="fa fa-user"></i><span class="text">Custom Range</span></a></li>
+<li data-toggle="modal" data-target="#custom_range_data"><a href="#myModal" data-toggle="modal"><span class="text">Custom Range</span></a></li>
 
 <li role="presentation" class="divider"></li>
-<li role="presentation" class="dropdown-header">Compare Options</li>
+<li role="presentation" class="dropdown-header">Compare To</li>
 <li>
   <%=link_to({:controller => controller,:action => action,:date_range => :previous_period}) do %>
-      <i class="fa fa-user"></i><span class="text">Previous Period</span>
+      <span class="text">Previous Period</span>
   <% end %>
 </li>
 <li>
   <%=link_to({:controller => controller,:action => action,:date_range => :previous_year}) do %>
-      <i class="fa fa-user"></i><span class="text">Previous Year</span>
+      <span class="text">Previous Year</span>
   <% end %>
 </li>
-<li data-toggle="modal" data-target="#custom_range_compare"><a href="#myModal" data-toggle="modal"><i class="fa fa-user"></i><span class="text">Custom Range</span></a></li>
+<li data-toggle="modal" data-target="#custom_range_compare"><a href="#myModal" data-toggle="modal"><span class="text">Custom Range</span></a></li>
 
 
 
