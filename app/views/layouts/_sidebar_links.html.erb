@@ -30,8 +30,9 @@
 					 <% end %> 
 				</li>
               <li class="<%= 'active' if params[:controller] =~ /^products/ %>"  >
-                <a href="#">
-                    <span class="text">Value</span>
+                  <%=link_to :controller => 'dashboard/sales/product',:action => 'by_value_categories' do %>
+                      <span class="text">Value</span>
+                  <% end %>
                 </a>
               </li>
 			</ul>

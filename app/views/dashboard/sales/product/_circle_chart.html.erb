@@ -6,7 +6,6 @@
   <div id="chart">
     <div id="explanation" style="visibility: hidden;">
       <span id="percentage"></span><br/>
-      Products
     </div>
   </div>
 </div>
@@ -22,7 +21,7 @@
                 [0,1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f'][Math.floor(Math.random()*16)])
                 && (lor.length == 6) ?  lor : co(lor); })('');
     };
-
+    fixed_number = <%= @fixed_number ? 'true' : 'false' %> ;
     // Mapping of step names to colors.
     var colors = {};
     <% @tags.each do |t|%>

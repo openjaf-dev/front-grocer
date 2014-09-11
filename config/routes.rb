@@ -36,8 +36,9 @@ Rails.application.routes.draw do
     
     namespace :sales do
       get 'product/by_categories',to: "product#by_categories"
-
       get 'product/by_brands',to: "product#by_brands"
+      get 'product/by_value_categories',to: "product#by_value_categories"
+      get 'product/by_value_brands',to: "product#by_value_brands"
 
       ['sources','revenues','transactions','items','adjustments','taxes','shipments'].each do |resource|
         get "/#{resource}", to: "#{resource}#index", as: "#{resource}"   

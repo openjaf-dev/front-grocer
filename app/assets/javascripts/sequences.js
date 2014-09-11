@@ -2,10 +2,10 @@
 var width = 750;
 var height = 600;
 var radius = Math.min(width, height) / 2;
-
+var fixed_number = false ;
 // Breadcrumb dimensions: width, height, spacing, width of tip/tail.length
 var b = {
-  w: 75, h: 30, s: 5, t: 10, l:10
+  w: 95, h: 30, s: 5, t: 10, l:10
 };
 
 // Mapping of step names to colors.
@@ -93,7 +93,16 @@ function createVisualization(json) {
 function mouseover(d) {
 
   var percentage = d.value;
-  var percentageString = percentage;// + "%";
+  var percentageString = null;
+  if(fixed_number == true)
+  {
+    percentageString = parseFloat(percentage).toFixed(2);// + "%";
+  }
+  else
+  {
+     percentageString = percentage;// + "%";
+  }
+
   //if (percentage < 0.1) {
   //  percentageString = "< 0.1%";
   //}

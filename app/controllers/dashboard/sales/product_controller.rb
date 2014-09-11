@@ -15,12 +15,40 @@ module Dashboard
         @data_json = subtree.to_json
       end
 
+      def by_value_categories
+        t=load_taxons_value
+        subtree = t.children[0]
+        @tags = subtree.get_tags
+        @data_json = subtree.to_json
+      end
+
+      def by_value_brands
+        t=load_taxons_value
+        subtree = t.children[1]
+        @tags = subtree.get_tags
+        @data_json = subtree.to_json
+      end
+
       private
       def load_taxons
         products = Product.all
         all_taxons = []
         products.each do |product|
-          all_taxons += product.get_taxons_format
+          all_taxons += product.get_taxons_quantity
+        end
+
+        t = ProductHelper::Tree.new
+        all_taxons.each do |tx|
+          t.add_trees(tx)
+        end
+        t
+      end
+
+      def load_taxons_value
+        products = Product.all
+        all_taxons = []
+        products.each do |product|
+          all_taxons += product.get_taxons_value
         end
 
         t = ProductHelper::Tree.new
