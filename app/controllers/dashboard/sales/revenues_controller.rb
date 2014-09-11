@@ -15,6 +15,7 @@ module Dashboard
         @data_table = @data.clone
         
         @filter_by = params[:filter_type] ||= 'weeks'
+        check_filters
 
         @main_set = {}
 
