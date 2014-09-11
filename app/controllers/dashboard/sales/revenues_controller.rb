@@ -15,6 +15,7 @@ module Dashboard
         @data_table = @data.clone
         
         @filter_by = params[:filter_type] ||= 'weeks'
+        check_filters
 
         @main_set = {}
 
@@ -47,7 +48,9 @@ module Dashboard
 
       def by_sources
         @amount_data = Source.all
+        @amount_data_table = @amount_data.clone
         amount_set_data_by(:cc_type)
+        @amount_data_table = @amount_data_table
       end
 
       private
