@@ -13,8 +13,8 @@ module Dashboard
 
       def index
         @data_table = @data.clone
-
-        check_filters
+        
+        @filter_by = params[:filter_type] ||= 'weeks'
 
         @main_set = {}
 
@@ -54,14 +54,12 @@ module Dashboard
 
       def check_filters
         case params[:filter_type]
-          when 'weeks' then
-            filter_by_weeks
-          when 'months' then
-            filter_by_months
-          when 'years' then
-            filter_by_years
-          else
-            return
+        when 'weeks' 
+          filter_by_weeks
+        when 'months'
+          filter_by_months
+        when 'years'
+          filter_by_years
         end
       end
 
