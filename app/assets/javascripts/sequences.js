@@ -1,6 +1,6 @@
 // Dimensions of sunburst.
-var width = 750;
-var height = 600;
+var width = 550;
+var height = 500;
 var radius = Math.min(width, height) / 2;
 var fixed_number = false ;
 // Breadcrumb dimensions: width, height, spacing, width of tip/tail.length
@@ -103,12 +103,17 @@ function mouseover(d) {
      percentageString = percentage;// + "%";
   }
 
-  //if (percentage < 0.1) {
-  //  percentageString = "< 0.1%";
-  //}
-
   d3.select("#percentage")
       .text(percentageString);
+
+    d3.select("#percentage")
+        .style("position","relative")
+        .style("top",-15 +"px")
+        .style("left",-100 +"px");
+
+
+  //d3.select("#percentage").attr()
+      //.attr("transform", "translate(" + 0 + "," + 0 + ")" );
 
   d3.select("#explanation")
       .style("visibility", "");
