@@ -17,75 +17,11 @@ module Dashboard
 
       private
       def load_taxons
-     #   all_taxons = [
-     #       ["Categories","Bags",30] ,
-     #       ["Categories","Bags","Element1",56] ,
-     #       ["Categories","Bags","Element1","Element2",23] ,
-     #      ["Categories","Bags","Element1","Element2","Element3",67] ,
-     #       ["Categories","Mugs",99] ,
-    #        ["Categories","Mugs","ElementsM1",78] ,
-    #        ["Categories","Mugs","ElementsM1","ElementsM2",34] ,
-    #        ["Categories","Mugs","ElementsM1","ElementsM21",76] ,
-    #        ["Categories","Mugs","ElementsM1","ElementsM2","ElementsM3",89] ,
-    #        ["Categories","Mugs","ElementsM1","ElementsM2","ElementsM31",34] ,
-    #        ["Categories","Mugs","ElementsM1","ElementsM2","ElementsM32",345] ,
-    #        ["Categories","Mugs","ElementsM1","ElementsM2","ElementsM3","ElementsM4",567] ,
-    #        ["Categories","Mugs","ElementsM1","ElementsM2","ElementsM3","ElementsM41",678] ,
-    #        ["Categories","Mugs","ElementsM1","ElementsM2","ElementsM3","ElementsM42",789] ,
-    #        ["Categories","Clothes", "T-Shirts",9 ] ,
-    #        ["Categories","Clothes", "Shirts",789 ] ,
-    #        ["Brands","Spree",89] ,
-    #        ["Brands","Ruby",894] ,
-    #        ["Brands","Apache",454] ,
-    #        ["Brands","Rails",567] ,
-    #        ["Brands","Open Source",50]
-    #    ]
-        
-        
-        all_taxons = [
-          ["Categories","Beverages", 30],
-          ["Categories","Bread/Bakery", 56],
-          ["Categories","Canned/Jarred Goods", 23],
-          ["Categories","Dairys", "Cheeses", 67 ],
-          ["Categories","Dairys", "Eggsss" , 99],
-          ["Categories","Dairys", "Milkss", 34],
-          ["Categories","Dairys", "Yogourt", 35 ],
-          ["Categories","Dairys", "Yogourt", "Nelakkkdfdf", 35 ],
-          ["Categories","Dairys", "Yogourt", "Nelakkkdfdf", "Nelakkkdfdfdfgdfgd", 35 ],
-          ["Brands","Frozen Foods", 40],
-          ["Brands","Meat", 50],
-          ["Brands","Produce",32],
-          ["Brands","Cleaners", 55],
-          ["Brands","Paper Goods", 66] 
-        ]
-=begin
-        Food: Dairy
-        Food: Meats
-        Food: Bakery / Bread Products
-        Food: Deli
-        Food: Frozen
-        Food: Beverages
-        Food: Canned Fruits
-        Food: Canned Vegetables
-        Food: Canned Meat
-        Food: Soups, Stew, Chili
-        Food: Baking Supplies
-        Food: Snack
-        Food: Alcohol
-        Food: Candy
-        Food: Baby
-        Food: Herb / Spice / Seasoning Mix
-        Food: Condiments / Sauce
-        Food: Pasta / Rice / Stuffing
-        Food: Nuts
-        Food: Cereal
-        Food
-        Food: Fresh Fruit/Vegie
-        Food: Alcohol: Wine / Champagne
-        Food: Alcohol: Beer / Cooler
-        Food: Alcohol: Liquor / Liqueur
-=end
-
+        products = Product.all
+        all_taxons = []
+        products.each do |product|
+          all_taxons += product.get_taxons_format
+        end
 
         t = ProductHelper::Tree.new
         all_taxons.each do |tx|

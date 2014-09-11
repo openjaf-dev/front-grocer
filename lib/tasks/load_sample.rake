@@ -39,20 +39,20 @@ namespace :sample do
       {
         :name => "Categories",
         :taxonomy => categories,
-        :position => 0
+
       },
       {
         :name => "Beverages",
         :taxonomy => categories,
         :parent => "Categories",
-        :position => 1,
+    
   
       },
       {
         :name => "Bread/Bakery",
         :taxonomy => categories,
         :parent => "Categories",
-        :position => 2,
+  
 
       },
       {
@@ -64,32 +64,30 @@ namespace :sample do
         :name => "Dairy",
         :taxonomy => categories,
         :parent => "Categories",
-        :position => 0,
 
       },
       {
         :name => "Cheeses",
         :taxonomy => categories,
         :parent => "Dairy" ,
-        :position => 0
+    
       },
       {
         :name => "Milk",
         :taxonomy => categories,
         :parent => "Dairy" ,
-        :position => 0
+ 
       },
       {
         :name => "Eggs",
         :taxonomy => categories,
         :parent => "Dairy" ,
-        :position => 1
+
       },
       {
         :name => "Yogourt",
         :taxonomy => categories,
-        :parent => "Dairy" ,
-        :position => 2
+        :parent => "Dairy",
       },
       
       

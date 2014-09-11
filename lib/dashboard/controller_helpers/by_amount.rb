@@ -14,10 +14,14 @@ module Dashboard
       end
 
       def by_status
+        @data_table = @amount_data.clone
+        @data_table = @amount_compare_data.clone unless @amount_compare_data.count == 0
         amount_set_data_by(:status)
         end
 
       def by_sources
+        @data_table = @amount_data.clone
+        @data_table = @amount_compare_data.clone unless @amount_compare_data.count == 0
         amount_set_data_by(:cc_type)
       end
 

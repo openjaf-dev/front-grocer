@@ -2,6 +2,43 @@
 
 <% if @data[0][:data].count > 0 %>
     <%= render 'dashboard/shared/by_amount', data: @data %>
+
+    <div class="widget widget-table">
+      <div class="widget-header">
+        <h3>
+          <i class="fa fa-table"></i>
+          Orders
+        </h3>
+      </div>
+      <div class="widget-content">
+        <table class="table table-sorting table-striped table-hover datatable dataTable" cellpadding="0" cellspacing="0" width="100%" id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info" style="width: 100%;">
+          <thead>
+          <tr role="row">
+            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Activate to sort column ascending" style="width: 216px;">Number</th>
+            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 245px;" aria-sort="descending" aria-label="Activate to sort column ascending">Status</th>
+            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Activate to sort column ascending" style="width: 97px;">Placed On</th>
+            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Activate to sort column ascending" style="width: 156px;">Channel</th>
+            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Activate to sort column ascending" style="width: 186px;">Email</th>
+          </tr>
+          </thead>
+
+          <tbody role="alert" aria-live="polite" aria-relevant="all">
+          <% odd = false %>
+          <% @data_table.each do |o| %>
+              <% odd = !odd %>
+              <tr <%= odd ? 'class=odd' : 'class=even' %>>
+                <td class=" "><%= o.number %></td>
+                <td class=" "><%= o.status %></td>
+                <td class=" "><%= o.placed_on %></td>
+                <td class=" "><%= o.channel %></td>
+                <td class=" "><%= o.email %></td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
 <%else%>
     <h3>Not Sources Found</h3>
 <% end %>
