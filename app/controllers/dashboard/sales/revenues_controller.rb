@@ -57,12 +57,62 @@ module Dashboard
 
       def check_filters
         case params[:filter_type]
+        when 'hours'
+          filter_by_hours
+        when 'days'
+          filter_by_days
         when 'weeks' 
           filter_by_weeks
         when 'months'
           filter_by_months
         when 'years'
           filter_by_years
+        end
+      end
+
+
+      def filter_by_hours
+        by_years = @data.group_by{|r| r.placed_on.year}
+        @data = []
+        by_years.each do |y|
+          by_month = y[1].group_by{|r| r.placed_on.month}
+          by_month.each do |m|
+            by_week = m[1].group_by{|r| r.placed_on.to_date.cweek}
+            by_week.each do |w|
+              by_day = w[1].group_by{|r| r.placed_on.day }
+              by_day.each do |d|
+                by_hour = d[1].group_by{|r| r.placed_on.hour }
+                by_hour.each do |h|
+                  o = Order.new
+                  o.placed_on = Date.new(y[0],m[0],d[0]) + h[0].hours
+                  o.totals = OrderTotal.new
+                  o.totals.total = h[1].sum{ |e| e.totals.total}.round(2)
+                  @data << o
+                end
+              end
+            end
+          end
+        end
+      end
+
+      def filter_by_days
+        by_years = @data.group_by{|r| r.placed_on.year}
+        @data = []
+        by_years.each do |y|
+          by_month = y[1].group_by{|r| r.placed_on.month}
+          by_month.each do |m|
+            by_week = m[1].group_by{|r| r.placed_on.to_date.cweek}
+            by_week.each do |w|
+              by_day = w[1].group_by{|r| r.placed_on.day }
+              by_day.each do |d|
+                o = Order.new
+                o.placed_on = Date.new(y[0],m[0],d[0])
+                o.totals = OrderTotal.new
+                o.totals.total = d[1].sum{ |e| e.totals.total}.round(2)
+                @data << o
+              end
+            end
+          end
         end
       end
 
