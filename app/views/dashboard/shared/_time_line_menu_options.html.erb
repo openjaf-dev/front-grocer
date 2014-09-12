@@ -1,12 +1,22 @@
 <% controller = params[:controller] %>
 <% action = params[:action] %>
 <li>
-  <%=link_to({:controller => controller,:action => action,:filter_type => :weeks}) do %>
+  <%=link_to({:controller => controller,:action => action,:filter => :month}) do %>
+      <span class="text">Months</span>
+  <% end %>
+</li>
+<li>
+  <%=link_to({:controller => controller,:action => action,:filter => :week}) do %>
       <span class="text">Weeks</span>
   <% end %>
 </li>
 <li>
-  <%=link_to({:controller => controller,:action => action,:filter_type => :months}) do %>
-      <span class="text">Months</span>
+  <%=link_to({:controller => controller,:action => action,:filter => :day}) do %>
+      <span class="text">Days</span>
+  <% end %>
+</li>
+<li>
+  <%=link_to({:controller => controller,:action => action,:filter => :hour}) do %>
+      <span class="text">Hours</span>
   <% end %>
 </li>

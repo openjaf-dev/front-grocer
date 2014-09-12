@@ -14,37 +14,52 @@ module Dashboard
       end  
     
       def index
-        #TODO build generic
-        @main_data = {}
-        @compare_data = {}  
-        set_data
-      end  
+        @data_table = @data.clone
+        
+        @filter = params[:filter] ||= 'week'   
+        @main_set = filter_by(@filter, @data)
+        @compare_set = filter_by(@filter, @compare_data)
+
+        first_data = @main_set.sort{ |a,b| a[0] <=> b[0] }.first[0]
+        first_compare_data = @compare_set.sort{ |a,b| a[0] <=> b[0] }.first[0]
+        diff = first_data - first_compare_data
+        temp = {}
+        @compare_set.each { |x| temp[ x[0] + diff ] = x[1] }
+        @compare_set = temp
+        
+        set_data  
+      end
     
       def by_week_days
-        @data_table = @data.clone
-        @data_table += @compare_data.clone unless @compare_data.count == 0
-
         set_data_by(:wday)
       end
      
       def by_hours
-        @data_table = @data
-        @data_table += @compare_data unless @compare_data.count == 0
-
         set_data_by(:hour)
       end 
+      
+      def method_missing(method_name, *args, &block)
+        return super unless /^by_/ =~ method_name
+        by = case method_name
+        when :by_week_days then :wday
+        when 'by_hours' then :hour 
+        end  
+        set_data_by(by)
+      end
       
       private
     
         def compute
-          # Define in each class
+          # abstrack method for define in each class
         end  
     
+        def filter_by(filter, collection)
+          collection.group_by { |o| o.placed_on.send("beginning_of_#{filter}" )}.map { |k, v| [k,compute(v)] } 
+        end  
+        
         def set_data_by(fun)
           @main_set = collect_by(@data, fun)
-          if @compare_data
-            @compare_set = collect_by(@compare_data, fun)
-          end
+          @compare_set = collect_by(@compare_data, fun) if @compare_data
           set_data 
         end 
        
@@ -60,8 +75,6 @@ module Dashboard
             end
 
           end
-
-
         end
          
         def collect_by(collection, fun )
@@ -73,76 +86,66 @@ module Dashboard
           end  
         end
       
-        def get_params(start = Date.today, amount = 3.months, compare = Date.today - 3.months, compare_amount = 3.months )
-          if start.nil? && amount.nil? && compare.nil? && compare_amount.nil?
-            @start_date = @end_date = @compare_start_date = @compare_end_date = nil
-            return
-          end
+        def get_params(options = {})
+          options[:start] ||= Date.today
+          options[:amount] ||= 3.months
+          options[:compare] ||= Date.today - 3.months
+          options[:compare_amount] ||= 3.months 
 
-          @start_date =  start - amount
-          @end_date = start
-          unless compare.nil?
-            @compare_start_date = compare - compare_amount
-            @compare_end_date = compare
-          end
-          #@diff = first_order.placed_on.to_time - first_order_compare.placed_on.to_time
+          @start_date =  options[:start] - options[:amount]
+          @end_date = options[:start]
+
+          @compare_start_date = options[:compare] - options[:compare_amount]
+          @compare_end_date = options[:compare]
         end
         
         def get_data
           @data = klass_to_call.placed_on_between(@start_date, @end_date)
-          @data=@data
+          @data_table = @data.clone
         end
       
-        def get_compare_data
-          if @compare_start_date
-            @compare_data = klass_to_call.placed_on_between(@compare_start_date, @compare_end_date)
-          end
+        def get_compare_data   
+          @compare_data = klass_to_call.placed_on_between(@compare_start_date, @compare_end_date) if @compare_start_date
         end
 
-      def set_time
-        puts params.inspect
-        if params[:filter_type]
+        def set_time
+          puts params.inspect
+          
+          d = Date.today
 
-          get_params(nil,nil,nil,nil)
-          return
-        end
-
-        if params[:date_range]
-          case params[:date_range]
-            when 'today' then
-              get_params(Date.today, 0, Date.today, 1.days)
-            when 'yesterday' then
-              get_params(Date.today, 1.days, Date.today - 1.days, 2.days)
-            when 'last_week' then
-              get_params(Date.today, 7.days, Date.today - 7.days, 7.days)
-            when 'last_month' then
-              get_params(Date.today, 1.months, Date.today - 1.months, 1.months)
-            when 'previous_year' then
-              get_params(Date.today, 1.years, Date.today - 1.years, 1.years)
-            when 'year_to_date' then
-              today = Date.today
-              get_params(today , today.yday.days , today - 1.years, today.yday.days)
-            else
-              get_params
-          end
-        elsif params[:from_time] && params[:to_time]
-          from = params[:from_time].to_date
+          if params[:date_range]
+            case params[:date_range]
+              when 'today' 
+                get_params(amount: 0, compare: d, compare_amount: 1.days )
+              when 'yesterday' 
+                get_params(amount: 1.days, compare: d - 1.days, compare_amount: 2.days)
+              when 'last_week' 
+                get_params(amount: 7.days, compare: d - 7.days, compare_amount: 7.days)
+              when 'last_month'
+                get_params(amount: 1.months, compare: d - 1.months, compare_amount: 1.months)
+              when 'previous_year'
+                get_params( amount: 1.years, compare: d - 1.years, compare_amount: 1.years)
+              when 'year_to_date' 
+                get_params(amount: d.yday.day, compare: d - 1.years, compare_amount: d.yday.days)
+            end
+          
+          elsif params[:from_time] && params[:to_time]
             from = Date.strptime(params[:from_time], '%m/%d/%Y') 
-          to = params[:to_time].to_date
+            to = params[:to_time].to_date
 
-          if params[:compare_from_time] && params[:compare_to_time]
-            compare_from = params[:compare_from_time].to_date
-            compare_to = params[:compare_to_time].to_date
-            get_params(to , to - from, compare_to, compare_to - compare_from)
+            if params[:compare_from_time] && params[:compare_to_time]
+              compare_from = params[:compare_from_time].to_date
+              compare_to = params[:compare_to_time].to_date
+              get_params(to , to - from, compare_to, compare_to - compare_from)
+            else
+              get_params(to , to - from, nil, nil)
+            end
+
           else
-            get_params(to , to - from, nil, nil)
+            get_params
           end
-
-
-        else
-          get_params
         end
-      end
+        
      end 
   end
 end

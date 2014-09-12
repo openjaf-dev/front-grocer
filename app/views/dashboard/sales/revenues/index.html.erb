@@ -1,5 +1,7 @@
 <%= render 'dashboard/shared/form_sales' %>
-<% if @data[0][:data].empty? %>
+<% puts @data.inspect %>
+<% if false 
+# @data[0][:data].empty? %>
     <h3>Elements not found.</h3>
 <%else%>
     <% if params[:filter_type] %>
@@ -7,7 +9,7 @@
     <% else %>
         <%= line_chart @data, library: {tooltip:{enabled:false},chart:{zoomType:'x'} } %>
     <% end %>
-
+<hr>
     <div class="widget widget-table">
       <div class="widget-header">
         <h3>
