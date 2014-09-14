@@ -9,16 +9,19 @@
 	<% end %>
 </ul>
 
-<% if action == 'index' %>	
-	<div class="btn-group pull-right">
-	  <button id="menuTimeLine" class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
-	    By: <%= @filter %>
-	    <span class="caret"></span>
-	  </button>
-	  <ul class="dropdown-menu" aria-labelledby="menuTimeLine" role="menu">
-	    <%= render 'dashboard/shared/time_line_menu_options' %>
-	  </ul>
-	</div>
-<% end %>	
 
+<% controller = params[:controller] %>
+<% action = params[:action] %>
+<div class="chart-nav pull-right">
+	<strong>Select period: </strong>
+	<ul id="sales-stat-tab">
+		<% {day: "Daily", week: "Weekly", month: "Monthly" }.each do |period, presentation| %>
+		    <li class="<%= 'active' if @filter == period %>">
+				<%=link_to({:controller => controller,:action => action,:filter => period }) do %>
+			        <span class="text"><%= presentation %></span>
+			    <% end %>
+		    </li>
+         <% end %>
+	</ul>
+</div>
 

@@ -6,7 +6,6 @@ module Dashboard
       included do
         before_action :set_time
         before_action :get_data
-        before_action :get_compare_data
       end  
       
       def klass_to_call
@@ -15,12 +14,10 @@ module Dashboard
     
       def index        
         @filter = params[:filter] ||= 'week'   
-        @main_set = filter_by(@filter, @main_data)
-        @compare_set = filter_by(@filter, @compare_data)
+        @main_set = filter_by(@filter, @main_data).sort
+        @compare_set = filter_by(@filter, @compare_data).sort
 
-        first_data = @main_set.sort{ |a,b| a[0] <=> b[0] }.first[0]
-        first_compare_data = @compare_set.sort{ |a,b| a[0] <=> b[0] }.first[0]
-        diff = first_data - first_compare_data
+        diff = @main_set.first[0] - @compare_set.first[0]
         temp = {}
         @compare_set.each { |x| temp[ x[0] + diff ] = x[1] }
         @compare_set = temp
@@ -58,20 +55,16 @@ module Dashboard
        
         def set_data
           @data = [{:name => "#{@start_date} / #{@end_date}", :data => @main_set }]
-          @data << {:name => "#{@compare_start_date} / #{@compare_end_date}", :data => @compare_set }
+          @data << {:name => "#{@compare_start_date} / #{@compare_end_date}", :data => @compare_set } if @compare_set
+        end
+
+        def get_data
+          @main_data = klass_to_call.placed_on_between(@start_date, @end_date)
+          @compare_data = klass_to_call.placed_on_between(@compare_start_date, @compare_end_date) if @compare_start_date
         end
          
         def collect_by(collection, fun )
           collection.group_by{|o| o.placed_on.send(fun)}.sort.map { |c| [self.send(fun)[c[0]], compute(c[1])] }
-        end
-      
-        
-        def get_data
-          @main_data = klass_to_call.placed_on_between(@start_date, @end_date)
-        end
-      
-        def get_compare_data   
-          @compare_data = klass_to_call.placed_on_between(@compare_start_date, @compare_end_date) if @compare_start_date
         end
 
         def set_time          
@@ -88,20 +81,17 @@ module Dashboard
           if params[:date_range]
             t_opt = time_opt[params[:date_range]]
             opt = {start: d, amount: t_opt, compare: d - t_opt, compare_amount: t_opt}
+            
           elsif params[:from_time] && params[:to_time]
-            from = params[:from_time].to_date
-            to = params[:to_time].to_date
-            opt[:start] = to
-            opt[:amount] = to - from
+            opt[:start] = params[:to_time].to_date
+            opt[:amount] = params[:to_time].to_date - params[:from_time].to_date
             
             if params[:compare_from_time] && params[:compare_to_time]
-              compare_from = params[:compare_from_time].to_date
-              compare_to = params[:compare_to_time].to_date
-              opt[:compare] = compare_to
-              opt[:compare_amount] = compare_to - compare_from
+              opt[:compare] = params[:compare_to_time].to_date
+              opt[:compare_amount] = params[:compare_to_time].to_date - params[:compare_from_time].to_date
             end
-            
           end
+          
           get_params opt
         end
         

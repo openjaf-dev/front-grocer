@@ -2,31 +2,16 @@
 <li role="presentation" class="dropdown-header">Date Range</li>
 <% controller = params[:controller] %>
 <% action = params[:action] %>
+
+ <% %w(today yesterday last_week last_month year_to_date).each do |date_range| %> 
 <li>
-  <%=link_to({:controller => controller,:action => action,:date_range => :today}) do %>
-      <span class="text">Today</span>
+  <%=link_to({:controller => controller,:action => action,:date_range => date_range}) do %>
+      <span class="text"><%= date_range.humanize %></span>
   <% end %>
 </li>
-<li>
-  <%=link_to({:controller => controller,:action => action,:date_range => :yesterday}) do %>
-      <span class="text">Yesterday</span>
-  <% end %>
-</li>
-<li>
-  <%=link_to({:controller => controller,:action => action,:date_range => :last_week}) do %>
-      <span class="text">Last Week</span>
-  <% end %>
-</li>
-<li>
-  <%=link_to({:controller => controller,:action => action,:date_range => :last_month}) do %>
-      <span class="text">Last Month</span>
-  <% end %>
-</li>
-<li>
-  <%=link_to({:controller => controller,:action => action,:date_range => :year_to_date}) do %>
-      <span class="text">Year to Date</span>
-  <% end %>
-</li>
+
+ <% end %>
+
 <li data-toggle="modal" data-target="#custom_range_data"><a href="#myModal" data-toggle="modal"><span class="text">Custom Range</span></a></li>
 
 <li role="presentation" class="divider"></li>
