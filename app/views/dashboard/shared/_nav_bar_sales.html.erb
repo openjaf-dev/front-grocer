@@ -2,13 +2,11 @@
 <% action = params[:action] %>
 <ul class="nav nav-tabs" role="tablist">
 	<li class= <%= "active" if action == 'index' %> > <%=link_to "Time line", "/dashboard/#{model}" %> </li>
-	<li class= <%= "active" if action == "by_week_days" %> > 
-		<%=link_to "By week days", "/dashboard/#{model}/by-week-days" %> 
-	</li>
-	<li class= <%= "active" if action == "by_hours" %> > <%=link_to "By hours", "/dashboard/#{model}/by-hours" %> </li>
-    <!-- li class= <% 'active' if action == 'by_status' %>><%=link_to 'By Status', "/dashboard/#{model}/by-status" %>
-	</li-->
-    <li class= <%= 'active' if action == 'by_source' %>><%=link_to 'By Source', "/dashboard/#{model}/by-sources" %></li>
+	<% {wday: 'Week days', hour: 'Hours', status: 'status', sources: 'sorces'}.each do |meth, link| %>
+		<li class= <%= "active" if action == "by_#{meth}" %> > 
+			<%=link_to "#{link}", "/dashboard/#{model}/by-#{meth}" %> 
+		</li>
+	<% end %>
 </ul>
 
 <% if action == 'index' %>	

@@ -1,6 +1,6 @@
 module Dashboard
   module Sales
-    class ProductController < BaseController
+    class ProductController < ApplicationController
       def by_categories
         t=load_taxons
         subtree = t.children[0]

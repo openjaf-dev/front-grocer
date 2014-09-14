@@ -1,6 +1,6 @@
 module Dashboard
   module Sales
-    class RevenuesController < BaseController
+    class RevenuesController < ApplicationController
 
       include Dashboard::ControllerHelpers::ByTime
       include Dashboard::ControllerHelpers::ByAmount
