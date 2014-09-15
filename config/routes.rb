@@ -31,7 +31,6 @@ Rails.application.routes.draw do
   #resources :user_steps
   
   namespace :dashboard do
-    
     get '/overview', to: 'overview#index', as: 'overview'
     
     namespace :sales do
@@ -40,10 +39,13 @@ Rails.application.routes.draw do
       get 'product/by_value_categories',to: "product#by_value_categories"
       get 'product/by_value_brands',to: "product#by_value_brands"
 
-      ['sources','revenues','transactions','items','adjustments','taxes','shipments'].each do |resource|
-        get "/#{resource}", to: "#{resource}#index", as: "#{resource}"   
-        get "/#{resource}/by-week-days", to: "#{resource}#by_week_days", as: "#{resource}_by_week_days"
-        get "/#{resource}/by-hours", to: "#{resource}#by_hours", as: "#{resource}_by_hours"
+      %w(sources revenues transactions items adjustments taxes shipments).each do |resource|
+        get "/#{resource}", to: "#{resource}#index", as: "#{resource}"  
+        
+        %w(wday hour).each do |time_option|   
+          get "/#{resource}/by-#{time_option}", to: "#{resource}#by_#{time_option}", as: "#{resource}_by_#{time_option}" 
+        end
+        
         get "/#{resource}/by-status", to: "#{resource}#by_status", as: "#{resource}_by_status"
         get "/#{resource}/by-sources", to: "#{resource}#by_sources", as: "#{resource}_by_sources"
       end  

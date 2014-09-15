@@ -1,6 +1,4 @@
-<%= render 'dashboard/shared/form_sales' %>
-<%= render 'dashboard/shared/by_frecuency', data: @data %>
-
+</br>
 <div class="widget widget-table">
   <div class="widget-header">
     <h3>
@@ -22,7 +20,7 @@
 
       <tbody role="alert" aria-live="polite" aria-relevant="all">
       <% odd = false %>
-      <% @data_table.each do |o| %>
+      <% @main_data.each do |o| %>
           <% odd = !odd %>
           <tr <%= odd ? 'class=odd' : 'class=even' %>>
             <td class=" "><%= o.number %></td>
