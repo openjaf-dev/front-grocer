@@ -3,6 +3,7 @@ var width = 550;
 var height = 500;
 var radius = Math.min(width, height) / 2;
 var fixed_number = false ;
+var product = null;
 // Breadcrumb dimensions: width, height, spacing, width of tip/tail.length
 var b = {
   w: 95, h: 30, s: 5, t: 10, l:10
@@ -214,7 +215,10 @@ function updateBreadcrumbs(nodeArray, percentageString) {
       .attr("y", b.h / 2)
       .attr("dy", "0.35em")
       .attr("text-anchor", "middle")
-      .text(function(d) { return d.name.length < 11 ? d.name : ( d.name.substring(0,8) + "..." ); });
+      .text(function(d) {
+          product = nodeArray[nodeArray.length - 1];
+          return d.name.length < 11 ? d.name : ( d.name.substring(0,8) + "..." );
+      });
 
   // Set position for entering and updating nodes.
   g.attr("transform", function(d, i) {

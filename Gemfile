@@ -1,4 +1,5 @@
-source 'https://rubygems.org'
+#source 'https://rubygems.org'
+source 'file:///home/jorge/mygems/'
 ruby '2.1.2'
 gem 'rails', '4.1.4'
 gem 'sass', '3.2.0'
