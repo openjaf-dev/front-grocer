@@ -1,13 +1,15 @@
-<%# add navigation links to this file %>
-<li><%= link_to 'Home', root_path %></li>
+<li><%= link_to 'Company Setting', "#" %></li>
+<li><%= link_to 'User Profile', "#" %></li>
+<li><%= link_to 'Edit account', edit_user_registration_path %></li>
+<li><%= link_to 'Data', "/data" %></li>
+<li><%= link_to 'Contact Us', "#" %></li>
 <li><%= link_to 'Reference', page_path('demo-dashboard') %></li>
-
 <% if user_signed_in? %>
-  <li><%= link_to 'Edit account', edit_user_registration_path %></li>
-  <li><% # link_to "Sign Out", destroy_user_session_path, method: :delete 
+  <li>
+	  <% # link_to "Sign Out", destroy_user_session_path, method: :delete 
 	  %>
 	  <%= link_to "Sign out", destroy_user_session_path, method: :get %>
-	  </li>
+  </li>
 <% else %>
   <li><%= link_to 'Sign in', new_user_session_path %></li>
   <li><%= link_to 'Sign up', new_user_registration_path %></li>

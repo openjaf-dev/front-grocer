@@ -1,6 +1,6 @@
 module Dashboard
   module Sales
-    class SourcesController <  BaseController
+    class SourcesController <  ApplicationController
       #TODO change by_time to By_staus or similar
       include Dashboard::ControllerHelpers::ByTime
       

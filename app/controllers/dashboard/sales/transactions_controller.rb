@@ -1,6 +1,6 @@
 module Dashboard
   module Sales
-    class TransactionsController < BaseController
+    class TransactionsController < ApplicationController
       include Dashboard::ControllerHelpers::ByTime
       
       def klass_to_call

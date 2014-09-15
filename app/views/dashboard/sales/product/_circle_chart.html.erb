@@ -6,7 +6,6 @@
   <div id="chart">
     <div id="explanation" style="visibility: hidden;">
       <span id="percentage"></span><br/>
-      Products
     </div>
   </div>
 </div>
@@ -17,25 +16,24 @@
 
 <%= javascript_include_tag 'sequences' %>
 <script>
-    // Mapping of step names to colors.
-    <% col=["#5687d1","#7b615c","#de783b","#6ab975","#a173d1","#bbbbbb","#5645d1","#7b415c","#de463b","#6ab785","#a134d1","#bb475b",
-    "#5345d1","#67815c","#de890b","#623475","#6253d1","#b853bb","#562681","#7b265c","#d842ab","#678ba5","#a83cd1","#b0985b"] %>
-    var colors = {
-        <% (0..@tags.count).each do |t|%>
-            <% if t == 0 %>
-                <%= "\"#{@tags[t]}\":\"#{col[t]}\"".html_safe  %>
-            <% else %>
-                <%= ",\"#{@tags[t]}\":\"#{col[t]}\"".html_safe  %>
-            <% end %>
-        <% end %>
-       // "analytics": "#5687d1",
-       // "cluster": "#7b615c",
-       // "search": "#de783b",
-       // "account": "#6ab975",
-       // "other": "#a173d1",
-
+    function get_random_color(){
+             return '#' + (function co(lor){   return (lor +=
+                [0,1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f'][Math.floor(Math.random()*16)])
+                && (lor.length == 6) ?  lor : co(lor); })('');
     };
+    fixed_number = <%= @fixed_number ? 'true' : 'false' %> ;
+    // Mapping of step names to colors.
+    var colors = {};
+    <% @tags.each do |t|%>
+            colors[<%= "\"#{t}\"".html_safe  %>] = get_random_color();
+    <% end %>
+   // "analytics": "#5687d1",
+   // "cluster": "#7b615c",
+   // "search": "#de783b",
+   // "account": "#6ab975",
+   // "other": "#a173d1",
 
     var json = JSON.parse('<%= @data_json.html_safe %>');
     createVisualization(json);
+
 </script>
