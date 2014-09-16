@@ -1,6 +1,9 @@
-<div>
-    <div>
-      <%=render 'nav_bar_products'%>
-    </div>
-    <%=render 'circle_chart' %>
+<div class="row">
+  <div>
+    <%=render 'nav_bar_products'%>
+  </div>
+  <%=render 'circle_chart' %>
+</div>
+<div class="col-md-10 pull-right">
+  <%= render 'dashboard/shared/products_data_table' %>
 </div>

@@ -2,6 +2,7 @@ module Dashboard
   module Sales
     class ProductController < ApplicationController
       def by_categories
+        @products = Product.all
         t=load_taxons
         subtree = t.children[0]
         @tags = subtree.get_tags
@@ -9,6 +10,7 @@ module Dashboard
       end
 
       def by_brands
+        @products = Product.all
         t=load_taxons
         subtree = t.children[1]
         @tags = subtree.get_tags
@@ -16,6 +18,7 @@ module Dashboard
       end
 
       def by_value_categories
+        @products = Product.all
         t=load_taxons_value
         subtree = t.children[0]
         @tags = subtree.get_tags
@@ -23,6 +26,7 @@ module Dashboard
       end
 
       def by_value_brands
+        @products = Product.all
         t=load_taxons_value
         subtree = t.children[1]
         @tags = subtree.get_tags
@@ -31,9 +35,9 @@ module Dashboard
 
       private
       def load_taxons
-        products = Product.all
+        #products = Product.all
         all_taxons = []
-        products.each do |product|
+        @products.each do |product|
           all_taxons += product.get_taxons_quantity
         end
 
@@ -45,9 +49,9 @@ module Dashboard
       end
 
       def load_taxons_value
-        products = Product.all
+        #products = Product.all
         all_taxons = []
-        products.each do |product|
+        @products.each do |product|
           all_taxons += product.get_taxons_value
         end
 

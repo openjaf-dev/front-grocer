@@ -4,6 +4,7 @@ var height = 470;
 var radius = 200;//Math.min(width, height) / 2;
 var fixed_number = false ;
 var product = null;
+var legend_height = 10;
 // Breadcrumb dimensions: width, height, spacing, width of tip/tail.length
 var b = {
   w: 95, h: 30, s: 5, t: 10, l:10
@@ -256,9 +257,9 @@ function drawLegend() {
   var li = {
     w: 120, h: 30, s: 3, r: 3
   };
-
+  legend_height = d3.keys(colors).length * (li.h + li.s);
   var legend = d3.select("#legend").append("svg:svg")
-      .attr("height", d3.keys(colors).length * (li.h + li.s));
+      .attr("height",legend_height);
 
   var max_width = 0;
   var g = legend.selectAll("g")
@@ -293,8 +294,13 @@ function drawLegend() {
 function toggleLegend() {
   var legend = d3.select("#legend");
   if (legend.style("visibility") == "hidden") {
+      var l = d3.select("#legend").select("svg");
+      l.transition().duration(1900).attr("height",legend_height);
     legend.style("visibility", "");
-  } else {
+  }
+  else {
+    var lx = d3.select("#legend").select("svg");
+        lx.transition().duration(1900).attr("height",height);
     legend.style("visibility", "hidden");
   }
 }
