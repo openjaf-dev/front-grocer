@@ -1,7 +1,7 @@
 // Dimensions of sunburst.
-var width = 550;
-var height = 500;
-var radius = Math.min(width, height) / 2;
+var width = 530;
+var height = 470;
+var radius = 200;//Math.min(width, height) / 2;
 var fixed_number = false ;
 var product = null;
 // Breadcrumb dimensions: width, height, spacing, width of tip/tail.length
@@ -109,8 +109,8 @@ function mouseover(d) {
 
     d3.select("#percentage")
         .style("position","relative")
-        .style("top",-15 +"px")
-        .style("left",-100 +"px");
+        .style("top",-35 +"px")
+        .style("left",-112 +"px");
 
 
   //d3.select("#percentage").attr()
@@ -120,7 +120,15 @@ function mouseover(d) {
       .style("visibility", "");
 
   var sequenceArray = getAncestors(d);
-  updateBreadcrumbs(sequenceArray, percentageString);
+  updateBreadcrumbs(sequenceArray,percentageString);
+
+    d3.select("#product")
+        .text(sequenceArray[sequenceArray.length - 1].name);
+
+    d3.select("#product")
+        .style("position","relative")
+        .style("top",-35 +"px")
+        .style("left",-110 +"px");
 
   // Fade all the segments.
   d3.selectAll("path")
@@ -246,7 +254,7 @@ function drawLegend() {
 
   // Dimensions of legend item: width, height, spacing, radius of rounded rect.
   var li = {
-    w: 150, h: 30, s: 3, r: 3
+    w: 120, h: 30, s: 3, r: 3
   };
 
   var legend = d3.select("#legend").append("svg:svg")
@@ -264,7 +272,7 @@ function drawLegend() {
       .attr("rx", li.r)
       .attr("ry", li.r)
       .attr("width", function(d) {
-          var length_b = d.key.length * 10;
+          var length_b = d.key.length * 7;
           if(max_width < length_b)max_width = length_b;
           return  length_b;
       })
@@ -272,7 +280,7 @@ function drawLegend() {
       .style("fill", function(d) { return d.value; }).attr("width", max_width);
 
   g.append("svg:text")
-      .attr("x", function(d) { return (d.key.length * 10) / 2 ; } )
+      .attr("x", function(d) { return (d.key.length * 7) / 2 ; } )
       .attr("y", li.h / 2)
       .attr("dy", "0.35em")
       .attr("text-anchor", "middle")

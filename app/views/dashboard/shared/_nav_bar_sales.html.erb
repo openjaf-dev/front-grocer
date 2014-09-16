@@ -17,7 +17,7 @@
 	<ul id="sales-stat-tab">
 		<% {day: "Daily", week: "Weekly", month: "Monthly" }.each do |period, presentation| %>
 		    <li class="<%= 'active' if @filter == period %>">
-				<%=link_to({:controller => controller,:action => action,:filter => period }) do %>
+				<%=link_to :controller => controller, :action => action, :filter => period  do %>
 			        <span class="text"><%= presentation %></span>
 			    <% end %>
 		    </li>
